@@ -1,303 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>TIPNAV</title>
-		<style>
-html, body, #canvas {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Navigation</title>
+  <link rel="stylesheet" href="hstyle.css">
+</head>
+<body>
 
-body {
-	color: white;
-	background-color: black;
-	overflow: hidden;
-	touch-action: none;
-}
+  <div class="app">
 
-#canvas {
-	display: block;
-}
+    <!-- HEADER -->
+    <div class="header">
+	
+      <div>
+        <h1>Explore</h1>
+        <p>Discover amazing places around you</p>
+      </div>
+    <!-- PF BUTTON AT TOP RIGHT -->
+      <button class="profile-btn" aria-label="Profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4d57c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle></svg>
+      </button>
+	  
+    </div>
 
-#canvas:focus {
-	outline: none;
-}
+    <!-- SEARCH BOX -->
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d93aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search for places...">
+    </div>
 
-#status, #status-splash, #status-progress {
-	position: absolute;
-	left: 0;
-	right: 0;
-}
+    <!-- HERO BOX FOR 3D MAP PREVIEW AND DIRECTORY -->
+    <div class="hero-card">
+	
+      <div class="hero-preview">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#9da9db" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+          <line x1="8" y1="2" x2="8" y2="18"></line>
+          <line x1="16" y1="6" x2="16" y2="22"></line></svg>
+      </div>
+      <div class="hero-bar">
+        <div>
+          <h3>TIP Campus</h3>
+          <p>Navigate and Explore the campus in 3D</p>
+        </div>
+        <button onclick="alert('Map preview')">Open map &gt;</button>
+      </div>
+	  
+    </div>
 
-#status, #status-splash {
-	top: 0;
-	bottom: 0;
-}
+    <!-- SUGGESTIONS -->
+    <div class="section-head">
+      <h2>Suggested Places</h2>
+      <a href="#">See all</a>
+    </div>
 
-#status {
-	background-color: #242424;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	visibility: hidden;
-}
+    <div class="scroll-row">
+	
+      <div class="place-card">
+        <div class="place-top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#525bc2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div class="place-bottom">
+          <h4>PH 1</h4>
+          <p>PH 1 LOC</p>
+        </div>
+      </div>
 
-#status-splash {
-	max-height: 100%;
-	max-width: 100%;
-	margin: auto;
-}
+      <div class="place-card">
+        <div class="place-top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#525bc2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <div class="place-bottom">
+          <h4>PH 2</h4>
+          <p>PH 2 LOC</p>
+        </div>
+      </div>
 
-#status-splash.show-image--false {
-	display: none;
-}
+      <div class="place-card">
+        <div class="place-top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#525bc2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+            <line x1="6" y1="1" x2="6" y2="4"></line>
+            <line x1="10" y1="1" x2="10" y2="4"></line>
+            <line x1="14" y1="1" x2="14" y2="4"></line>
+          </svg>
+        </div>
+        <div class="place-bottom">
+          <h4>PH 3</h4>
+          <p>PH 3 LOC</p>
+        </div>
+      </div>
+	  
+    </div>
 
-#status-splash.fullsize--true {
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
-}
+    <!-- CATEGORIES -->
+    <div class="section-head">
+      <h2>Categories</h2>
+      <a href="#">See all</a>
+    </div>
 
-#status-splash.use-filter--false {
-	image-rendering: pixelated;
-}
+    <div class="scroll-row">
+	
+      <button class="cat-btn">
+        <div class="cat-circle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2b2f42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </div>
+        <span>PH 1</span>
+      </button>
 
-#status-progress, #status-notice {
-	display: none;
-}
+      <button class="cat-btn">
+        <div class="cat-circle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2b2f42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <span>PH 2</span>
+      </button>
 
-#status-progress {
-	bottom: 10%;
-	width: 50%;
-	margin: 0 auto;
-}
+      <button class="cat-btn">
+        <div class="cat-circle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2b2f42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <span>PH 3</span>
+      </button>
 
-#status-notice {
-	background-color: #5b3943;
-	border-radius: 0.5rem;
-	border: 1px solid #9b3943;
-	color: #e0e0e0;
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	line-height: 1.3;
-	margin: 0 2rem;
-	overflow: hidden;
-	padding: 1rem;
-	text-align: center;
-	z-index: 1;
-}
-		</style>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
-<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<script type="text/javascript" charset="utf-8">
-  // Global data structure read by Godot
-  window.accelerometerData = { x: 0, y: 0, z: 0 };
-  window.accelStatus = 'uninitialized';
+      <button class="cat-btn">
+        <div class="cat-circle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2b2f42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+          </svg>
+        </div>
+        <span>PH 4</span>
+      </button>
+	  
+    </div>
 
-  // Initialize accelerometer permission & event binding
-  window.initAccelerometer = async function() {
-    if (window.accelStatus.startsWith('active')) {
-      return; // Already initialized
-    }
+    <!-- HELP BOX-->
+    <div class="help-card">
+	
+  <div class="help-text">
+    <h4>Can't find a place?</h4>
+    <p>Let's find a place together</p>
+  </div>
+  <button class="help-btn" id="helpSearchBtn">Search Now</button>
+    </div>
 
-    console.log('[Sensors] Requesting accelerometer access...');
+    <!-- FOOTER -->
+    <div class="footer-nav">
+	
+      <button class="nav-link active">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        </svg>
+        <span>Home</span>
+      </button>
 
-    // 1. iOS Safari 13+ (Requires explicit permission call in user gesture)
-    if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-      try {
-        const state = await DeviceMotionEvent.requestPermission();
-        if (state === 'granted') {
-          window.bindDeviceMotion();
-          window.accelStatus = 'active (DeviceMotion - iOS)';
-          console.log('[Sensors] iOS DeviceMotion permission granted.');
-        } else {
-          window.accelStatus = 'denied';
-          console.warn('[Sensors] DeviceMotion permission denied by user.');
-        }
-      } catch (err) {
-        window.accelStatus = 'error: ' + err.message;
-        console.error('[Sensors] Permission error:', err);
-      }
-      return;
-    }
+      <button class="nav-link">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+          <line x1="8" y1="2" x2="8" y2="18"></line>
+          <line x1="16" y1="6" x2="16" y2="22"></line>
+        </svg>
+      </button>
+	  
+      <button class="nav-link">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+      </button>
+    </div>
 
-    // 2. Generic Sensor API (Modern Chromium / Android)
-    if ('Accelerometer' in window) {
-      try {
-        if (navigator.permissions && navigator.permissions.query) {
-          const result = await navigator.permissions.query({ name: 'accelerometer' });
-          if (result.state === 'denied') {
-            console.warn('[Sensors] Sensor permission denied, using devicemotion fallback.');
-            window.bindDeviceMotion();
-            return;
-          }
-        }
+  </div>
 
-        const acl = new Accelerometer({ frequency: 60 });
-        acl.addEventListener('reading', () => {
-          window.accelerometerData.x = acl.x || 0;
-          window.accelerometerData.y = acl.y || 0;
-          window.accelerometerData.z = acl.z || 0;
-          window.accelStatus = 'active (Generic Sensor)';
-        });
-        acl.addEventListener('error', (event) => {
-          console.warn('[Sensors] Generic Sensor error, using devicemotion fallback:', event.error.name);
-          window.bindDeviceMotion();
-        });
-        acl.start();
-        console.log('[Sensors] Generic Sensor API active.');
-        return;
-      } catch (err) {
-        console.warn('[Sensors] Generic Sensor init failed, using devicemotion fallback:', err.message);
-      }
-    }
+<!-- JAVASCRIPT -->
+  <script>
+  
+ <!-- HELP BOX TO SEARCH COMM -->	
+	const helpSearchBtn = document.getElementById('helpSearchBtn');
+helpSearchBtn.addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  searchInput.focus();
+});
 
-    // 3. Fallback for standard browsers & Android Chrome devicemotion
-    window.bindDeviceMotion();
-  };
+  </script>
 
-  window.bindDeviceMotion = function() {
-    window.addEventListener('devicemotion', (event) => {
-      const accel = event.acceleration || event.accelerationIncludingGravity;
-      if (accel) {
-        window.accelerometerData.x = accel.x || 0;
-        window.accelerometerData.y = accel.y || 0;
-        window.accelerometerData.z = accel.z || 0;
-        window.accelStatus = 'active (devicemotion)';
-      }
-    }, true);
-  };
-
-  // Attempt auto-start on page load for browsers that do not require explicit gestures (e.g. Android Chrome)
-  window.addEventListener('DOMContentLoaded', () => {
-    window.initAccelerometer();
-  });
-</script>
-	</head>
-	<body>
-		<canvas id="canvas">
-			Your browser does not support the canvas tag.
-		</canvas>
-
-		<noscript>
-			Your browser does not support JavaScript.
-		</noscript>
-
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
-		</div>
-
-		<script src="index.js"></script>
-		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":33296,"index.wasm":37896978},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
-const GODOT_THREADS_ENABLED = false;
-const engine = new Engine(GODOT_CONFIG);
-
-(function () {
-	const statusOverlay = document.getElementById('status');
-	const statusProgress = document.getElementById('status-progress');
-	const statusNotice = document.getElementById('status-notice');
-
-	let initializing = true;
-	let statusMode = '';
-
-	function setStatusMode(mode) {
-		if (statusMode === mode || !initializing) {
-			return;
-		}
-		if (mode === 'hidden') {
-			statusOverlay.remove();
-			initializing = false;
-			return;
-		}
-		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
-		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
-		statusMode = mode;
-	}
-
-	function setStatusNotice(text) {
-		while (statusNotice.lastChild) {
-			statusNotice.removeChild(statusNotice.lastChild);
-		}
-		const lines = text.split('\n');
-		lines.forEach((line) => {
-			statusNotice.appendChild(document.createTextNode(line));
-			statusNotice.appendChild(document.createElement('br'));
-		});
-	}
-
-	function displayFailureNotice(err) {
-		console.error(err);
-		if (err instanceof Error) {
-			setStatusNotice(err.message);
-		} else if (typeof err === 'string') {
-			setStatusNotice(err);
-		} else {
-			setStatusNotice('An unknown error occurred.');
-		}
-		setStatusMode('notice');
-		initializing = false;
-	}
-
-	const missing = Engine.getMissingFeatures({
-		threads: GODOT_THREADS_ENABLED,
-	});
-
-	if (missing.length !== 0) {
-		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
-			let serviceWorkerRegistrationPromise;
-			try {
-				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
-			} catch (err) {
-				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
-			}
-			// There's a chance that installing the service worker would fix the issue
-			Promise.race([
-				serviceWorkerRegistrationPromise.then((registration) => {
-					if (registration != null) {
-						return Promise.reject(new Error('Service worker already exists.'));
-					}
-					return registration;
-				}).then(() => engine.installServiceWorker()),
-				// For some reason, `getRegistration()` can stall
-				new Promise((resolve) => {
-					setTimeout(() => resolve(), 2000);
-				}),
-			]).then(() => {
-				// Reload if there was no error.
-				window.location.reload();
-			}).catch((err) => {
-				console.error('Error while registering service worker:', err);
-			});
-		} else {
-			// Display the message as usual
-			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-			displayFailureNotice(missingMsg + missing.join('\n'));
-		}
-	} else {
-		setStatusMode('progress');
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-		}, displayFailureNotice);
-	}
-}());
-		</script>
-	</body>
+</body>
 </html>
-

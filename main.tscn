@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
-[ext_resource type="Script" uid="uid://bou7bx0s5oea7" path="res://custom_scripts/x_container.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://cpqurgojd8w6x" path="res://temp_scripts/label.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://xi2hi73rds6l" path="res://temp_scripts/visualize_pdr_data.gd" id="3_h2yge"]
 
 [node name="Main" type="Node" unique_id=1649254548]
@@ -15,12 +13,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="container" type="Control" parent="Ui" unique_id=1580331145]
+visible = false
 layout_mode = 1
 anchor_left = 0.048611112
 anchor_top = 0.15125
 anchor_right = 0.9597222
 anchor_bottom = 0.463125
-script = ExtResource("1_0xm2m")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Ui/container" unique_id=568544818]
@@ -53,19 +51,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Ui" unique_id=1131131604]
-layout_mode = 0
-anchor_left = 0.275
-anchor_top = 0.28125
-anchor_right = 0.7708333
-anchor_bottom = 0.350625
-theme_override_font_sizes/font_size = 30
-text = "test"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("1_ig7tw")
-metadata/_edit_use_anchors_ = true
-
-[node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593 node_paths=PackedStringArray("container")]
+[node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593]
 script = ExtResource("3_h2yge")
-container = NodePath("../Ui/container")
+
+[node name="Line2D" type="Line2D" parent="VisualizePdrData" unique_id=28136935]

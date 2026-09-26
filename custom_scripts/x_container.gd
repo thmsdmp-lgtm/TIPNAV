@@ -7,9 +7,9 @@ func _ready() -> void:
 	child_entered_tree.connect(update)
 	get_viewport().size_changed.connect(update)
 	
-	update(null)
+	update()
 
-func update(_c):
+func update():
 	var children = []
 	
 	for child in get_children():

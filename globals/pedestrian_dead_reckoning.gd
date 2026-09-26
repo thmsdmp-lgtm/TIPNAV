@@ -3,7 +3,7 @@ extends Node
 
 # settings
 var updates_per_second:int = 60
-var data_size_limit:int = 25
+var data_size_limit:int = 50
 
 # variables
 var _update_timer:float
@@ -23,10 +23,6 @@ func _process(delta: float) -> void:
 	_update_timer += delta
 	if _update_timer < 1.0 / updates_per_second: return
 	_update_timer -= 1.0 / updates_per_second
-	
-	# update logic
-	
-	print(_data_mem)
 	
 	# get data
 	var data = {

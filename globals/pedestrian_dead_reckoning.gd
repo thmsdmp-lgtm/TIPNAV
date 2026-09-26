@@ -3,7 +3,7 @@ extends Node
 
 # settings
 var updates_per_second:int = 5
-var data_size_limit:int = 1
+var data_size_limit:int = 25
 
 # variables
 var _update_timer:float

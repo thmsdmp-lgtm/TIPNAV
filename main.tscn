@@ -1,57 +1,30 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
+[ext_resource type="Script" uid="uid://cpqurgojd8w6x" path="res://temp_scripts/label.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://xi2hi73rds6l" path="res://temp_scripts/visualize_pdr_data.gd" id="3_h2yge"]
 
 [node name="Main" type="Node" unique_id=1649254548]
 
-[node name="Ui" type="Control" parent="." unique_id=1762042228]
+[node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593]
+script = ExtResource("3_h2yge")
+
+[node name="Interface" type="Control" parent="." unique_id=862413060]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="container" type="Control" parent="Ui" unique_id=1580331145]
-visible = false
-layout_mode = 1
-anchor_left = 0.048611112
-anchor_top = 0.15125
-anchor_right = 0.9597222
-anchor_bottom = 0.463125
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="Ui/container" unique_id=568544818]
+[node name="Label" type="Label" parent="Interface" unique_id=1848461973]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel2" type="Panel" parent="Ui/container" unique_id=666496330]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel6" type="Panel" parent="Ui/container" unique_id=1212741818]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel5" type="Panel" parent="Ui/container" unique_id=2139014121]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel4" type="Panel" parent="Ui/container" unique_id=145560960]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel3" type="Panel" parent="Ui/container" unique_id=275937790]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593]
-script = ExtResource("3_h2yge")
-
-[node name="Line2D" type="Line2D" parent="VisualizePdrData" unique_id=28136935]
+offset_left = 195.0
+offset_top = 202.0
+offset_right = 547.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 30
+text = "test text test text"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_ig7tw")

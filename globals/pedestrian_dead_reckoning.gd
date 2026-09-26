@@ -7,14 +7,44 @@ var data_size_limit:int = 50
 
 # variables
 var _update_timer:float
-var _data_mem:Array = []
+var data_set:Array = []
+var peak_index:int
+var valley_index:int
 
 # signals
 signal data_updated
 
 # get data
 func get_data():
-	return _data_mem.duplicate(true)
+	return data_set.duplicate(true)
+
+# get data size
+func get_data_size():
+	return data_set.size()
+
+# find peaks and vallies in the data
+func _find_peak_valley():
+	
+	# loop for every data in data set
+	for d_i in data_set.size():
+		
+		# get variables
+		var data = data_set[d_i]
+		var acc = data.accelerometer_data.length()
+		
+		# check variables
+		if data == null or acc == null: return
+		
+		# check current peak data
+		var peak_data = data_set[peak_index]
+		var peak_acc = peak_data.accelerometer_data.length()
+		
+		# check peak variables
+		if peak_data == null or peak_acc == null: return
+		
+		# check peak
+		if acc > peak_acc:
+			peak_index = d_i
 
 # process
 func _process(delta: float) -> void:
@@ -25,7 +55,7 @@ func _process(delta: float) -> void:
 	_update_timer -= 1.0 / updates_per_second
 	
 	# get data
-	var data = {
+	var d = {
 		"time":Time.get_ticks_msec() / 1000.0,
 		"accelerometer_data":Accelerometer.data_smoothed,
 		"gyroscope_data":null,
@@ -33,15 +63,18 @@ func _process(delta: float) -> void:
 	}
 	
 	# check if mem full
-	if _data_mem.size() >= data_size_limit:
+	if data_set.size() >= data_size_limit:
 		
 		# if yes then remove last, push new data to front
-		_data_mem.pop_back()
-		_data_mem.push_front(data)
+		data_set.pop_back()
+		data_set.push_front(d)
 	else:
 		
 		# if not, add data to mem
-		_data_mem.append(data)
+		data_set.append(d)
 	
 	# fire updated signal
 	data_updated.emit()
+	
+	# look for peak and valley
+	_find_peak_valley()

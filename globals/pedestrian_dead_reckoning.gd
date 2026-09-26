@@ -14,7 +14,7 @@ signal data_updated
 
 # get data
 func get_data():
-	return _data_mem.duplicate()
+	return _data_mem.duplicate(true)
 
 # process
 func _process(delta: float) -> void:
@@ -42,7 +42,6 @@ func _process(delta: float) -> void:
 		# if yes then remove last, push new data to front
 		_data_mem.pop_back()
 		_data_mem.push_front(data)
-		return
 	else:
 		
 		# if not, add data to mem

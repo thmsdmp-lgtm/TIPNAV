@@ -2,8 +2,8 @@ extends Node
 
 @export var container:Control
 
-func _process(delta: float) -> void:
-	update_container()
+func _ready() -> void:
+	PedestrianDeadReckoning.data_updated.connect(update_container)
 func update_container():
 	
 	# delete all children
@@ -11,7 +11,7 @@ func update_container():
 		c.queue_free()
 	
 	# add panel per data
-	for data in PedestrianDeadReckoning._data_mem:
+	for data in PedestrianDeadReckoning.get_data():
 		var panel = Panel.new()
 		container.add_child(panel)
-		panel.size = Vector2(panel.size.x,100.0 * data.accelerometer_data.length())
+		panel.size.y = 100.0 * data.accelerometer_data.length()

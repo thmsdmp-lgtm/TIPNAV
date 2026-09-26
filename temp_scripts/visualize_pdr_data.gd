@@ -49,6 +49,9 @@ func init_line_points():
 # update points
 func _process(delta: float) -> void:
 	
+	# get viewport size
+	var viewport_size = get_viewport().get_visible_rect().size
+	
 	# loop for every data
 	for i in PedestrianDeadReckoning._data_mem.size():
 		
@@ -60,7 +63,7 @@ func _process(delta: float) -> void:
 		if not data or not point_pos: return
 		
 		# set point pos
-		line.set_point_position(i,Vector2(point_pos.x, point_pos.y - (max_y * data.accelerometer_data.length())))
+		line.set_point_position(i,Vector2(point_pos.x, (viewport_size.y / 2) - (max_y * data.accelerometer_data.length())))
 
 #func _ready() -> void:
 	#PedestrianDeadReckoning.data_updated.connect(update_container)

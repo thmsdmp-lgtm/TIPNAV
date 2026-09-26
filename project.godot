@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Accelerometer="*uid://dh7fvwc6yqvyf"
+PedestrianDeadReckoning="*uid://sa5txeh1x2it"
 
 [display]
 

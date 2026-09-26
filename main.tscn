@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
-[ext_resource type="Script" uid="uid://bou7bx0s5oea7" path="res://container.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bou7bx0s5oea7" path="res://custom_scripts/x_container.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cpqurgojd8w6x" path="res://temp_scripts/label.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://xi2hi73rds6l" path="res://temp_scripts/visualize_pdr_data.gd" id="3_h2yge"]
 
 [node name="Main" type="Node" unique_id=1649254548]
 
@@ -64,3 +65,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_ig7tw")
 metadata/_edit_use_anchors_ = true
+
+[node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593 node_paths=PackedStringArray("container")]
+script = ExtResource("3_h2yge")
+container = NodePath("../Ui/container")

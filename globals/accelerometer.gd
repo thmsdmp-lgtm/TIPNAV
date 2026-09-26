@@ -30,3 +30,6 @@ func _process(_delta: float):
 			
 			data = Vector3(new_x, new_y, new_z)
 			updated.emit(data)
+	else:
+		data = Input.get_accelerometer()
+		updated.emit(data)

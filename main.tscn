@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
+[ext_resource type="Script" uid="uid://bou7bx0s5oea7" path="res://container.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cpqurgojd8w6x" path="res://temp_scripts/label.gd" id="1_ig7tw"]
 
 [node name="Main" type="Node" unique_id=1649254548]
@@ -13,12 +14,43 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="container" type="Control" parent="Ui" unique_id=1580331145]
-anchors_preset = 0
-anchor_left = 0.09583333
-anchor_top = 0.180625
-anchor_right = 0.9305556
-anchor_bottom = 0.4925
+layout_mode = 1
+anchor_left = 0.048611112
+anchor_top = 0.15125
+anchor_right = 0.9597222
+anchor_bottom = 0.463125
+script = ExtResource("1_0xm2m")
 metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Ui/container" unique_id=568544818]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel2" type="Panel" parent="Ui/container" unique_id=666496330]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel6" type="Panel" parent="Ui/container" unique_id=1212741818]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel5" type="Panel" parent="Ui/container" unique_id=2139014121]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel4" type="Panel" parent="Ui/container" unique_id=145560960]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel3" type="Panel" parent="Ui/container" unique_id=275937790]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Ui" unique_id=1131131604]
 layout_mode = 0

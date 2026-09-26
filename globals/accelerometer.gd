@@ -4,6 +4,8 @@ extends Node
 signal updated(data: Vector3)
 var is_initialized: bool = false
 var data: Vector3 = Vector3.ZERO
+var data_smoothed: Vector3 = Vector3.ZERO
+var smoothing:float = 0.1
 
 func _ready():
 	if OS.has_feature("web"):
@@ -19,6 +21,11 @@ func _unhandled_input(event: InputEvent):
 				JavaScriptBridge.eval("window.initAccelerometer();")
 
 func _process(_delta: float):
+	
+	# smooth data
+	data_smoothed = lerp(data_smoothed,data,smoothing)
+	
+	# get data
 	if OS.has_feature("web"):
 		var window = JavaScriptBridge.get_interface("window")
 		if window and window.accelerometerData:

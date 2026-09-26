@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	# get data
 	var data = {
 		"time":Time.get_ticks_msec() / 1000.0,
-		"accelerometer_data":Accelerometer.data,
+		"accelerometer_data":Accelerometer.data_smoothed,
 		"gyroscope_data":null,
 		"magnetometer_data":null,
 	}

@@ -2,7 +2,7 @@
 extends Node
 
 # settings
-var updates_per_second:int = 5
+var updates_per_second:int = 60
 var data_size_limit:int = 25
 
 # variables

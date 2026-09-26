@@ -2,9 +2,8 @@ extends Node
 
 @export var container:Control
 
-func _ready() -> void:
-	PedestrianDeadReckoning.data_updated.connect(update_container)
-
+func _process(delta: float) -> void:
+	update_container()
 func update_container():
 	
 	# delete all children

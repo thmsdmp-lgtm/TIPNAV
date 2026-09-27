@@ -1,7 +1,4 @@
-/* ==========================================================
-   1. DATABASE NG CAMPUS PLACES
-   DITO I-INPUT LAHAT NG PLACES INFOS DEETS SAKA IMAGES PARA ISA LANG ANG PLACES.HTML
-   ========================================================== */
+/* DATABASE NG CAMPUS PLACE DITO I-INPUT LAHAT NG PLACES INFOS DEETS SAKA IMAGES PARA ISA LANG ANG PLACES.HTML*/
 const campusPlaces = {
   "placeh1": {
     name: "Placeholder 1",
@@ -14,7 +11,9 @@ const campusPlaces = {
     inCharge: "blablabla",
     contact: "blablabla",
     desc: "blablabla",
+	// DITO BANNER
     bannerImg: null,
+	// DITO YUNG 3 SMALL IMAGE
     gallery: null,
     // DITO ILALAGAY SERVICES:
     services: [
@@ -68,9 +67,66 @@ const campusPlaces = {
   }
 };
 
-/* ==========================================================
-   2. HIGHLIGHTS THE FOOTER OF THE ACTIVE TAB
-   ========================================================== */
+/*DYNAMIC PLACES PAGE LOADER (places.html) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+function initPlacesPage() {
+  const titleEl = document.getElementById('placeTitle');
+  if (!titleEl) return; 
+
+  const params = new URLSearchParams(window.location.search);
+  const placeId = params.get('id');
+
+  if (placeId && campusPlaces[placeId]) {
+    const item = campusPlaces[placeId];
+
+    const subEl = document.getElementById('placeSub');
+    const timeEl = document.getElementById('placeTime');
+    const distEl = document.getElementById('placeDist');
+    const hoursEl = document.getElementById('placeHours');
+    const roomEl = document.getElementById('placeRoom');
+    const inChargeEl = document.getElementById('placeInCharge');
+
+    if (titleEl) titleEl.textContent = item.name;
+    if (subEl) subEl.textContent = item.location;
+    if (timeEl) timeEl.textContent = item.time;
+    if (distEl) distEl.textContent = item.distance;
+    if (hoursEl) hoursEl.textContent = item.hours;
+    if (roomEl) roomEl.textContent = item.room;
+    if (inChargeEl) inChargeEl.textContent = item.inCharge;
+
+    const bannerContainer = document.getElementById('placeBanner');
+    if (bannerContainer && item.bannerImg) {
+      bannerContainer.innerHTML = `<img src="${item.bannerImg}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">`;
+    }
+
+    const galleryContainer = document.getElementById('placeGallery');
+    if (galleryContainer && Array.isArray(item.gallery) && item.gallery.length > 0) {
+      galleryContainer.innerHTML = item.gallery.map(src => `
+        <div class="gallery-photo">
+          <img src="${src}" alt="Place photo" style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">
+        </div>
+      `).join('');
+    }
+
+    const servicesContainer = document.getElementById('placeServicesList');
+    if (servicesContainer) {
+      if (Array.isArray(item.services) && item.services.length > 0) {
+        servicesContainer.innerHTML = item.services.map(srv => `
+          <div class="spec-list-row">
+            <span class="spec-val" style="color: #2b3674; font-weight: 500;">• ${srv}</span>
+          </div>
+        `).join('');
+      } else {
+        servicesContainer.innerHTML = `
+          <div class="spec-list-row">
+            <span class="spec-val" style="color: #8d93aa;">No specific services listed.</span>
+          </div>
+        `;
+      }
+    }
+  }
+}
+
+/* HIGHLIGHTS THE FOOTER OF THE ACTIVE TAB !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 function setupActiveDock() {
   const currentPath = decodeURIComponent(window.location.pathname.toLowerCase());
   const navLinks = document.querySelectorAll('.footer-nav .nav-link');
@@ -96,13 +152,10 @@ function setupActiveDock() {
   });
 }
 
-/* ==========================================================
-   3. GLOBAL SEARCH BAR REDIRECT
-   ========================================================== */
+/* GLOBAL SEARCH BAR REDIRECT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 function setupSearchRedirects() {
   const currentPath = window.location.pathname.toLowerCase();
 
-  // If already on Category.html or search.html, do NOT hijack inputs
   if (currentPath.includes('category.html') || currentPath.includes('search.html')) {
     return;
   }
@@ -112,7 +165,6 @@ function setupSearchRedirects() {
   );
 
   searchBars.forEach(bar => {
-    // If the bar is inside places.html top nav, skip it since it uses a direct <a> tag
     if (bar.classList.contains('place-search-link') || bar.closest('.place-top-nav')) {
       return;
     }
@@ -131,73 +183,9 @@ function setupSearchRedirects() {
   });
 }
 
-/* ==========================================================
-	  4. DYNAMIC PLACES PAGE LOADER (places.html)
-   ========================================================== */
-function initPlacesPage() {
-  const titleEl = document.getElementById('placeTitle');
-  if (!titleEl) return; // Exit if not on places.html
 
-  const params = new URLSearchParams(window.location.search);
-  const placeId = params.get('id');
 
-  if (placeId && campusPlaces[placeId]) {
-    const item = campusPlaces[placeId];
-
-    const subEl = document.getElementById('placeSub');
-    const timeEl = document.getElementById('placeTime');
-    const distEl = document.getElementById('placeDist');
-    const hoursEl = document.getElementById('placeHours');
-    const roomEl = document.getElementById('placeRoom');
-    const inChargeEl = document.getElementById('placeInCharge');
-
-    if (titleEl) titleEl.textContent = item.name;
-    if (subEl) subEl.textContent = item.location;
-    if (timeEl) timeEl.textContent = item.time;
-    if (distEl) distEl.textContent = item.distance;
-    if (hoursEl) hoursEl.textContent = item.hours;
-    if (roomEl) roomEl.textContent = item.room;
-    if (inChargeEl) inChargeEl.textContent = item.inCharge;
-
-    // Swap banner image if available
-    const bannerContainer = document.getElementById('placeBanner');
-    if (bannerContainer && item.bannerImg) {
-      bannerContainer.innerHTML = `<img src="${item.bannerImg}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">`;
-    }
-
-    // Swap gallery images if available
-    const galleryContainer = document.getElementById('placeGallery');
-    if (galleryContainer && Array.isArray(item.gallery) && item.gallery.length > 0) {
-      galleryContainer.innerHTML = item.gallery.map(src => `
-        <div class="gallery-photo">
-          <img src="${src}" alt="Place photo" style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">
-        </div>
-      `).join('');
-    }
-
-    // --- INSERTED HERE: Swap services list if available ---
-    const servicesContainer = document.getElementById('placeServicesList');
-    if (servicesContainer) {
-      if (Array.isArray(item.services) && item.services.length > 0) {
-        servicesContainer.innerHTML = item.services.map(srv => `
-          <div class="spec-list-row">
-            <span class="spec-val" style="color: #2b3674; font-weight: 500;">• ${srv}</span>
-          </div>
-        `).join('');
-      } else {
-        servicesContainer.innerHTML = `
-          <div class="spec-list-row">
-            <span class="spec-val" style="color: #8d93aa;">No specific services listed.</span>
-          </div>
-        `;
-      }
-    }
-  }
-}
-
-/* ==========================================================
-   5. PLACES PAGE FILTER TABS (All and Services)
-   ========================================================== */
+/* PLACES PAGE FILTER TABS (All and Services) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 function initPlaceFilterTabs() {
   const btnAll = document.getElementById('tabAll');
   const btnServices = document.getElementById('tabServices');
@@ -224,9 +212,7 @@ function initPlaceFilterTabs() {
   });
 }
 
-/* ==========================================================
-  5. SEARCH PAGE DYNAMIC FEED & LIVE FILTER (search.html)
-   ========================================================== */
+/*DYNAMIC FEED NG SEARCH BAR TAS LIVE FILTER (search.html)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 function initSearchPage() {
   const input = document.getElementById('liveSearchInput');
   const resultsContainer = document.getElementById('searchResults');
@@ -267,7 +253,6 @@ function initSearchPage() {
     }).join('');
   }
 
-  // Handle URL category param if present
   const params = new URLSearchParams(window.location.search);
   const catParam = params.get('cat') || '';
   if (input && catParam) {
@@ -282,9 +267,7 @@ function initSearchPage() {
   }
 }
 
-/* ==========================================================
-   7. CATEGORIES PAGE LIVE FILTERING (Category.html)
-   ========================================================== */
+/* CATEGORIES PAGE LIVE FILTERING (Category.html) */
 function initCategoriesPage() {
   const input = document.getElementById('catSearchInput');
   const categoryCards = document.querySelectorAll('.category-card');
@@ -303,9 +286,7 @@ function initCategoriesPage() {
   });
 }
 
-/* ==========================================================
-   INITIALIZE ON DOM LOAD
-   ========================================================== */
+/* INITIALIZE ON DOM LOAD !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 document.addEventListener('DOMContentLoaded', () => {
   setupActiveDock();
   setupSearchRedirects();

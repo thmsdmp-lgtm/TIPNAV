@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - Campus Navigation</title>
+  <link rel="stylesheet" href="hstyle.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- SEARCH FOR CATEGORIES HEADER -->
+    <div class="category-page-header">
+      <div class="cat-search-box search-box" style="margin: 0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d93aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="catSearchInput" placeholder="Search for categories..">
+      </div>
+    </div>
+
+    <!-- CATEGORY CARDS -->
+    <div class="category-list" id="categoryList">
+
+      <!-- PLACEHOLDER 1 -->
+      <div class="category-card">
+        <div class="category-icon-box">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#000000">
+            <path d="M6 22h12a2 2 0 0 0 1.73-3L14 8.5V4h1a1 1 0 0 0 0-2H9a1 1 0 0 0 0 2h1v4.5L4.27 19A2 2 0 0 0 6 22z"></path>
+          </svg>
+        </div>
+        <div class="category-details">
+          <h3>Laboratories</h3>
+          <p>Computer labs, physics, chemistry, and engineering workshop areas.</p>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 2 -->
+      <div class="category-card">
+        <div class="category-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1c24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </div>
+        <div class="category-details">
+          <h3>Classrooms</h3>
+          <p>Lecture rooms.</p>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 3 -->
+      <div class="category-card">
+        <div class="category-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1c24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <div class="category-details">
+          <h3>Administrative Offices</h3>
+          <p>Registrar, OSA, ITSO, Guidance, Clinic, etc......</p>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 4 -->
+      <div class="category-card">
+        <div class="category-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1c24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <div class="category-details">
+          <h3>Finance & Cashier</h3>
+          <p>Teller and SAO.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <nav class="footer-nav" aria-label="Bottom Navigation">
+      <!-- Home Tab -->
+      <a href="index.html" class="nav-link" id="nav-home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        </svg>
+        <span class="nav-text">Home</span>
+      </a>
+
+      <!-- Map Tab -->
+      <a href="Map%20page.html" class="nav-link" id="nav-map">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+          <line x1="8" y1="2" x2="8" y2="18"></line>
+          <line x1="16" y1="6" x2="16" y2="22"></line>
+        </svg>
+        <span class="nav-text">Map</span>
+      </a>
+
+      <!-- Categories Tab -->
+      <a href="Category.html" class="nav-link" id="nav-category">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span class="nav-text">Categories</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <!-- Category Search Script -->
+  <script>
+    const catInput = document.getElementById('catSearchInput');
+    const cards = document.querySelectorAll('.category-card');
+
+    if (catInput) {
+      catInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = text.includes(query) ? 'flex' : 'none';
+        });
+      });
+    }
+  </script>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

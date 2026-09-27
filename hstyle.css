@@ -1,3 +1,12 @@
+ /* HERE LAHAT NG CSS FOR ALL PAGES 
+  LEGENDS
+  HOME PAGE
+  CATEGORY PAGE+
+  VIEW PLACE PAGE
+  SEARCH PAGE*/
+
+/* HOME PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
 /* GLOBAL STYLING*/
 * {
   margin: 0;
@@ -76,7 +85,7 @@ body {
   font-size: 13px;
 }
 
-/* 3D MAP PLACEHOLDER */
+/* MAP PREVIEW PLACEHOLDER */
 .hero-card {
   margin: 0 20px 18px;
   border: 1px solid #dce2f7;
@@ -153,103 +162,165 @@ body {
 }
 
 /* SUGGESTED PLACE PLACEHOLDER*/
+.places-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 20px 16px;
+}
+
 .place-card {
-  width: 125px;
-  flex-shrink: 0;
+  width: 100%;
   background-color: #ffffff;
   border: 1px solid #e2e6f4;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .place-top {
-  height: 85px;
-  background-color: #cfd6fb;
+  height: 70px; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .place-bottom {
-  padding: 10px;
+  padding: 8px;
   background-color: #ffffff;
 }
 
 .place-bottom h4 {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
 }
 
 .place-bottom p {
-  font-size: 10px;
+  font-size: 9px;
   color: #7d839c;
   margin-top: 2px;
 }
-
 /* Category buttons */
-.cat-btn {
+.categories-section {
+  padding: 0 20px;
+  margin-top: 18px;
+}
+
+.categories-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.categories-section-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1e38;
+  margin: 0;
+}
+
+.categories-section-head .see-all-link {
+  font-size: 11px;
+  font-weight: 700;
+  color: #434eb8;
+  text-decoration: none;
+}
+
+.category-quick-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.category-quick-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 58px;
-  flex-shrink: 0;
+  flex: 1;
+  cursor: default;
 }
 
-.cat-circle {
+.category-icon-circle {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ffffff;
-  border: 1px solid #e1e5f2;
+  background-color: #f3f5fd;
+  border: 1px solid #e2e6f4;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease;
 }
 
-.cat-btn span {
+.category-quick-item:active .category-icon-circle {
+  transform: scale(0.95);
+}
+
+.category-quick-label {
   font-size: 11px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 600;
+  color: #1a1e38;
+  text-align: center;
 }
 
 /* Help banner */
-.help-card {
-  margin: 4px 20px 18px;
-  background-color: #cfd6fb;
-  border-radius: 18px;
-  padding: 16px 18px;
-  display: flex;
-  justify-content: space-between;
+/* --- "Can't find a place?" Banner Fix --- */
+.cant-find-banner {
+  display: flex !important;
   align-items: center;
-  gap: 10px;
-}
-
-.help-text h4 {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.help-text p {
-  font-size: 12px;
-  color: #4a5175;
-  margin-top: 3px;
-}
-
-.help-btn {
-  background-color: #ffffff;
-  color: #3b429f;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 16px;
-  font-size: 11px;
-  font-weight: bold;
+  justify-content: space-between;
+  background-color: #dbe4fd;
+  padding: 16px 20px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: inherit;
+  
+  /* Adds left and right breathing room */
+  margin: 16px 20px 24px 20px;
+  
   cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+/* Left text block */
+.cant-find-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  pointer-events: none;
+}
+
+.cant-find-text h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1e38;
+  margin: 0;
+}
+
+.cant-find-text p {
+  font-size: 11px;
+  color: #636b8a;
+  margin: 0;
+}
+
+/* Right "Search Now" white pill button */
+.btn-search-pill {
+  background-color: #ffffff;
+  color: #2b3252;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  pointer-events: none;
 }
 
 
@@ -290,3 +361,599 @@ body {
   background-color: #dbe0fc;
   color: #242c75;
 }
+
+/* CATEGORY PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.category-page-header {
+  padding: 24px 20px 14px;
+}
+
+.category-list {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Category Card */
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #ffffff;
+  padding: 16px 18px;
+  border-radius: 22px;
+  border: 1px solid #e5e8f4;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease;
+  cursor: default;
+}
+
+.category-card:active {
+  transform: scale(0.98);
+}
+
+/* Left Icon Container */
+.category-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background-color: #f5f7fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Text Container */
+.category-details h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1c24;
+  margin-bottom: 3px;
+}
+
+.category-details p {
+  font-size: 11px;
+  color: #7b8098;
+  line-height: 1.4;
+}
+
+/* MAP PAGE  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* --- Map Page Layout (Shared CSS) --- */
+.map-screen-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-width: 420px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Neutral Placeholder Background */
+.map-placeholder-area {
+  position: absolute;
+  inset: 0;
+  background-color: #eaf0f9;
+  background-image: 
+    radial-gradient(#d3dceb 1.5px, transparent 1.5px),
+    radial-gradient(#d3dceb 1.5px, #eaf0f9 1.5px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8c97be;
+  z-index: 1;
+}
+
+.placeholder-badge {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dce2f2;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #555e92;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Top Floating Search Bar */
+.map-header-float {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.map-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: 1px solid #e2e6f4;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.map-search-bar input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 100%;
+  background: transparent;
+  color: #1a1e38;
+}
+
+/* Floating Circular Controls */
+.floating-circle-btn {
+  position: absolute;
+  bottom: 230px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #dce2f2;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.btn-left {
+  left: 20px;
+}
+
+.btn-right {
+  right: 20px;
+}
+
+/* Bottom Place Drawer Preview Card */
+.map-place-card-wrap {
+  position: absolute;
+  bottom: 84px;
+  left: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.map-preview-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #e2e6f4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+}
+
+.map-preview-thumb {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  background-color: #f3f5fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.map-preview-info {
+  flex: 1;
+}
+
+.map-preview-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1c24;
+  margin-bottom: 2px;
+}
+
+.map-preview-info p {
+  font-size: 11px;
+  color: #7d8299;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.btn-route-pill {
+  display: inline-block;
+  background-color: #cfd6fb;
+  color: #1a1e38;
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- VIEW PLACE PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --- */
+/* Places Top Nav Row */
+.place-top-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.place-top-nav .circle-nav-btn {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #e7ecf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.place-top-nav .place-search-link {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  background-color: #f6f8fc;
+  border: 1px solid #e2e8f4;
+  border-radius: 20px;
+  padding: 0 12px;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.place-top-nav .place-search-link span {
+  font-size: 13px;
+  color: #8d93aa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.place-top-nav .profile-avatar-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: #cfd6fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Hero Image / 3D Banner */
+.place-hero-banner {
+  margin: 0 16px 14px;
+  height: 180px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #dce3fd 0%, #cbd4fa 100%);
+  border: 1px solid #c2ccf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Title & Distance Bar */
+.place-header-info {
+  padding: 0 16px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.place-header-left h1 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1a1c24;
+  margin-bottom: 3px;
+}
+
+.place-header-left p {
+  font-size: 12px;
+  color: #7b8098;
+}
+
+.place-distance-tag {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.place-distance-tag .time-est {
+  font-size: 12px;
+  font-weight: 700;
+  color: #434eb8;
+}
+
+.place-distance-tag .dist-km {
+  font-size: 11px;
+  color: #8c92a8;
+  margin-top: 1px;
+}
+
+/* Three Action Buttons: Show Route, Call, Share */
+.place-quick-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 16px;
+  box-sizing: border-box;
+}
+
+.btn-route-primary {
+  flex: 1.3;
+  background-color: #cfd6fb;
+  color: #1a1e38;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-action-outline {
+  flex: 1;
+  background-color: #ffffff;
+  color: #2b304f;
+  border: 1px solid #dce2f4;
+  padding: 10px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Filter Navigation Tabs */
+.place-filter-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+
+.tab-pill {
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #e2e6f4;
+  background-color: #ffffff;
+  color: #6d738f;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab-pill.active {
+  background-color: #434eb8;
+  color: #ffffff;
+  border-color: #434eb8;
+}
+
+/* Section Container */
+.place-section-wrap {
+  padding: 0 16px 18px;
+  box-sizing: border-box;
+}
+
+.section-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-head-row h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1e38;
+}
+
+.section-head-row a {
+  font-size: 11px;
+  color: #7d8299;
+  text-decoration: none;
+}
+
+/* Photo Gallery Strip */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.gallery-photo {
+  height: 80px;
+  border-radius: 14px;
+  background-color: #f1f4fb;
+  border: 1px solid #e2e6f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Details and Operating Hours List */
+.spec-list-card {
+  background-color: #f9fafd;
+  border: 1px solid #e5e8f4;
+  border-radius: 18px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spec-list-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spec-list-row span.spec-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1c213e;
+  width: 80px;
+}
+
+.spec-list-row span.spec-val {
+  font-size: 11px;
+  color: #636882;
+}
+
+/* --- SEARCH PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--- */
+.search-screen-container {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  height: 844px;
+  max-height: 96vh;
+  margin: 0 auto;
+  background-color: #f7f9fd;
+  border-radius: 36px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid #dbe1f1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Header Bar */
+.search-header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px 16px;
+  position: sticky;
+  top: 0;
+  background-color: #f7f9fd;
+  z-index: 10;
+}
+
+.search-back-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #e1e5f2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.search-input-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  border: 1px solid #e1e5f2;
+  border-radius: 25px;
+  padding: 12px 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.search-input-pill input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  width: 100%;
+  color: #1a1e38;
+}
+
+/* Result Cards List */
+.search-results-list {
+  padding: 0 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-result-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #e2e6f4;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease;
+}
+
+.search-result-card:active {
+  transform: scale(0.98);
+}
+
+.search-thumb-box {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background-color: #f1f4fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.search-card-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1c24;
+  margin-bottom: 3px;
+}
+
+.search-card-info p {
+  font-size: 11px;
+  color: #7d8299;
+  line-height: 1.35;
+}
+
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Details</title>
+  <link rel="stylesheet" href="hstyle.css">
+</head>
+<body class="map-body">
+
+  <div class="app">
+
+    <!-- BACK BUTTON -->
+    <div class="place-top-nav">
+      <button type="button" class="circle-nav-btn" onclick="history.back()" aria-label="Go Back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- SEARCH BAR -->
+      <a href="search.html" class="place-search-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d93aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search for places..</span>
+      </a>
+
+      <div class="profile-avatar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <!-- BANNER MAIN PHOTO FILLED ON JS -->
+    <div class="place-hero-banner" id="placeBanner">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4d57c8" stroke-width="1.8">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+        <polyline points="2 17 12 22 22 17"></polyline>
+        <polyline points="2 12 12 17 22 12"></polyline>
+      </svg>
+    </div>
+
+    <!-- INFOSSS FILLED FROM JS-->
+    <div class="place-header-info">
+      <div class="place-header-left">
+        <h1 id="placeTitle">Loading...</h1>
+        <p id="placeSub">...</p>
+      </div>
+      <div class="place-distance-tag">
+        <div class="time-est" id="placeTime">--</div>
+        <div class="dist-km" id="placeDist">--</div>
+      </div>
+    </div>
+
+    <!-- SHOW ROUTE BUTTON -->
+    <div class="place-quick-actions">
+      <a href="Map%20page.html" class="btn-route-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+        </svg>
+        Show route
+      </a>
+    </div>
+
+    <!-- FILLTERING BUTTON -->
+    <div class="place-filter-tabs">
+      <button type="button" class="tab-pill active" id="tabAll">All</button>
+      <button type="button" class="tab-pill" id="tabServices">Services</button>
+    </div>
+
+    <!-- GALLERY THINGY FILLED FROM J -->
+    <div class="place-section-wrap" id="sectionImages">
+      <div class="section-head-row">
+        <h3>Images</h3>
+        <a href="#">Show all &gt;</a>
+      </div>
+      <div class="gallery-grid" id="placeGallery">
+        <div class="gallery-photo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8d99f3" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+        <div class="gallery-photo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8d99f3" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+        <div class="gallery-photo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8d99f3" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEETS FILLED FROM JS-->
+    <div class="place-section-wrap" id="sectionServices">
+      <div class="section-head-row">
+        <h3>Details & Schedule</h3>
+      </div>
+      <div class="spec-list-card">
+        <div class="spec-list-row">
+          <span class="spec-label">Hours</span>
+          <span class="spec-val" id="placeHours">--</span>
+        </div>
+        <div class="spec-list-row">
+          <span class="spec-label">Room</span>
+          <span class="spec-val" id="placeRoom">--</span>
+        </div>
+        <div class="spec-list-row">
+          <span class="spec-label">In-Charge</span>
+          <span class="spec-val" id="placeInCharge">--</span>
+        </div>
+      </div>
+
+      <!-- SERVICES FILLED FROM JS -->
+      <div class="section-head-row" style="margin-top: 16px;">
+        <h3>Available Services</h3>
+      </div>
+      <div class="spec-list-card" id="placeServicesList">
+      </div>
+    </div>
+
+  </div> 	
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -42,7 +42,7 @@ func _find_peaks():
 	var prev_data = buffer[buffer.size() - 2]
 	
 	# monitor negative valley
-	if temp_peak_data.data.size() == 0:s
+	if temp_peak_data.data.size() == 0:
 		# check data movement
 		if cur_data.acc_magn_smooth > prev_data.acc_magn_smooth:
 			temp_peak_data.data.append(prev_data.duplicate(true))

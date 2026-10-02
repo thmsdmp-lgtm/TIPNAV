@@ -1,12 +1,19 @@
 # singleton for accessing accelerometer data
 extends Node
 
-signal updated(data: Vector3)
+# settings
+var smoothing_weight:float = 0.2
+
+# flags
 var is_initialized: bool = false
 
+# variables
 var data: Vector3 = Vector3.ZERO
-var data_smoothed: Vector3 = Vector3.ZERO
-var smoothing:float = 0.1
+var data_magn:float
+var data_magn_smooth:float
+
+# constants
+const gravity:float = 9.81
 
 func _ready():
 	if OS.has_feature("web"):
@@ -23,9 +30,6 @@ func _unhandled_input(event: InputEvent):
 
 func _process(_delta: float):
 	
-	# smooth data
-	data_smoothed = lerp(data_smoothed,data,smoothing)
-	
 	# get data
 	if OS.has_feature("web"):
 		var window = JavaScriptBridge.get_interface("window")
@@ -37,7 +41,9 @@ func _process(_delta: float):
 			var new_z = float(js_data.z)
 			
 			data = Vector3(new_x, new_y, new_z)
-			updated.emit(data)
 	else:
 		data = Input.get_accelerometer()
-		updated.emit(data)
+	
+	# update other data type
+	data_magn = data.length() - gravity
+	data_magn_smooth = lerpf(data_magn_smooth,data_magn,smoothing_weight)

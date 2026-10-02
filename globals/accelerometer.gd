@@ -3,6 +3,7 @@ extends Node
 
 signal updated(data: Vector3)
 var is_initialized: bool = false
+
 var data: Vector3 = Vector3.ZERO
 var data_smoothed: Vector3 = Vector3.ZERO
 var smoothing:float = 0.1

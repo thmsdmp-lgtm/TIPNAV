@@ -103,6 +103,8 @@ func _validate_peaks():
 	if cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff:
 		return
 	
+	# if all condition passed
+	steps_buffer.append(cur_peak_data)
 	print("STEP, I THINK..")
 
 # template peak data

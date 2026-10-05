@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
-[ext_resource type="Script" uid="uid://cpqurgojd8w6x" path="res://temp_scripts/label.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://xi2hi73rds6l" path="res://temp_scripts/visualize_pdr_data.gd" id="3_h2yge"]
-
 [node name="Main" type="Node" unique_id=1649254548]
 
 [node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593]
-script = ExtResource("3_h2yge")
 
 [node name="Interface" type="Control" parent="." unique_id=862413060]
 layout_mode = 3
@@ -27,4 +23,3 @@ theme_override_font_sizes/font_size = 30
 text = "test text test text"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("1_ig7tw")

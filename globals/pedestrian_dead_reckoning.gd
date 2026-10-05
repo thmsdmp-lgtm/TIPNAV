@@ -76,6 +76,8 @@ func _process(delta: float) -> void:
 func _validate_peaks():
 	if peak_buffer.size() == 0: return
 	
+	print("VALIDATING PEAKS")
+	
 	# get current and previous peak data
 	var prev_peak_data = peak_buffer[peak_buffer.size() - 2]
 	var cur_peak_data = peak_buffer[peak_buffer.size() - 1]
@@ -91,6 +93,7 @@ func _validate_peaks():
 	var prev_pos_val = prev_peak_data.data[prev_peak_data.data.size() - 1]
 	
 	# check conditions
+	print("GETTING CONDITIONS")
 	
 	# check previous positive valley time and
 	# current negative valley time difference

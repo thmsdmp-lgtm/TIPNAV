@@ -30,7 +30,7 @@ var time_between_peaks:float = 500
 
 # minimum difference between avg of 2
 # valleys to peak
-var valley_peak_diff:float = 1
+var avg_valley_peak_diff:float = 1
 
 # min and max duration between valleys
 # (or peak duration/length)
@@ -42,8 +42,6 @@ var buffer:Array = []
 var peak_buffer:Array = []
 
 func _process(delta: float) -> void:
-	
-	print("Data Buffer Size: ",buffer.size()," Peak Buffer Size: ",peak_buffer.size())
 	
 	# record data
 	var data:Dictionary = {
@@ -98,6 +96,14 @@ func _validate_peaks():
 	# current negative valley time difference
 	if cur_neg_val.time - prev_pos_val.time < time_between_peaks:
 		return
+	
+	# check average of 2 current 
+	# valleys accelerometer and compare to peak accelerometer
+	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
+	if cur_peak.acc_magn_smooth - val_avg < avg_valley_peak_diff:
+		return
+	
+	print("STEP, I THINK..")
 
 # template peak data
 var temp_peak_data:Dictionary = {

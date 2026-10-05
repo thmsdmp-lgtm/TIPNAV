@@ -26,11 +26,11 @@ extends Node
 #	----------	PEAK CONDITIONS	----------
 
 # min time between peaks (msec)
-var time_between_peaks:float = 500
+var min_time_between_peaks:float = 500
 
 # minimum difference between avg of 2
 # valleys to peak
-var avg_valley_peak_diff:float = 1
+var min_avg_valley_peak_diff:float = 1
 
 # min and max duration between valleys
 # (or peak duration/length)
@@ -74,9 +74,7 @@ func _process(delta: float) -> void:
 
 # validate peaks
 func _validate_peaks():
-	if peak_buffer.size() == 0: return
-	
-	print("VALIDATING PEAKS")
+	if peak_buffer.size() != 2: return
 	
 	# get current and previous peak data
 	var prev_peak_data = peak_buffer[peak_buffer.size() - 2]
@@ -93,17 +91,18 @@ func _validate_peaks():
 	var prev_pos_val = prev_peak_data.data[prev_peak_data.data.size() - 1]
 	
 	# check conditions
-	print("GETTING CONDITIONS")
 	
 	# check previous positive valley time and
 	# current negative valley time difference
-	if cur_neg_val.time - prev_pos_val.time < time_between_peaks:
+	print("TIME DIFF: ",cur_neg_val.time - prev_pos_val.time < min_time_between_peaks)
+	if cur_neg_val.time - prev_pos_val.time < min_time_between_peaks:
 		return
 	
 	# check average of 2 current 
 	# valleys accelerometer and compare to peak accelerometer
 	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
-	if cur_peak.acc_magn_smooth - val_avg < avg_valley_peak_diff:
+	print("VAL-PEAK DIFF: ", cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff)
+	if cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff:
 		return
 	
 	print("STEP, I THINK..")

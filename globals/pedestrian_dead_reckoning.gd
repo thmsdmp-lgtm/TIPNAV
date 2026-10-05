@@ -130,7 +130,7 @@ func _find_peaks():
 		if cur_data.acc_magn_smooth >= prev_data.acc_magn_smooth:
 			
 			# record last data (positive valley)
-			temp_peak_data.datsa.append(prev_data.duplicate(true))
+			temp_peak_data.data.append(prev_data.duplicate(true))
 			
 			# once set is completed (negative valley, peak, positive valley)
 			# record, then clear to repeat cycle

@@ -66,6 +66,11 @@ func _process(delta: float) -> void:
 	# validate peaks
 	_validate_peaks()
 	
+	# clean peak buffer
+	if peak_buffer.size() > 2:
+		peak_buffer.pop_front()
+	
+	# clean buffer
 	if buffer.size() > 2:
 		buffer.pop_front()
 

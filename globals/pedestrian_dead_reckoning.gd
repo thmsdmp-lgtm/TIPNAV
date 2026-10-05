@@ -94,14 +94,14 @@ func _validate_peaks():
 	
 	# check previous positive valley time and
 	# current negative valley time difference
-	print("TIME DIFF: ",cur_neg_val.time - prev_pos_val.time < min_time_between_peaks)
+	print("TIME DIFF: ",cur_neg_val.time - prev_pos_val.time)
+	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
+	print("VAL-PEAK DIFF: ", cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff)
 	if cur_neg_val.time - prev_pos_val.time < min_time_between_peaks:
 		return
 	
 	# check average of 2 current 
 	# valleys accelerometer and compare to peak accelerometer
-	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
-	print("VAL-PEAK DIFF: ", cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff)
 	if cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff:
 		return
 	

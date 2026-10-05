@@ -103,6 +103,12 @@ func _validate_peaks():
 	if cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff:
 		return
 	
+	# check duration between
+	# negative to positive valley
+	var val_dur = cur_pos_val.time - cur_neg_val.time
+	if val_dur < min_valley_valley_time or val_dur > max_valley_valley_time:
+		return
+	
 	# if all condition passed
 	steps_buffer.append(cur_peak_data)
 	print("STEP, I THINK..")

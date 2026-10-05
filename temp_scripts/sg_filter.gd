@@ -2,6 +2,10 @@
 # savitzky golay filter
 extends Node
 
+# settings
+var order:int = 2
+var size:int = 5
+
 # variables
 var test_data_set:Array = [
 	
@@ -12,14 +16,14 @@ func _ready() -> void:
 	sg_filter(test_data_set)
 
 # filter function
-func sg_filter(data_set:Array):
+func sg_filter(window:Array):
 	
 	# create array
 	var data = []
 	
-	# get needed values
-	for y in test_data_set:
-		var x = (data.size() - 1) + 1
+	# get needed values from window
+	for y in window:
+		var x = data.size()
 		var d = {
 			"x":x,
 			"y":y,
@@ -30,15 +34,17 @@ func sg_filter(data_set:Array):
 			
 			"xy":x*y,
 			"x2y":(x*x)*y,}
+		
+		data.append(d)
 	
 	# sum needed values
-	var sX:int
-	var sY:int
-	var sX2:int
-	var sX3:int
-	var sX4:int
-	var sXY:int
-	var sX2Y:int
+	var sX:float = 0.0
+	var sY:float = 0.0
+	var sX2:float = 0.0
+	var sX3:float = 0.0
+	var sX4:float = 0.0
+	var sXY:float = 0.0
+	var sX2Y:float = 0.0
 	
 	for x in range(data.size()):
 		var d = data[x]
@@ -50,3 +56,6 @@ func sg_filter(data_set:Array):
 		sX4 += d.x4
 		sXY += d.xy
 		sX2Y += d.x2y
+	
+	# evaluate
+	

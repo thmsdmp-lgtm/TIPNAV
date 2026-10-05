@@ -1,27 +1,8 @@
 # singleton for handling pedestrian dead reckoning stuff
 extends Node
 
-#	----------	DATA STRUCT	----------
-
-#- the peak data that will be buffered by "_find_peaks" function
-#- this will then be validated by the "_validate_peaks" function
-#peak structure: {
-	#"data":Array, -- contains multiple data
-	#"peak_index":int -- index of the peak data
-#}
-
-#- the data that will be recorded every frame
-#data structure: {
-	#"time":float,
-	
-	#"acc":Vector3,
-	#"acc_magn":float,
-	#"acc_magn_smooth":float,
-	
-	#"gyro":Vector3,
-	#"gyro_magn":float,
-	#"gyro_magn_smooth":float,
-#}
+#	----------	SETTINGS	----------
+var max_steps_buffer_size:int = 10
 
 #	----------	PEAK CONDITIONS	----------
 
@@ -37,10 +18,14 @@ var min_avg_valley_peak_diff:float = 1
 var min_valley_valley_time:float = 100
 var max_valley_valley_time:float = 500
 
+#	-----------	VARIABLES	----------
+
 # buffer
 var buffer:Array = []
 var peaks_buffer:Array = []
 var steps_buffer:Array = []
+
+#	-----------	FUNCTIONS	----------
 
 func _process(delta: float) -> void:
 	
@@ -69,6 +54,10 @@ func _process(delta: float) -> void:
 	if peaks_buffer.size() > 2:
 		peaks_buffer.pop_front()
 	
+	# clean steps buffer
+	if steps_buffer.size() > max_steps_buffer_size:
+		steps_buffer.pop_front()
+	
 	# clean buffer
 	if buffer.size() > 2:
 		buffer.pop_front()
@@ -90,7 +79,7 @@ func _validate_peaks():
 	var cur_peak = cur_peak_data.data[cur_peak_data.peak_index]
 	var cur_pos_val = cur_peak_data.data[cur_peak_data.data.size() - 1]
 	
-	# check conditions
+	# check conditions 
 	
 	# check previous positive valley time and
 	# current negative valley time difference
@@ -104,7 +93,7 @@ func _validate_peaks():
 		return
 	
 	# check duration between
-	# negative to positive valley
+	# negative to positive valleyss
 	var val_dur = cur_pos_val.time - cur_neg_val.time
 	if val_dur < min_valley_valley_time or val_dur > max_valley_valley_time:
 		return

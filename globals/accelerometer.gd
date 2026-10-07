@@ -12,7 +12,7 @@ var raw_magn_buffer:Array = []
 
 var data: Vector3 = Vector3.ZERO
 var data_magn:float
-var data_magn_smooth:float
+var data_magn_smooth
 
 # constants
 const gravity:float = 9.81
@@ -58,23 +58,20 @@ func _process(_delta: float):
 		raw_magn_buffer.pop_front()
 	
 	# smooth magn using sg filter
-	if raw_magn_buffer.size() == window_size:
-		
-		var data = JSON.stringify(raw_magn_buffer)
-		
-		var result = JavaScriptBridge.eval("""
-		JSON.stringify(
-			window.savitzkyGolay(
-				%s,
-				1,
-				{
-					windowSize: %d,
-					derivative: 0,
-					polynomial: 2,
-				}
-			)
+	var data = JSON.stringify(raw_magn_buffer)
+	var result = JavaScriptBridge.eval("""
+	JSON.stringify(
+		window.savitzkyGolay(
+			%s,
+			1,
+			{
+				windowSize: %d,
+				derivative: 0,
+				polynomial: 2,
+			}
 		)
-		""" % [data,window_size])
-		
-		# assign result to variable
-		data_magn_smooth = JSON.parse_string(result)
+	)
+	""" % [data,window_size])
+	
+	# assign result to variable
+	data_magn_smooth = JSON.parse_string(result)

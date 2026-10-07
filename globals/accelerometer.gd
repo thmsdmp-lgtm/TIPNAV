@@ -2,12 +2,15 @@
 extends Node
 
 # settings
-var smoothing_weight:float = 0.2
+var window_size:int = 5
+var update_per_second:int = 10
 
 # flags
 var is_initialized: bool = false
 
 # variables
+var raw_magn_buffer:Array = []
+
 var data: Vector3 = Vector3.ZERO
 var data_magn:float
 var data_magn_smooth:float
@@ -28,22 +31,57 @@ func _unhandled_input(event: InputEvent):
 			if OS.has_feature("web"):
 				JavaScriptBridge.eval("window.initAccelerometer();")
 
-func _process(_delta: float):
+var timer:float = 0.0
+func _process(delta: float):
 	
-	# get data
-	if OS.has_feature("web"):
-		var window = JavaScriptBridge.get_interface("window")
-		if window and window.accelerometerData:
-			var js_data = window.accelerometerData
+	# check interval
+	timer += delta
+	var interval = 1.0 / update_per_second
+	while timer >= interval:
+		timer -= interval
+		
+		# get data
+		if OS.has_feature("web"):
+			var window = JavaScriptBridge.get_interface("window")
+			if window and window.accelerometerData:
+				var js_data = window.accelerometerData
+				
+				var new_x = float(js_data.x)
+				var new_y = float(js_data.y)
+				var new_z = float(js_data.z)
+				
+				data = Vector3(new_x, new_y, new_z)
+		else:
+			data = Input.get_accelerometer()
+		
+		# update other data type
+		data_magn = data.length()
+		
+		# fill buffer
+		raw_magn_buffer.append(data_magn)
+		
+		# clear buffer overflow
+		if raw_magn_buffer.size() > window_size:
+			raw_magn_buffer.pop_front()
+		
+		# smooth magn using sg filter
+		if raw_magn_buffer.size() == window_size:
 			
-			var new_x = float(js_data.x)
-			var new_y = float(js_data.y)
-			var new_z = float(js_data.z)
+			var data = JSON.stringify(raw_magn_buffer)
 			
-			data = Vector3(new_x, new_y, new_z)
-	else:
-		data = Input.get_accelerometer()
-	
-	# update other data type
-	data_magn = data.length() - gravity
-	data_magn_smooth = lerpf(data_magn_smooth,data_magn,smoothing_weight)
+			var result = JavaScriptBridge.eval("""
+			JSON.stringify(
+				window.savitzkyGolay(
+					%s,
+					1,
+					{
+						windowSize: %d,
+						derivative: 0,
+						polynomial: 2,
+					}
+				)
+			)
+			""" % [data,window_size])
+			
+			# assign result to variable
+			data_magn_smooth = JSON.parse_string(result)

@@ -101,5 +101,6 @@ func _process(delta: float) -> void:
 		line_chart_raw.set_point_position(i,Vector2(orig_raw_pos.x,(c_size.y/2) + (line_height_mult * data.raw)))
 		
 		# smooth
+		%Label.text = Accelerometer.data_magn_smooth
 		var orig_sm_pos = line_chart_smooth.get_point_position(i)
 		line_chart_smooth.set_point_position(i,Vector2(orig_sm_pos.x,(c_size.y/2) + (line_height_mult * data.smooth)))

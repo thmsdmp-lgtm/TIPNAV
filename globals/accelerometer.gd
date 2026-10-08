@@ -58,21 +58,26 @@ func _process(_delta: float):
 	if raw_magn_buffer.size() > window_size:
 		raw_magn_buffer.pop_front()
 	
-	# smooth magn using sg filter
-	var data = JSON.stringify(raw_magn_buffer)
-	var result = JavaScriptBridge.eval("""
-	JSON.stringify(
-		window.savitzkyGolay(
-			%s,
-			1,
-			{
-				windowSize: %d,
-				derivative: 0,
-				polynomial: 2,
-			}
+	if raw_magn_buffer.size() == 5:
+		
+		# smooth magn using sg filter
+		var data = JSON.stringify(raw_magn_buffer)
+		var result = JavaScriptBridge.eval("""
+		JSON.stringify(
+			window.savitzkyGolay(
+				%s,
+				1,
+				{
+					windowSize: %d,
+					derivative: 0,
+					polynomial: 2,
+				}
+			)
 		)
-	)
-	""" % [data,window_size])
-	
-	# assign result to variable
-	data_magn_smooth = JSON.parse_string(result)
+		""" % [data,window_size])
+		
+		# assign result to variable
+		data_magn_smooth = JSON.parse_string(result)
+		
+		if %Label:
+			%Label.text = str(data_magn_smooth)

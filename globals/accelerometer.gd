@@ -8,6 +8,7 @@ var window_size:int = 5
 var is_initialized: bool = false
 
 # variables
+@onready var label: Label = $Interface/Label
 var raw_magn_buffer:Array = []
 
 var data: Vector3 = Vector3.ZERO
@@ -59,9 +60,6 @@ func _process(_delta: float):
 	
 	# check again if in web
 	if not OS.has_feature("web"): return
-	
-	# check buffer size
-	if raw_magn_buffer.size() < 5: return
 	
 	# smooth magn using sg filter
 	var data = JSON.stringify(raw_magn_buffer)

@@ -6,7 +6,7 @@
 
 [node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593]
 
-[node name="Interface" type="Control" parent="." unique_id=862413060]
+[node name="Interface" type="Control" parent="." unique_id=862413060 node_paths=PackedStringArray("label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
+label = NodePath("Label")
 metadata/_edit_use_anchors_ = true
 
 [node name="PdrDataChartCombined" type="Panel" parent="Interface" unique_id=1303201726]
@@ -39,7 +40,6 @@ offset_bottom = -3.0517578e-05
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Interface" unique_id=815829645]
-unique_name_in_owner = true
 layout_mode = 0
 offset_left = 421.0
 offset_top = 426.0

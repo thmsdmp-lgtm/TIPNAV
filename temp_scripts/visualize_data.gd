@@ -2,8 +2,8 @@
 extends Node
 
 # settings
-var line_height_mult:int = 50 
-var buffer_size:int = 50
+var line_height_mult:int = 20
+var buffer_size:int = 100
 var data_raw_color:Color = Color.RED
 var data_smooth_color:Color = Color.GREEN
 
@@ -97,8 +97,8 @@ func _process(delta: float) -> void:
 		
 		# raw
 		var orig_raw_pos = line_chart_raw.get_point_position(i)
-		line_chart_raw.set_point_position(i,Vector2(orig_raw_pos.x,(c_size.y/2) + (line_height_mult * data.raw)))
+		line_chart_raw.set_point_position(i,Vector2(orig_raw_pos.x,(c_size.y/2) - (line_height_mult * data.raw)))
 		
 		# smooth
 		var orig_sm_pos = line_chart_smooth.get_point_position(i)
-		line_chart_smooth.set_point_position(i,Vector2(orig_sm_pos.x,(c_size.y/2) + (line_height_mult * data.smooth)))
+		line_chart_smooth.set_point_position(i,Vector2(orig_sm_pos.x,(c_size.y/2) - (line_height_mult * data.smooth)))

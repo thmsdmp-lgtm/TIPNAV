@@ -2,13 +2,12 @@
 extends Node
 
 # settings
-var window_size:int = 5
+var window_size:int = 11
 
 # flags
 var is_initialized: bool = false
 
 # variables
-@onready var label: Label = $Interface/Label
 var raw_magn_buffer:Array = []
 
 var data: Vector3 = Vector3.ZERO
@@ -58,7 +57,7 @@ func _process(_delta: float):
 	if raw_magn_buffer.size() > window_size:
 		raw_magn_buffer.pop_front()
 	
-	if raw_magn_buffer.size() == 5:
+	if raw_magn_buffer.size() == window_size:
 		
 		# smooth magn using sg filter
 		var data = JSON.stringify(raw_magn_buffer)

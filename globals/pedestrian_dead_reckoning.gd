@@ -4,7 +4,7 @@ extends Node
 #	----------	SETTINGS	----------
 var max_steps_buffer_size:int = 10
 
-#	----------	PEAK CONDITIONS	----------
+#	----------	STEP CONDITIONS	----------
 
 # min time between peaks (msec)
 var min_time_between_peaks:float = 500
@@ -15,8 +15,8 @@ var min_avg_valley_peak_diff:float = 1
 
 # min and max duration between valleys
 # (or peak duration/length)
-var min_valley_valley_time:float = 100
-var max_valley_valley_time:float = 500
+var min_valley_valley_time:float = 500
+var max_valley_valley_time:float = 1500
 
 #	-----------	SIGNALS	----------
 signal step_occured

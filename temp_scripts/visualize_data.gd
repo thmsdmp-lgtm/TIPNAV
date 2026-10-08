@@ -73,6 +73,8 @@ func _step_occured(peak):
 
 func _process(delta: float) -> void:
 	
+	%Label.text = Accelerometer.data_magn_smooth
+	
 	# fill buffer
 	if buffer.size() > buffer_size:
 		buffer.pop_front()

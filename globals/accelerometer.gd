@@ -80,4 +80,4 @@ func _process(_delta: float):
 	""" % [data,window_size])
 	
 	# assign result to variable
-	data_magn_smooth = float(JSON.parse_string(result))
+	data_magn_smooth = JSON.parse_string(result)

@@ -102,4 +102,4 @@ func _process(delta: float) -> void:
 		
 		# smooth
 		var orig_sm_pos = line_chart_smooth.get_point_position(i)
-		line_chart_smooth.set_point_position(i,Vector2(orig_sm_pos.x,(c_size.y/2) + (line_height_mult * data.raw)))
+		line_chart_smooth.set_point_position(i,Vector2(orig_sm_pos.x,(c_size.y/2) + (line_height_mult * data.smooth)))

@@ -78,6 +78,3 @@ func _process(_delta: float):
 		
 		# assign result to variable
 		data_magn_smooth = JSON.parse_string(result)
-		
-		if %Label:
-			%Label.text = str(data_magn_smooth)

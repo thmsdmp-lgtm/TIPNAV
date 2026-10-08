@@ -18,7 +18,16 @@ var min_avg_valley_peak_diff:float = 1
 var min_valley_valley_time:float = 100
 var max_valley_valley_time:float = 500
 
+#	-----------	SIGNALS	----------
+signal step_occured
+
 #	-----------	VARIABLES	----------
+
+# template peak data
+var temp_peak_data:Dictionary = {
+	"data":[],
+	"peak_index":null,
+}
 
 # buffer
 var buffer:Array = []
@@ -100,13 +109,7 @@ func _validate_peaks():
 	
 	# if all condition passed
 	steps_buffer.append(cur_peak_data)
-	print("STEP, I THINK..")
-
-# template peak data
-var temp_peak_data:Dictionary = {
-	"data":[],
-	"peak_index":null,
-}
+	step_occured.emit(cur_peak_data)
 
 # find peaks
 func _find_peaks():

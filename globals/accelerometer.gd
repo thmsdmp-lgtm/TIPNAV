@@ -12,7 +12,7 @@ var raw_magn_buffer:Array = []
 
 var data: Vector3 = Vector3.ZERO
 var data_magn:float
-var data_magn_smooth
+var data_magn_smooth:float
 
 # constants
 const gravity:float = 9.81
@@ -57,6 +57,9 @@ func _process(_delta: float):
 	if raw_magn_buffer.size() > window_size:
 		raw_magn_buffer.pop_front()
 	
+	# check again if in web
+	if not OS.has_feature("web"): return
+	
 	# check buffer size
 	if raw_magn_buffer.size() < 5: return
 	
@@ -77,4 +80,4 @@ func _process(_delta: float):
 	""" % [data,window_size])
 	
 	# assign result to variable
-	data_magn_smooth = JSON.parse_string(result)
+	data_magn_smooth = float(JSON.parse_string(result))

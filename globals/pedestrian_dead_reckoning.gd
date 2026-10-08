@@ -13,6 +13,10 @@ var min_time_between_peaks:float = 500
 # valleys to peak
 var min_avg_valley_peak_diff:float = 1
 
+# the maximum difference between the negative
+# valley and the positive valley
+var max_valley_diff:float = 0.7
+
 # min and max duration between valleys
 # (or peak duration/length)
 var min_valley_valley_time:float = 200
@@ -107,6 +111,11 @@ func _validate_peaks():
 	if val_dur < min_valley_valley_time or val_dur > max_valley_valley_time:
 		return
 	
+	# check difference between
+	# negative and positive valley
+	if absf(cur_neg_val.acc_magn_smooth - cur_pos_val.acc_magn_smooth) > max_valley_diff:
+		return
+	
 	# if all condition passed
 	steps_buffer.append(cur_peak_data)
 	step_occured.emit(cur_peak_data)
@@ -119,7 +128,6 @@ func _find_peaks():
 	var cur_data = buffer[buffer.size() - 1]
 	var prev_data = buffer[buffer.size() - 2]
 	
-	# monitor negative valley
 	if temp_peak_data.data.size() == 0:
 		# check data movement
 		if cur_data.acc_magn_smooth > prev_data.acc_magn_smooth:

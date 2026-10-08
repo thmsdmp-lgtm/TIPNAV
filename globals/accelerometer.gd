@@ -62,7 +62,7 @@ func _process(_delta: float):
 		
 		# smooth magn using sg filter
 		var data = JSON.stringify(raw_magn_buffer)
-		var result = JavaScriptBridge.eval("""
+		var result = JSON.parse_string(JavaScriptBridge.eval("""
 		JSON.stringify(
 			window.savitzkyGolay(
 				%s,
@@ -74,7 +74,7 @@ func _process(_delta: float):
 				}
 			)
 		)
-		""" % [data,window_size])
+		""" % [data,window_size]))
 		
 		# assign result to variable
-		data_magn_smooth = JSON.parse_string(result)
+		data_magn_smooth = result[0]

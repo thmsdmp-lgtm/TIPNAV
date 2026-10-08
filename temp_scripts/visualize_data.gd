@@ -13,7 +13,6 @@ var buffer:Array = []
 # variables
 var chart:Control
 var chart_step:Control
-@export var label: Label
 var line_chart_smooth:Line2D
 var line_chart_raw:Line2D
 var line_step:Line2D
@@ -72,8 +71,6 @@ func _step_occured(peak):
 		x += ct_size.x / buffer_size
 
 func _process(delta: float) -> void:
-	
-	label.text = str(Accelerometer.data_magn_smooth)
 	
 	# fill buffer
 	if buffer.size() > buffer_size:

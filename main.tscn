@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
+[ext_resource type="Script" uid="uid://cqwiyn0puoqsf" path="res://temp_scripts/visualize_data.gd" id="1_ig7tw"]
+
 [node name="Main" type="Node" unique_id=1649254548]
 
 [node name="VisualizePdrData" type="Node" parent="." unique_id=1102453593]
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ig7tw")
 metadata/_edit_use_anchors_ = true
 
 [node name="PdrDataChartCombined" type="Panel" parent="Interface" unique_id=1303201726]

@@ -30,15 +30,18 @@ func _ready() -> void:
 	line_chart_raw = Line2D.new()
 	chart.add_child(line_chart_raw)
 	line_chart_raw.width = 5
+	line_chart_raw.joint_mode = Line2D.LINE_JOINT_ROUND
 	line_chart_raw.default_color = data_raw_color
 	
 	line_chart_smooth = Line2D.new()
 	chart.add_child(line_chart_smooth)
 	line_chart_smooth.width = 3
+	line_chart_smooth.joint_mode = Line2D.LINE_JOINT_ROUND
 	line_chart_smooth.default_color = data_smooth_color
 	
 	line_step = Line2D.new()
 	chart_step.add_child(line_step)
+	line_step.joint_mode = Line2D.LINE_JOINT_ROUND
 	line_step.width = 5
 	
 	# setup lines

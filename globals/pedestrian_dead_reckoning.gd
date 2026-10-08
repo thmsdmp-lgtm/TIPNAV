@@ -15,7 +15,7 @@ var min_avg_valley_peak_diff:float = 1
 
 # min and max duration between valleys
 # (or peak duration/length)
-var min_valley_valley_time:float = 500
+var min_valley_valley_time:float = 200
 var max_valley_valley_time:float = 1500
 
 #	-----------	SIGNALS	----------

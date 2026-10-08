@@ -3,7 +3,7 @@ extends Node
 
 # settings
 var line_height_mult:int = 20
-var buffer_size:int = 100
+var buffer_size:int = 60
 var data_raw_color:Color = Color.RED
 var data_smooth_color:Color = Color.GREEN
 
@@ -70,7 +70,7 @@ func _step_occured(peak):
 	for i in range(data.size()):
 		var acc = data[i].acc_magn_smooth
 		
-		line_step.add_point(Vector2(x,(ct_size.y/2) + (line_height_mult * acc)))
+		line_step.add_point(Vector2(x,(ct_size.y/2) - (line_height_mult * acc)))
 		x += ct_size.x / buffer_size
 
 func _process(delta: float) -> void:

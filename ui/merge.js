@@ -1,11 +1,16 @@
 
-fetch("./ui/index.html")
-    .then(response => response.text())
-    .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
+const iframe = document.createElement("iframe");
 
-        // Append HTML-2's body elements to HTML-1
-        document.body.append(...doc.body.children);
-    })
-    .catch(error => console.error("Failed to load UI:", error));
+iframe.src = "./index.html";
+
+Object.assign(iframe.style, {
+    position: "fixed",
+    inset: "0",
+    width: "100%",
+    height: "100%",
+    border: "none",
+    zIndex: "1000",
+    background: "transparent"
+});
+
+document.body.appendChild(iframe);

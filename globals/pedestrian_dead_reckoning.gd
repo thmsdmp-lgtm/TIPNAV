@@ -38,8 +38,12 @@ var buffer:Array = []
 var peaks_buffer:Array = []
 var steps_buffer:Array = []
 
+# class for peak finding and validation
+var peak = PeakHandler.new()
+
 #	-----------	FUNCTIONS	----------
 
+# per frame
 func _process(delta: float) -> void:
 	
 	# record data
@@ -58,10 +62,14 @@ func _process(delta: float) -> void:
 	buffer.append(data)
 	
 	# find peaks
-	_find_peaks()
+	peak.find(buffer,peaks_buffer,temp_peak_data)
 	
 	# validate peaks
-	_validate_peaks()
+	var settings = peak.create_settings()
+	for key in settings:
+		if key is String and key in self:
+			settings[key] = self[key]
+	peak.validate(peaks_buffer,steps_buffer,settings)
 	
 	# clean peak buffer
 	if peaks_buffer.size() > 2:
@@ -74,82 +82,3 @@ func _process(delta: float) -> void:
 	# clean buffer
 	if buffer.size() > 2:
 		buffer.pop_front()
-
-# validate peaks
-func _validate_peaks():
-	if peaks_buffer.size() != 2: return
-	
-	# get current unvalidated data
-	var cur_peak_data = peaks_buffer[peaks_buffer.size() - 1]
-	
-	# get previous validated data
-	var prev_peak_data = null
-	if steps_buffer.size() != 0:
-		prev_peak_data = steps_buffer[steps_buffer.size() - 1] 
-	
-	# get current valleys and peak
-	var cur_neg_val = cur_peak_data.data[0]
-	var cur_peak = cur_peak_data.data[cur_peak_data.peak_index]
-	var cur_pos_val = cur_peak_data.data[cur_peak_data.data.size() - 1]
-	
-	# check conditions 
-	
-	# check previous positive valley time and
-	# current negative valley time difference
-	if prev_peak_data and cur_neg_val.time - prev_peak_data.data[prev_peak_data.data.size() - 1].time < min_time_between_peaks:
-		return
-	
-	# check average of 2 current 
-	# valleys accelerometer and compare to peak accelerometer
-	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
-	if cur_peak.acc_magn_smooth - val_avg <= min_avg_valley_peak_diff:
-		return
-	
-	# check duration between
-	# negative to positive valleyss
-	var val_dur = cur_pos_val.time - cur_neg_val.time
-	if val_dur < min_valley_valley_time or val_dur > max_valley_valley_time:
-		return
-	
-	# check difference between
-	# negative and positive valley
-	if absf(cur_neg_val.acc_magn_smooth - cur_pos_val.acc_magn_smooth) > max_valley_diff:
-		return
-	
-	# if all condition passed
-	steps_buffer.append(cur_peak_data)
-	step_occured.emit(cur_peak_data)
-
-# find peaks
-func _find_peaks():
-	if buffer.size() < 2: return
-	
-	# get data
-	var cur_data = buffer[buffer.size() - 1]
-	var prev_data = buffer[buffer.size() - 2]
-	
-	if temp_peak_data.data.size() == 0:
-		# check data movement
-		if cur_data.acc_magn_smooth > prev_data.acc_magn_smooth:
-			temp_peak_data.data.append(prev_data.duplicate(true))
-	elif temp_peak_data.peak_index == null:
-		# check data movement
-		if cur_data.acc_magn_smooth < prev_data.acc_magn_smooth:
-			temp_peak_data.data.append(prev_data.duplicate(true))
-			temp_peak_data.peak_index = temp_peak_data.data.size() - 1
-		else:
-			temp_peak_data.data.append(prev_data.duplicate(true))
-	else:
-		# check data movement
-		if cur_data.acc_magn_smooth >= prev_data.acc_magn_smooth:
-			
-			# record last data (positive valley)
-			temp_peak_data.data.append(prev_data.duplicate(true))
-			
-			# once set is completed (negative valley, peak, positive valley)
-			# record, then clear to repeat cycle
-			peaks_buffer.append(temp_peak_data.duplicate(true))
-			temp_peak_data.data.clear()
-			temp_peak_data.peak_index = null
-		else:
-			temp_peak_data.data.append(prev_data.duplicate(true))

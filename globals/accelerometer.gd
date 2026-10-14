@@ -57,7 +57,7 @@ func _process(_delta: float):
 	if raw_magn_buffer.size() > window_size:
 		raw_magn_buffer.pop_front()
 	
-	if raw_magn_buffer.size() == window_size:
+	if raw_magn_buffer.size() == window_size and OS.has_feature("web"):
 		
 		# smooth magn using sg filter
 		var data = JSON.stringify(raw_magn_buffer)

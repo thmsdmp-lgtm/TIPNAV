@@ -2,10 +2,8 @@
 extends Node
 class_name PeakHandler
 
-# create validation settings
-# returns a dictionary with default settings
-func create_settings():
-	return {
+# step detection settings
+var settings:Dictionary = {
 		# min time between peaks (msec)
 		"min_time_between_peaks":500,
 		
@@ -60,10 +58,8 @@ func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
 			temp_peak_data.data.append(prev_data.duplicate(true))
 
 # validate peaks
-func validate(peaks_buffer:Array, steps_buffer:Array, settings:Dictionary):
+func validate(peaks_buffer:Array, steps_buffer:Array):
 	if peaks_buffer.size() != 2: return
-	if settings == null:
-		settings = create_settings()
 	
 	# get current unvalidated data
 	var cur_peak_data = peaks_buffer[peaks_buffer.size() - 1]

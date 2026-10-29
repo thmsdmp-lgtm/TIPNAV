@@ -65,11 +65,7 @@ func _process(delta: float) -> void:
 	peak.find(buffer,peaks_buffer,temp_peak_data)
 	
 	# validate peaks
-	var settings = peak.create_settings()
-	for key in settings:
-		if key is String and key in self:
-			settings[key] = self[key]
-	peak.validate(peaks_buffer,steps_buffer,settings)
+	peak.validate(peaks_buffer,steps_buffer)
 	
 	# clean peak buffer
 	if peaks_buffer.size() > 2:

@@ -3,27 +3,10 @@ extends Node
 
 #	----------	SETTINGS	----------
 var max_steps_buffer_size:int = 10
-
-#	----------	STEP CONDITIONS	----------
-
-# min time between peaks (msec)
-var min_time_between_peaks:float = 500
-
-# minimum difference between avg of 2
-# valleys to peak
-var min_avg_valley_peak_diff:float = 1
-
-# the maximum difference between the negative
-# valley and the positive valley
-var max_valley_diff:float = 0.7
-
-# min and max duration between valleys
-# (or peak duration/length)
-var min_valley_valley_time:float = 200
-var max_valley_valley_time:float = 1500
+var max_data_buffer_size:int = 10
 
 #	-----------	SIGNALS	----------
-signal step_occured
+signal step_occurred(step_data:Dictionary)
 
 #	-----------	VARIABLES	----------
 
@@ -65,16 +48,14 @@ func _process(delta: float) -> void:
 	peak.find(buffer,peaks_buffer,temp_peak_data)
 	
 	# validate peaks
-	peak.validate(peaks_buffer,steps_buffer)
-	
-	# clean peak buffer
-	if peaks_buffer.size() > 2:
-		peaks_buffer.pop_front()
+	var step = peak.validate(peaks_buffer,steps_buffer)
+	if step:
+		step_occurred.emit(step)
 	
 	# clean steps buffer
 	if steps_buffer.size() > max_steps_buffer_size:
 		steps_buffer.pop_front()
 	
 	# clean buffer
-	if buffer.size() > 2:
+	if buffer.size() > max_data_buffer_size:
 		buffer.pop_front()

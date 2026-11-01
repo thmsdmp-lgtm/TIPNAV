@@ -1,16 +1,10 @@
 # class used for peak finding and validation
 extends Node
-class_name PeakHandler
 
 # step detection settings
 var settings:Dictionary = {
 		# min time between peaks (msec)
 		"min_time_between_peaks":250,
-		
-		# min diff between
-		# current and previous value to
-		# consider data as candidate peak
-		"min_cur_prev_diff_peak_cand":0.05,
 		
 		# min value difference between
 		# candidate peak to valley
@@ -49,7 +43,7 @@ func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
 	
 	elif temp_peak_data.peak_index == null:
 		# check data movement
-		if cur_data.acc_magn_smooth < prev_data.acc_magn_smooth and prev_data.acc_magn_smooth - cur_data.acc_magn_smooth >= settings.min_cur_prev_diff_peak_cand:
+		if cur_data.acc_magn_smooth < prev_data.acc_magn_smooth:
 		
 			# check minimum difference between valley and highest peak
 			if highest_val_index != -1 and temp_peak_data.data[highest_val_index].acc_magn_smooth - temp_peak_data.data[0].acc_magn_smooth >= settings.min_valley_peak_diff:

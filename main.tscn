@@ -31,22 +31,98 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.29305556
-anchor_top = 0.256875
-anchor_right = 0.73333335
-anchor_bottom = 0.384375
+anchor_left = 0.044444446
+anchor_top = 0.21625
+anchor_right = 0.48472217
+anchor_bottom = 0.34375
 offset_bottom = -3.0517578e-05
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Interface" unique_id=1572331140]
+[node name="steps_label" type="Label" parent="Interface" unique_id=1572331140]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 343.0
-offset_top = 639.0
-offset_right = 410.0
-offset_bottom = 681.0
+offset_left = 465.0
+offset_top = 395.0
+offset_right = 566.0
+offset_bottom = 437.0
 pivot_offset = Vector2(35, 21)
 theme_override_font_sizes/font_size = 30
-text = "Test"
+text = "STEPS: "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="label" type="Label" parent="Interface" unique_id=1692032543]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 572.0
+offset_right = 536.0
+offset_bottom = 614.0
+pivot_offset = Vector2(35, 21)
+theme_override_font_sizes/font_size = 30
+text = "CHANGE SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label2" type="Label" parent="Interface" unique_id=1033237539]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 42.0
+offset_right = 536.0
+offset_bottom = 84.0
+pivot_offset = Vector2(35, 21)
+theme_override_font_sizes/font_size = 30
+text = "ACCELEROMETER DATA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reset_steps" type="Button" parent="Interface" unique_id=1437444988]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 465.0
+offset_right = 619.0
+offset_bottom = 511.0
+theme_override_font_sizes/font_size = 20
+text = "Reset Steps"
+
+[node name="apply_setting" type="Button" parent="Interface" unique_id=1426785243]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 748.0
+offset_right = 493.0
+offset_bottom = 794.0
+theme_override_font_sizes/font_size = 20
+text = "Apply Settings"
+
+[node name="setting_name" type="LineEdit" parent="Interface" unique_id=1674904999]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 37.0
+offset_top = 640.0
+offset_right = 406.0
+offset_bottom = 707.0
+placeholder_text = "setting name"
+alignment = 1
+
+[node name="LineEdit3" type="Label" parent="Interface" unique_id=1286513455]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 640.0
+offset_right = 522.0
+offset_bottom = 707.0
+theme_override_font_sizes/font_size = 30
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="setting_val" type="LineEdit" parent="Interface" unique_id=778232740]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 523.0
+offset_top = 640.0
+offset_right = 687.0
+offset_bottom = 707.0
+placeholder_text = "value (must be float)"
+alignment = 1
+
+[connection signal="pressed" from="Interface/reset_steps" to="Interface" method="_on_reset_steps_pressed"]
+[connection signal="pressed" from="Interface/apply_setting" to="Interface" method="_on_apply_setting_pressed"]

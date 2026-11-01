@@ -20,7 +20,7 @@ var line_step:Line2D
 func _ready() -> void:
 	
 	# signals
-	PedestrianDeadReckoning.step_occurred.connect(_step_occured)
+	PedestrianDeadReckoning.step_occured.connect(_step_occured)
 	
 	# get line containers
 	chart = %PdrDataChartCombined

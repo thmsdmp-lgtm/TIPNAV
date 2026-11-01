@@ -21,6 +21,9 @@ var buffer:Array = []
 var peaks_buffer:Array = []
 var steps_buffer:Array = []
 
+# class for peak finding and validation
+var peak = PeakHandler.new()
+
 #	-----------	FUNCTIONS	----------
 
 # per frame
@@ -42,10 +45,10 @@ func _process(delta: float) -> void:
 	buffer.append(data)
 	
 	# find peaks
-	PeakHandler.find(buffer,peaks_buffer,temp_peak_data)
+	peak.find(buffer,peaks_buffer,temp_peak_data)
 	
 	# validate peaks
-	var step = PeakHandler.validate(peaks_buffer,steps_buffer)
+	var step = peak.validate(peaks_buffer,steps_buffer)
 	if step:
 		step_occurred.emit(step)
 	

@@ -10,19 +10,19 @@ var settings:Dictionary = {
 		# min diff between
 		# current and previous value to
 		# consider data as candidate peak
-		"min_cur_prev_diff_peak_cand":0.1,
+		"min_cur_prev_diff_peak_cand":0.05,
 		
 		# min value difference between
 		# candidate peak to valley
-		"min_valley_peak_diff":0.5,
+		"min_valley_peak_diff":0.2,
 		
 		# minimum difference between avg of 2
 		# valleys to peak
-		"min_avg_valley_peak_diff":1,
+		"min_avg_valley_peak_diff":0.5,
 		
 		# the maximum difference between the negative
 		# valley and the positive valley value
-		"max_valley_diff":0.5,
+		"max_valley_diff":0.3,
 		
 		# min and max duration between valleys
 		# (or peak duration/length)

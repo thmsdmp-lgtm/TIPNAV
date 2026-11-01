@@ -11,7 +11,6 @@ var data_smooth_color:Color = Color.GREEN
 var buffer:Array = []
 
 # variables
-var steps:int = 0
 var chart:Control
 var chart_step:Control
 var line_chart_smooth:Line2D
@@ -63,9 +62,6 @@ func _ready() -> void:
 
 func _step_occured(peak):
 	line_step.clear_points()
-	steps += 1
-	
-	%Label.text = str("STEPS: ",steps)
 	
 	var data:Array = peak.data
 	var ct_size = chart_step.size

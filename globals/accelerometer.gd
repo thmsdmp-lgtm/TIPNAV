@@ -2,7 +2,7 @@
 extends Node
 
 # settings
-var window_size:int = 11
+var window_size:int = 19
 
 # flags
 var is_initialized: bool = false

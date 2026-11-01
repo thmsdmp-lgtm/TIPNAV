@@ -65,7 +65,7 @@ func _step_occured(peak):
 	line_step.clear_points()
 	steps += 1
 	
-	%steps_label.text = str("STEPS: ",steps)
+	%Label.text = str("STEPS: ",steps)
 	
 	var data:Array = peak.data
 	var ct_size = chart_step.size
@@ -109,17 +109,3 @@ func _process(delta: float) -> void:
 		# smooth
 		var orig_sm_pos = line_chart_smooth.get_point_position(i)
 		line_chart_smooth.set_point_position(i,Vector2(orig_sm_pos.x,(c_size.y/2) - (line_height_mult * data.smooth)))
-
-func _on_reset_steps_pressed() -> void:
-	steps = 0
-	%steps_label.text = str("STEPS: ",steps)
-
-func _on_apply_setting_pressed() -> void:
-	var setting_name = %setting_name.text.strip_edges()
-	var val_text = %setting_val.text.strip_edges()
-	
-	if setting_name.is_empty() or not val_text.is_valid_float():
-		return
-	
-	if PeakHandler.settings.has(setting_name):
-		PeakHandler.settings[setting_name] = float(val_text)

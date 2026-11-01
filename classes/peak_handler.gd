@@ -5,7 +5,7 @@ class_name PeakHandler
 # step detection settings
 var settings:Dictionary = {
 		# min time between peaks (msec)
-		"min_time_between_peaks":250,
+		"min_time_between_peaks":500,
 		
 		# min diff between
 		# current and previous value to
@@ -14,7 +14,7 @@ var settings:Dictionary = {
 		
 		# min value difference between
 		# candidate peak to valley
-		"min_valley_peak_diff":0.5,
+		"min_valley_peak_diff":1,
 		
 		# minimum difference between avg of 2
 		# valleys to peak
@@ -22,7 +22,7 @@ var settings:Dictionary = {
 		
 		# the maximum difference between the negative
 		# valley and the positive valley value
-		"max_valley_diff":0.5,
+		"max_valley_diff":0.7,
 		
 		# min and max duration between valleys
 		# (or peak duration/length)

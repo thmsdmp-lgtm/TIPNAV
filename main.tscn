@@ -37,3 +37,16 @@ anchor_right = 0.73333335
 anchor_bottom = 0.384375
 offset_bottom = -3.0517578e-05
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Interface" unique_id=1572331140]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 343.0
+offset_top = 639.0
+offset_right = 410.0
+offset_bottom = 681.0
+pivot_offset = Vector2(35, 21)
+theme_override_font_sizes/font_size = 30
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1

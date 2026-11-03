@@ -15,6 +15,7 @@ var chart:Control
 var chart_step:Control
 var line_chart_smooth:Line2D
 var line_chart_raw:Line2D
+var line_step_peak:Line2D
 var line_step:Line2D
 
 func _ready() -> void:
@@ -39,15 +40,24 @@ func _ready() -> void:
 	line_chart_smooth.joint_mode = Line2D.LINE_JOINT_ROUND
 	line_chart_smooth.default_color = data_smooth_color
 	
+	line_step_peak = Line2D.new()
+	chart_step.add_child(line_step_peak)
+	line_step_peak.joint_mode = Line2D.LINE_JOINT_ROUND
+	line_step_peak.width = 5
+	
 	line_step = Line2D.new()
 	chart_step.add_child(line_step)
 	line_step.joint_mode = Line2D.LINE_JOINT_ROUND
 	line_step.width = 5
 	
 	# setup lines
+	
+	var vp_size = get_viewport().get_visible_rect().size
 	var c_size = chart.size
 	var ct_size = chart_step.size
 	var x = 0
+	
+	line_step.add_point(Vector2(vp_size.x/2, vp_size.y))
 	
 	for i in buffer_size + 1:
 		line_chart_raw.add_point(Vector2(x,c_size.y/2))
@@ -57,20 +67,24 @@ func _ready() -> void:
 	x = 0
 	
 	for i in buffer_size + 1:
-		line_step.add_point(Vector2(x,ct_size.y/2))
+		line_step_peak.add_point(Vector2(x,ct_size.y/2))
 		x += ct_size.x / buffer_size
 
-func _step_occured(peak):
-	line_step.clear_points()
+func _step_occured(peak,step_length):
+	if not peak or not step_length: return
 	
+	var vp_size = get_viewport().get_visible_rect().size
 	var data:Array = peak.data
 	var ct_size = chart_step.size
 	var x = 0
 	
+	line_step_peak.clear_points()
+	line_step.add_point(Vector2(vp_size.x/2, vp_size.y - (step_length) * 10 ))
+	
 	for i in range(data.size()):
 		var acc = data[i].acc_magn_smooth
 		
-		line_step.add_point(Vector2(x,(ct_size.y/2) - (line_height_mult * acc)))
+		line_step_peak.add_point(Vector2(x,(ct_size.y/2) - (line_height_mult * acc)))
 		x += ct_size.x / buffer_size
 
 func _process(delta: float) -> void:
@@ -90,7 +104,7 @@ func _process(delta: float) -> void:
 	if buffer.size() == 0: return
 	if line_chart_raw.get_point_count() == 0: return
 	if line_chart_smooth.get_point_count() == 0: return
-	if line_step.get_point_count() == 0: return
+	if line_step_peak.get_point_count() == 0: return
 	
 	var c_size = chart.size
 	

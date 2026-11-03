@@ -21,6 +21,7 @@ Accelerometer="*uid://dh7fvwc6yqvyf"
 Gyroscope="*uid://crhhwj7pjikej"
 PedestrianDeadReckoning="*uid://b6ei5ykp1sslx"
 PeakHandler="*uid://djbcp8k6uvp83"
+StepHandler="*uid://c5i5ycj18nq6x"
 
 [display]
 

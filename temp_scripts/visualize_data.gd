@@ -78,6 +78,8 @@ func _step_occured(peak,step_length):
 	var ct_size = chart_step.size
 	var x = 0
 	
+	print(step_length)
+	
 	line_step_peak.clear_points()
 	line_step.add_point(Vector2(vp_size.x/2, line_step.get_point_position(line_step.get_point_count()-1).y - (step_length) * 10 ))
 	

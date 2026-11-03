@@ -57,7 +57,7 @@ func _ready() -> void:
 	var ct_size = chart_step.size
 	var x = 0
 	
-	line_step.add_point(Vector2(vp_size.x/2, vp_size.y))
+	line_step.add_point(Vector2(vp_size.x/2, vp_size.y - (vp_size.y * .2)))
 	
 	for i in buffer_size + 1:
 		line_chart_raw.add_point(Vector2(x,c_size.y/2))
@@ -79,7 +79,7 @@ func _step_occured(peak,step_length):
 	var x = 0
 	
 	line_step_peak.clear_points()
-	line_step.add_point(Vector2(vp_size.x/2, vp_size.y - (step_length) * 10 ))
+	line_step.add_point(Vector2(vp_size.x/2, line_step.get_point_position(line_step.get_point_count()-1).y - (step_length) * 10 ))
 	
 	for i in range(data.size()):
 		var acc = data[i].acc_magn_smooth

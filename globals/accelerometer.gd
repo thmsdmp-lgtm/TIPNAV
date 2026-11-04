@@ -43,7 +43,7 @@ func _process(_delta: float):
 			var new_x = float(js_data.x)
 			var new_y = float(js_data.y)
 			var new_z = float(js_data.z)
-			var timestamp = float(js_data.timeStamp)
+			var timestamp = float(js_data.timestamp)
 			
 			data = Vector3(new_x, new_y, new_z)
 	else:

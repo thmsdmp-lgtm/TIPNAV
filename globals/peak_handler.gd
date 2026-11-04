@@ -8,7 +8,7 @@ var settings:Dictionary =  {
 		
 		# minimum difference between avg of 2
 		# valleys to peak
-		"min_avg_valley_peak_diff":1,
+		"min_avg_valley_peak_diff":0.5,
 		
 		# the maximum difference between the negative
 		# valley and the positive valley

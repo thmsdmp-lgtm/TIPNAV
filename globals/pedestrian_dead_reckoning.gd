@@ -93,20 +93,21 @@ func _process(delta: float) -> void:
 		
 		# find peaks
 		print("Finding peaks")
-		PeakHandler.find(buffer,peaks_buffer,temp_peak_data)
+		var peak = PeakHandler.find(buffer,peaks_buffer,temp_peak_data)
 		
-		# validate peaks (check if they are steps)
-		print("Validating peak")
-		var step = PeakHandler.validate(peaks_buffer,steps_buffer)
-		if step:
-			# calculate step length
-			var step_length = StepHandler.calculate_step(step)
+		if peak:
+			print("Found peak")
 			
-			# emit stepped signal
-			if step_length:
-				print("Step detected")
-				step_occured.emit(step,step_length)
-		
+			print("Validating peak")
+			var step = PeakHandler.validate(peak,steps_buffer)
+			if step:
+				# calculate step length
+				var step_length = StepHandler.calculate_step(step)
+				
+				# emit stepped signal
+				if step_length:
+					print("Step detected")
+					step_occured.emit(step,step_length)
 		print("No steps found")
 		
 		# clean steps buffer

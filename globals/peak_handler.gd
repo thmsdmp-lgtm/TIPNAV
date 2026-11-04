@@ -59,16 +59,20 @@ func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
 
 # validate peaks (check if they are steps)
 func validate(peaks_buffer:Array, steps_buffer:Array):
-	if peaks_buffer.size() == 0: return
+	if peaks_buffer.size() == 0:
+		print("Peak buffer size is 0, returning..")
 	
 	# get current unvalidated data
+	print("getting current data")
 	var cur_peak_data = peaks_buffer[peaks_buffer.size() - 1]
 	
 	# get previous validated data
+	print("getting previous data")
 	var prev_peak_data = null
 	if steps_buffer.size() != 0:
 		prev_peak_data = steps_buffer[steps_buffer.size() - 1] 
 	
+	print("get current valleys and peaks")
 	# get current valleys and peak
 	var cur_neg_val = cur_peak_data.data[0]
 	var cur_peak = cur_peak_data.data[cur_peak_data.peak_index]

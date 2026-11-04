@@ -1,5 +1,5 @@
 // Global data structure read by Godot
-  window.accelerometerData = { x: 0, y: 0, z: 0 };
+  window.accelerometerData = { x: 0, y: 0, z: 0 , timestamp: 0};
   window.accelStatus = 'uninitialized';
 
   // Initialize accelerometer permission & event binding
@@ -46,6 +46,10 @@
           window.accelerometerData.x = acl.x || 0;
           window.accelerometerData.y = acl.y || 0;
           window.accelerometerData.z = acl.z || 0;
+
+          // Timestamp of the latest sensor reading
+          window.accelerometerData.timestamp = performance.now();
+
           window.accelStatus = 'active (Generic Sensor)';
         });
         acl.addEventListener('error', (event) => {
@@ -71,6 +75,10 @@
         window.accelerometerData.x = accel.x || 0;
         window.accelerometerData.y = accel.y || 0;
         window.accelerometerData.z = accel.z || 0;
+
+        // Timestamp of the latest sensor reading
+        window.accelerometerData.timestamp = performance.now();
+
         window.accelStatus = 'active (devicemotion)';
       }
     }, true);

@@ -10,6 +10,7 @@ var is_initialized: bool = false
 # variables
 var raw_magn_buffer:Array = []
 
+var data_timestamp:float
 var data: Vector3 = Vector3.ZERO
 var data_magn:float
 var data_magn_smooth:float
@@ -42,6 +43,7 @@ func _process(_delta: float):
 			var new_x = float(js_data.x)
 			var new_y = float(js_data.y)
 			var new_z = float(js_data.z)
+			var timestamp = float(js_data.timeStamp)
 			
 			data = Vector3(new_x, new_y, new_z)
 	else:

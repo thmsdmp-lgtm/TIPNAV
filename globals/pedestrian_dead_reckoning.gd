@@ -107,6 +107,8 @@ func _process(delta: float) -> void:
 				print("Step detected")
 				step_occured.emit(step,step_length)
 		
+		print("No steps found")
+		
 		# clean steps buffer
 		if steps_buffer.size() > max_steps_buffer_size:
 			steps_buffer.pop_front()

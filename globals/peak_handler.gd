@@ -61,6 +61,7 @@ func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
 func validate(peaks_buffer:Array, steps_buffer:Array):
 	if peaks_buffer.size() == 0:
 		print("Peak buffer size is 0, returning..")
+		return
 	
 	# get current unvalidated data
 	print("getting current data")

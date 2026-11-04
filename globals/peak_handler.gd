@@ -53,6 +53,7 @@ func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
 			temp_peak_data.peak_index = null
 			
 			peaks_buffer.append(peak)
+			print("Appending found peak: ",peaks_buffer)
 			return peak
 		else:
 			temp_peak_data.data.append(prev_data.duplicate(true))
@@ -60,7 +61,7 @@ func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
 # validate peaks (check if they are steps)
 func validate(peaks_buffer:Array, steps_buffer:Array):
 	if peaks_buffer.size() == 0:
-		print("Peak buffer size is 0, returning..")
+		print("Peak buffer size is 0, returning: ", peaks_buffer)
 		return
 	
 	# get current unvalidated data

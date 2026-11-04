@@ -76,10 +76,13 @@ func validate(peaks_buffer:Array, steps_buffer:Array):
 	
 	# check conditions 
 	
+	print("Checking peak conditions")
+	
 	# check previous positive valley time and
 	# current negative valley time difference
 	if prev_peak_data and cur_neg_val.recorded_time - prev_peak_data.data[prev_peak_data.data.size() - 1].recorded_time < settings.min_time_between_peaks:
 		peaks_buffer.pop_back()
+		print("Failed condition 1")
 		return false
 	
 	# check average of 2 current 
@@ -87,6 +90,7 @@ func validate(peaks_buffer:Array, steps_buffer:Array):
 	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
 	if cur_peak.acc_magn_smooth - val_avg <= settings.min_avg_valley_peak_diff:
 		peaks_buffer.pop_back()
+		print("Failed condition 2")
 		return false
 	
 	# check duration between
@@ -94,16 +98,19 @@ func validate(peaks_buffer:Array, steps_buffer:Array):
 	var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
 	if val_dur < settings.min_valley_valley_time or val_dur > settings.max_valley_valley_time:
 		peaks_buffer.pop_back()
+		print("Failed condition 3")
 		return false
 	
 	# check difference between
 	# negative and positive valley
 	if absf(cur_neg_val.acc_magn_smooth - cur_pos_val.acc_magn_smooth) > settings.max_valley_diff:
 		peaks_buffer.pop_back()
+		print("Failed condition 3")
 		return false
 	
 	# if all condition passed, return peak
 	
+	print("Passed")
 	steps_buffer.append(cur_peak_data.duplicate(true))
 	peaks_buffer.pop_back()
 	return cur_peak_data

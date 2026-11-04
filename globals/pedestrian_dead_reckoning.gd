@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 		accumulator -= sampling_interval
 		
 		# check data timestamp
-		if Accelerometer.data_timestamp == prev_acc_timestamp: continue
+		#if Accelerometer.data_timestamp == prev_acc_timestamp: continue
 		#if Gyroscope.data_timestamp == prev_gyro_timestamp: continue
 		
 		# record data
@@ -93,15 +93,18 @@ func _process(delta: float) -> void:
 		
 		# find peaks
 		PeakHandler.find(buffer,peaks_buffer,temp_peak_data)
+		print("Finding peaks")
 		
 		# validate peaks (check if they are steps)
 		var step = PeakHandler.validate(peaks_buffer,steps_buffer)
+		print("Validate peaks")
 		if step:
 			# calculate step length
 			var step_length = StepHandler.calculate_step(step)
 			
 			# emit stepped signal
 			if step_length:
+				print("Step detected")
 				step_occured.emit(step,step_length)
 		
 		# clean steps buffer

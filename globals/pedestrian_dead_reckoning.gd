@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		
 		# check data timestamp
 		if Accelerometer.data_timestamp == prev_acc_timestamp: continue
-		if Gyroscope.data_timestamp == prev_gyro_timestamp: continue
+		#if Gyroscope.data_timestamp == prev_gyro_timestamp: continue
 		
 		# record data
 		var data:Dictionary = {

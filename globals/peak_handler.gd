@@ -78,7 +78,7 @@ func validate(peaks_buffer:Array, steps_buffer:Array):
 	
 	# check previous positive valley time and
 	# current negative valley time difference
-	if prev_peak_data and cur_neg_val.time - prev_peak_data.data[prev_peak_data.data.size() - 1].time < settings.min_time_between_peaks:
+	if prev_peak_data and cur_neg_val.recorded_time - prev_peak_data.data[prev_peak_data.data.size() - 1].recorded_time < settings.min_time_between_peaks:
 		peaks_buffer.pop_back()
 		return false
 	
@@ -91,7 +91,7 @@ func validate(peaks_buffer:Array, steps_buffer:Array):
 	
 	# check duration between
 	# negative to positive valleyss
-	var val_dur = cur_pos_val.time - cur_neg_val.time
+	var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
 	if val_dur < settings.min_valley_valley_time or val_dur > settings.max_valley_valley_time:
 		peaks_buffer.pop_back()
 		return false

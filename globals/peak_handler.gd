@@ -52,8 +52,7 @@ func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
 			temp_peak_data.data.clear()
 			temp_peak_data.peak_index = null
 			
-			peaks_buffer.append(peak)
-			print("Appending found peak: ",peaks_buffer)
+			print("Returning found peak: ")
 			return peak
 		else:
 			temp_peak_data.data.append(prev_data.duplicate(true))
@@ -85,7 +84,6 @@ func validate(peak, steps_buffer:Array):
 	# check previous positive valley time and
 	# current negative valley time difference
 	if prev_peak_data and cur_neg_val.recorded_time - prev_peak_data.data[prev_peak_data.data.size() - 1].recorded_time < settings.min_time_between_peaks:
-		#peaks_buffer.pop_back()
 		print("Failed condition 1")
 		return false
 	
@@ -93,7 +91,6 @@ func validate(peak, steps_buffer:Array):
 	# valleys accelerometer and compare to peak accelerometer
 	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
 	if cur_peak.acc_magn_smooth - val_avg <= settings.min_avg_valley_peak_diff:
-		#peaks_buffer.pop_back()
 		print("Failed condition 2")
 		return false
 	
@@ -101,20 +98,18 @@ func validate(peak, steps_buffer:Array):
 	# negative to positive valleyss
 	var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
 	if val_dur < settings.min_valley_valley_time or val_dur > settings.max_valley_valley_time:
-		#peaks_buffer.pop_back()
 		print("Failed condition 3")
 		return false
 	
 	# check difference between
 	# negative and positive valley
 	if absf(cur_neg_val.acc_magn_smooth - cur_pos_val.acc_magn_smooth) > settings.max_valley_diff:
-		#peaks_buffer.pop_back()
 		print("Failed condition 3")
 		return false
 	
 	# if all condition passed, return peak
 	
 	print("Passed")
-	steps_buffer.append(cur_peak_data.duplicate(true))
-	#peaks_buffer.pop_back()
-	return cur_peak_data
+	var step = cur_peak_data.duplicate(true)
+	steps_buffer.append(step)
+	return step

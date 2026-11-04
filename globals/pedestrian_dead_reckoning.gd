@@ -42,7 +42,6 @@ var temp_peak_data:Dictionary = {
 
 # buffer
 var buffer:Array = []
-var peaks_buffer:Array = []
 var steps_buffer:Array = []
 
 # sampling rate variables
@@ -95,7 +94,7 @@ func _process(delta: float) -> void:
 		print("Finding peaks")
 		var peak = PeakHandler.find(buffer,peaks_buffer,temp_peak_data)
 		
-		if peak:
+		if peak != null:
 			print("Found peak")
 			
 			print("Validating peak")

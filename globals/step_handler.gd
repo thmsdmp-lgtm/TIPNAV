@@ -26,4 +26,4 @@ func calculate_step(step_data:Dictionary):
 	var step_length = k * pow(max_acc-min_acc, 0.25)
 	
 	# estimate step direction
-	
+	return step_length

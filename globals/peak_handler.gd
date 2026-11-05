@@ -21,7 +21,7 @@ var settings:Dictionary =  {
 	}
 
 # find peaks
-func find(buffer:Array, peaks_buffer:Array, temp_peak_data:Dictionary):
+func find(buffer:Array, temp_peak_data:Dictionary):
 	if buffer.size() < 2: return
 	
 	# get data
@@ -87,12 +87,12 @@ func validate(peak, steps_buffer:Array):
 		print("Failed condition 1")
 		return false
 	
-	# check average of 2 current 
-	# valleys accelerometer and compare to peak accelerometer
-	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
-	if cur_peak.acc_magn_smooth - val_avg <= settings.min_avg_valley_peak_diff:
-		print("Failed condition 2")
-		return false
+	## check average of 2 current 
+	## valleys accelerometer and compare to peak accelerometer
+	#var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
+	#if cur_peak.acc_magn_smooth - val_avg <= settings.min_avg_valley_peak_diff:
+		#print("Failed condition 2")
+		#return false
 	
 	# check duration between
 	# negative to positive valleyss

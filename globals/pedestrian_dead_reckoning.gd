@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 		
 		# find peaks
 		print("Finding peaks")
-		var peak = PeakHandler.find(buffer,peaks_buffer,temp_peak_data)
+		var peak = PeakHandler.find(buffer,temp_peak_data)
 		
 		if peak != null:
 			print("Found peak")

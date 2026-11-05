@@ -77,10 +77,12 @@ func _process(delta: float) -> void:
 			
 			"acc":Accelerometer.data,
 			"acc_magn":Accelerometer.data_magn,
+			"acc_magn_lerped":Accelerometer.data_magn_lerped,
 			"acc_magn_smooth":Accelerometer.data_magn_smooth,
 			
 			"gyro":Gyroscope.data,
 			"gyro_magn":Gyroscope.data_magn,
+			"gyro_magn_lerped":Gyroscope.data_magn_lerped,
 			"gyro_magn_smooth":Gyroscope.data_magn_smooth,
 		}
 		

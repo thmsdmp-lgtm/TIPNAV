@@ -6,6 +6,7 @@ var line_height_mult:int = 20
 var buffer_size:int = 60
 var data_raw_color:Color = Color.RED
 var data_smooth_color:Color = Color.GREEN
+var data_lerped_color:Color = Color.BLUE
 
 # buffer
 var buffer:Array = []
@@ -14,6 +15,7 @@ var buffer:Array = []
 var chart:Control
 var chart_step:Control
 var line_chart_smooth:Line2D
+var line_chart_lerped:Line2D
 var line_chart_raw:Line2D
 var line_step_peak:Line2D
 var line_step:Line2D
@@ -40,6 +42,12 @@ func _ready() -> void:
 	line_chart_smooth.joint_mode = Line2D.LINE_JOINT_ROUND
 	line_chart_smooth.default_color = data_smooth_color
 	
+	line_chart_lerped = Line2D.new()
+	chart.add_child(line_chart_lerped)
+	line_chart_lerped.width = 3
+	line_chart_lerped.joint_mode = Line2D.LINE_JOINT_ROUND
+	line_chart_lerped.default_color = data_lerped_color
+	
 	line_step_peak = Line2D.new()
 	chart_step.add_child(line_step_peak)
 	line_step_peak.joint_mode = Line2D.LINE_JOINT_ROUND
@@ -62,6 +70,7 @@ func _ready() -> void:
 	for i in buffer_size + 1:
 		line_chart_raw.add_point(Vector2(x,c_size.y/2))
 		line_chart_smooth.add_point(Vector2(x,c_size.y/2))
+		line_chart_lerped.add_point(Vector2(x,c_size.y/2))
 		x += c_size.x / buffer_size
 	
 	x = 0
@@ -98,6 +107,7 @@ func _process(delta: float) -> void:
 		var data = {
 			"raw":Accelerometer.data_magn,
 			"smooth":Accelerometer.data_magn_smooth,
+			"lerped":Accelerometer.data_magn_lerped,
 		}
 		
 		buffer.append(data)
@@ -106,6 +116,7 @@ func _process(delta: float) -> void:
 	if buffer.size() == 0: return
 	if line_chart_raw.get_point_count() == 0: return
 	if line_chart_smooth.get_point_count() == 0: return
+	if line_chart_lerped.get_point_count() == 0: return
 	if line_step_peak.get_point_count() == 0: return
 	
 	var c_size = chart.size
@@ -121,3 +132,7 @@ func _process(delta: float) -> void:
 		# smooth
 		var orig_sm_pos = line_chart_smooth.get_point_position(i)
 		line_chart_smooth.set_point_position(i,Vector2(orig_sm_pos.x,(c_size.y/2) - (line_height_mult * data.smooth)))
+		
+		# lerped
+		var orig_lp_pos = line_chart_smooth.get_point_position(i)
+		line_chart_lerped.set_point_position(i,Vector2(orig_lp_pos.x,(c_size.y/2) - (line_height_mult * data.lerped)))

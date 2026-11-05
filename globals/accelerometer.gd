@@ -2,6 +2,7 @@
 extends Node
 
 # settings
+var lerp_weight:int = 0.2
 var window_size:int = 11
 
 # flags
@@ -13,6 +14,7 @@ var raw_magn_buffer:Array = []
 var data_timestamp:float
 var data: Vector3 = Vector3.ZERO
 var data_magn:float
+var data_magn_lerped:float
 var data_magn_smooth:float
 
 # constants
@@ -80,3 +82,6 @@ func _process(_delta: float):
 		
 		# assign result to variable
 		data_magn_smooth = result[0]
+		
+		# calculate lerped data
+		data_magn_lerped = lerpf(data_magn_lerped,data_magn,lerp_weight)

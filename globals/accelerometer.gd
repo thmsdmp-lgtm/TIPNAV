@@ -2,7 +2,7 @@
 extends Node
 
 # settings
-var lerp_weight:int = 0.2
+var lerp_weight:float = 0.2
 var window_size:int = 11
 
 # flags
@@ -82,6 +82,8 @@ func _process(_delta: float):
 		
 		# assign result to variable
 		data_magn_smooth = result[0]
+		
+		print(data_magn_lerped)
 		
 		# calculate lerped data
 		data_magn_lerped = lerpf(data_magn_lerped,data_magn,lerp_weight)

@@ -5,7 +5,7 @@ extends Node
 var lerp_weight:float = 0.2
 var window_size:int = 11
 
-# flags
+# flags 
 var is_initialized: bool = false
 
 # variables

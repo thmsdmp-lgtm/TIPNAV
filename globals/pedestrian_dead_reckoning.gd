@@ -93,13 +93,10 @@ func _process(delta: float) -> void:
 		prev_gyro_timestamp = Gyroscope.data_timestamp
 		
 		# find peaks
-		print("Finding peaks")
 		var peak = PeakHandler.find(buffer,temp_peak_data)
 		
 		if peak != null:
-			print("Found peak")
 			
-			print("Validating peak")
 			var step = PeakHandler.validate(peak,steps_buffer)
 			if step:
 				# calculate step length
@@ -107,9 +104,7 @@ func _process(delta: float) -> void:
 				
 				# emit stepped signal
 				if step_length:
-					print("Step detected")
 					step_occured.emit(step,step_length)
-		print("No steps found")
 		
 		# clean steps buffer
 		if steps_buffer.size() > max_steps_buffer_size:

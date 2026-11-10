@@ -30,18 +30,18 @@ func find(buffer:Array, temp_peak_data:Dictionary):
 	
 	if temp_peak_data.data.size() == 0:
 		# check data movement
-		if cur_data.acc_magn_smooth > prev_data.acc_magn_smooth:
+		if cur_data.acc_magn_lerped > prev_data.acc_magn_lerped:
 			temp_peak_data.data.append(prev_data.duplicate(true))
 	elif temp_peak_data.peak_index == null:
 		# check data movement
-		if cur_data.acc_magn_smooth < prev_data.acc_magn_smooth:
+		if cur_data.acc_magn_lerped < prev_data.acc_magn_lerped:
 			temp_peak_data.data.append(prev_data.duplicate(true))
 			temp_peak_data.peak_index = temp_peak_data.data.size() - 1
 		else:
 			temp_peak_data.data.append(prev_data.duplicate(true))
 	else:
 		# check data movement
-		if cur_data.acc_magn_smooth >= prev_data.acc_magn_smooth:
+		if cur_data.acc_magn_lerped >= prev_data.acc_magn_lerped:
 			
 			# record last data (positive valley)
 			temp_peak_data.data.append(prev_data.duplicate(true))
@@ -76,7 +76,7 @@ func validate(peak, steps_buffer:Array):
 	
 	# check conditions 
 	
-	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
+	var val_avg = (cur_neg_val.acc_magn_lerped + cur_pos_val.acc_magn_lerped) / 2
 	var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
 	
 	# check previous positive valley time and
@@ -86,7 +86,7 @@ func validate(peak, steps_buffer:Array):
 	
 	# check average of 2 current 
 	# valleys accelerometer and compare to peak accelerometer
-	if cur_peak.acc_magn_smooth - val_avg <= settings.min_avg_valley_peak_diff:
+	if cur_peak.acc_magn_lerped - val_avg <= settings.min_avg_valley_peak_diff:
 		return false
 	
 	# check duration between
@@ -96,7 +96,7 @@ func validate(peak, steps_buffer:Array):
 	
 	# check difference between
 	# negative and positive valley
-	if absf(cur_neg_val.acc_magn_smooth - cur_pos_val.acc_magn_smooth) > settings.max_valley_diff:
+	if absf(cur_neg_val.acc_magn_lerped - cur_pos_val.acc_magn_lerped) > settings.max_valley_diff:
 		return false
 	
 	# if all condition passed, return peak

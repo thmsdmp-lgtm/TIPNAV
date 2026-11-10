@@ -39,7 +39,7 @@ func find(buffer:Array, temp_peak_data:Dictionary):
 		# find peak
 		
 		if (cur_data.acc_magn_smooth < prev_data.acc_magn_smooth
-		and temp_peak_data.data[0].acc_magn_smooth - prev_data.acc_magn_smooth
+		and prev_data.acc_magn_smooth - temp_peak_data.data[0].acc_magn_smooth
 		>= settings.min_peak_valley_diff):
 			temp_peak_data.data.append(prev_data.duplicate(true))
 			temp_peak_data.peak_index = temp_peak_data.data.size() - 1

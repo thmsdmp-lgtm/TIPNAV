@@ -4,19 +4,19 @@ extends Node
 # create validation settings
 var settings:Dictionary =  {
 		# min time between peaks (msec)
-		"min_time_between_peaks":500,
+		"min_time_between_peaks":0,
 		
 		# minimum difference between avg of 2
 		# valleys to peak
-		"min_avg_valley_peak_diff":0.5,
+		"min_avg_valley_peak_diff":0,
 		
 		# the maximum difference between the negative
 		# valley and the positive valley
-		"max_valley_diff":0.7,
+		"max_valley_diff":0,
 		
 		# min and max duration between valleys
 		# (or peak duration/length)
-		"min_valley_valley_time":200,
+		"min_valley_valley_time":100,
 		"max_valley_valley_time":1500,
 	}
 

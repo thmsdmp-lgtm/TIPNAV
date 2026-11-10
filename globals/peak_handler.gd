@@ -4,19 +4,19 @@ extends Node
 # create validation settings
 var settings:Dictionary =  {
 		# min time between peaks (msec)
-		"min_time_between_peaks":0,
+		"min_time_between_peaks":500,
 		
 		# minimum difference between avg of 2
 		# valleys to peak
-		"min_avg_valley_peak_diff":0,
+		"min_avg_valley_peak_diff":0.5,
 		
 		# the maximum difference between the negative
 		# valley and the positive valley
-		"max_valley_diff":0,
+		"max_valley_diff":0.7,
 		
 		# min and max duration between valleys
 		# (or peak duration/length)
-		"min_valley_valley_time":100,
+		"min_valley_valley_time":200,
 		"max_valley_valley_time":1500,
 	}
 
@@ -76,28 +76,28 @@ func validate(peak, steps_buffer:Array):
 	
 	# check conditions 
 	
-	var val_avg = (cur_neg_val.acc_magn_lerped + cur_pos_val.acc_magn_lerped) / 2
-	var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
-	
-	# check previous positive valley time and
-	# current negative valley time difference
-	if prev_peak_data and cur_neg_val.recorded_time - prev_peak_data.data[prev_peak_data.data.size() - 1].recorded_time < settings.min_time_between_peaks:
-		return false
-	
-	# check average of 2 current 
-	# valleys accelerometer and compare to peak accelerometer
-	if cur_peak.acc_magn_lerped - val_avg <= settings.min_avg_valley_peak_diff:
-		return false
-	
-	# check duration between
-	# negative to positive valleyss
-	if val_dur < settings.min_valley_valley_time or val_dur > settings.max_valley_valley_time:
-		return false
-	
-	# check difference between
-	# negative and positive valley
-	if absf(cur_neg_val.acc_magn_lerped - cur_pos_val.acc_magn_lerped) > settings.max_valley_diff:
-		return false
+	#var val_avg = (cur_neg_val.acc_magn_lerped + cur_pos_val.acc_magn_lerped) / 2
+	#var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
+	#
+	## check previous positive valley time and
+	## current negative valley time difference
+	#if prev_peak_data and cur_neg_val.recorded_time - prev_peak_data.data[prev_peak_data.data.size() - 1].recorded_time < settings.min_time_between_peaks:
+		#return false
+	#
+	## check average of 2 current 
+	## valleys accelerometer and compare to peak accelerometer
+	#if cur_peak.acc_magn_lerped - val_avg <= settings.min_avg_valley_peak_diff:
+		#return false
+	#
+	## check duration between
+	## negative to positive valleyss
+	#if val_dur < settings.min_valley_valley_time or val_dur > settings.max_valley_valley_time:
+		#return false
+	#
+	## check difference between
+	## negative and positive valley
+	#if absf(cur_neg_val.acc_magn_lerped - cur_pos_val.acc_magn_lerped) > settings.max_valley_diff:
+		#return false
 	
 	# if all condition passed, return peak
 	var step = cur_peak_data.duplicate(true)

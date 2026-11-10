@@ -2,7 +2,7 @@
 extends Node
 
 # settings
-var lerp_weight:float = 0.2
+var lerp_weight:float = 0.1
 var window_size:int = 11
 
 # flags 

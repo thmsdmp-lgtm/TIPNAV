@@ -55,6 +55,9 @@ func _process(_delta: float):
 	# update other data type
 	data_magn = data.length()
 	
+	# calculate lerped data
+	data_magn_lerped = lerpf(data_magn_lerped,data_magn,lerp_weight)
+	
 	# fill buffer
 	raw_magn_buffer.append(data_magn)
 	
@@ -82,8 +85,3 @@ func _process(_delta: float):
 		
 		# assign result to variable
 		data_magn_smooth = result[0]
-		
-		print(data_magn_lerped)
-		
-		# calculate lerped data
-		data_magn_lerped = lerpf(data_magn_lerped,data_magn,lerp_weight)

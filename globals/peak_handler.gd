@@ -52,7 +52,7 @@ func find(buffer:Array, temp_peak_data:Dictionary):
 			temp_peak_data.data.clear()
 			temp_peak_data.peak_index = null
 			
-			print("Returning found peak: ")
+			
 			return peak
 		else:
 			temp_peak_data.data.append(prev_data.duplicate(true))
@@ -62,16 +62,13 @@ func validate(peak, steps_buffer:Array):
 	if peak == null: return
 	
 	# get current unvalidated data
-	print("getting current data")
 	var cur_peak_data = peak
 	
 	# get previous validated data
-	print("getting previous data")
 	var prev_peak_data = null
 	if steps_buffer.size() != 0:
 		prev_peak_data = steps_buffer[steps_buffer.size() - 1] 
 	
-	print("get current valleys and peaks")
 	# get current valleys and peak
 	var cur_neg_val = cur_peak_data.data[0]
 	var cur_peak = cur_peak_data.data[cur_peak_data.peak_index]
@@ -82,55 +79,27 @@ func validate(peak, steps_buffer:Array):
 	var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
 	var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
 	
-	print("\n========== PEAK DATA DEBUG ==========")
-
-	print("Total samples: ", cur_peak_data.data.size())
-	print("Peak index: ", cur_peak_data.peak_index)
-
-	print("Negative valley:")
-	print(cur_neg_val)
-
-	print("Peak:")
-	print(cur_peak)
-
-	print("Positive valley:")
-	print(cur_pos_val)
-
-	print("Valley average: ", val_avg)
-	print("Peak difference: ", cur_peak.acc_magn_smooth - val_avg)
-	print("Valley duration: ", val_dur)
-
-	print("=====================================\n")
-	
-	print("Checking peak conditions")
-	
 	# check previous positive valley time and
 	# current negative valley time difference
 	if prev_peak_data and cur_neg_val.recorded_time - prev_peak_data.data[prev_peak_data.data.size() - 1].recorded_time < settings.min_time_between_peaks:
-		print("Failed condition 1")
 		return false
 	
 	# check average of 2 current 
 	# valleys accelerometer and compare to peak accelerometer
 	if cur_peak.acc_magn_smooth - val_avg <= settings.min_avg_valley_peak_diff:
-		print("Failed condition 2")
 		return false
 	
 	# check duration between
 	# negative to positive valleyss
 	if val_dur < settings.min_valley_valley_time or val_dur > settings.max_valley_valley_time:
-		print("Failed condition 3")
 		return false
 	
 	# check difference between
 	# negative and positive valley
 	if absf(cur_neg_val.acc_magn_smooth - cur_pos_val.acc_magn_smooth) > settings.max_valley_diff:
-		print("Failed condition 3")
 		return false
 	
 	# if all condition passed, return peak
-	
-	print("Passed")
 	var step = cur_peak_data.duplicate(true)
 	steps_buffer.append(step)
 	return step

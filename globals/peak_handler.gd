@@ -14,6 +14,9 @@ var settings:Dictionary =  {
 		# valley and the positive valley
 		"max_valley_diff":0.7,
 		
+		# minimum difference between peak and valley
+		"min_peak_valley_diff":0.1,
+		
 		# min and max duration between valleys
 		# (or peak duration/length)
 		"min_valley_valley_time":200,
@@ -29,18 +32,21 @@ func find(buffer:Array, temp_peak_data:Dictionary):
 	var prev_data = buffer[buffer.size() - 2]
 	
 	if temp_peak_data.data.size() == 0:
-		# check data movement
+		# find neg valley
 		if cur_data.acc_magn_smooth > prev_data.acc_magn_smooth:
 			temp_peak_data.data.append(prev_data.duplicate(true))
 	elif temp_peak_data.peak_index == null:
-		# check data movement
-		if cur_data.acc_magn_smooth < prev_data.acc_magn_smooth:
+		# find peak
+		
+		if (cur_data.acc_magn_smooth < prev_data.acc_magn_smooth
+		and temp_peak_data.data[0].acc_magn_smooth - prev_data.acc_magn_smooth
+		>= settings.min_peak_valley_diff):
 			temp_peak_data.data.append(prev_data.duplicate(true))
 			temp_peak_data.peak_index = temp_peak_data.data.size() - 1
 		else:
 			temp_peak_data.data.append(prev_data.duplicate(true))
 	else:
-		# check data movement
+		# find pos valley
 		if cur_data.acc_magn_smooth >= prev_data.acc_magn_smooth:
 			
 			# record last data (positive valley)

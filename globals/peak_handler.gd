@@ -4,11 +4,11 @@ extends Node
 # create validation settings
 var settings:Dictionary =  {
 	# max and min step duration (msec)
-	"max_step_duration":1000,
+	"max_step_duration":1500,
 	"min_step_duration":300,
 	
 	# max difference between neg and pos valley
-	"max_valley_diff":0.2,
+	"max_valley_diff":0.5,
 	
 	# min time between peaks (msec)
 	"min_time_between_peaks":500,
@@ -18,7 +18,7 @@ var settings:Dictionary =  {
 	
 	# min peak height
 	"min_peak_value":0.5,
-	"max_peak_value":1,
+	"max_peak_value":5,
 }
 
 # temporary peak data

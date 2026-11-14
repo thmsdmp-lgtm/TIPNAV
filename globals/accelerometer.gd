@@ -4,6 +4,7 @@ extends Node
 # settings
 var lerp_weight:float = 0.2
 var window_size:int = 11
+var polynomial:int = 2
 
 # flags 
 var is_initialized: bool = false
@@ -77,11 +78,11 @@ func _process(_delta: float):
 				{
 					windowSize: %d,
 					derivative: 0,
-					polynomial: 2,
+					polynomial: %d,
 				}
 			)
 		)
-		""" % [data,window_size]))
+		""" % [data,window_size,polynomial]))
 		
 		# assign result to variable
 		data_magn_smooth = result[0]

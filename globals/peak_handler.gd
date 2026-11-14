@@ -46,8 +46,8 @@ func find(buffer:Array):
 		# find neg valley
 		
 		# monitor movement
-		if (newest_data.acc_magn_smooth > second_data.acc_magn_smooth
-		and second_data.acc_magn_smooth <= third_data.acc_magn_smooth):
+		if (newest_data.acc_magn_lerped > second_data.acc_magn_lerped
+		and second_data.acc_magn_lerped <= third_data.acc_magn_lerped):
 			
 			# record neg valley
 			temp_peak_data.data.append(second_data.duplicate(true))
@@ -62,11 +62,11 @@ func find(buffer:Array):
 			return
 		
 		# monitor movement and check conditions
-		if (newest_data.acc_magn_smooth < second_data.acc_magn_smooth
-		and second_data.acc_magn_smooth > third_data.acc_magn_smooth
+		if (newest_data.acc_magn_lerped < second_data.acc_magn_lerped
+		and second_data.acc_magn_lerped > third_data.acc_magn_lerped
 		
 		# check condition 1
-		and second_data.acc_magn_smooth - temp_peak_data.data[0].acc_magn_smooth
+		and second_data.acc_magn_lerped - temp_peak_data.data[0].acc_magn_lerped
 		>= settings.min_peak_valley_diff
 		
 		# check condition 2
@@ -89,11 +89,11 @@ func find(buffer:Array):
 			return
 		
 		# monitor movement and check conditions
-		if (newest_data.acc_magn_smooth >= second_data.acc_magn_smooth
-		and second_data.acc_magn_smooth <= third_data.acc_magn_smooth
+		if (newest_data.acc_magn_lerped >= second_data.acc_magn_lerped
+		and second_data.acc_magn_lerped <= third_data.acc_magn_lerped
 		
 		# check condition
-		and temp_peak_data.data[temp_peak_data.peak_index].acc_magn_smooth - second_data.acc_magn_smooth
+		and temp_peak_data.data[temp_peak_data.peak_index].acc_magn_lerped - second_data.acc_magn_lerped
 		>= settings.min_peak_valley_diff):
 			
 			# check if completed peak is above min duration

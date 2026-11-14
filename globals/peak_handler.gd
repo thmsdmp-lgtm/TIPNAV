@@ -3,109 +3,130 @@ extends Node
 
 # create validation settings
 var settings:Dictionary =  {
-		# min time between peaks (msec)
-		"min_time_between_peaks":500,
-		
-		# minimum difference between avg of 2
-		# valleys to peak
-		"min_avg_valley_peak_diff":0.5,
-		
-		# the maximum difference between the negative
-		# valley and the positive valley
-		"max_valley_diff":0.7,
-		
-		# minimum difference between peak and valley
-		"min_peak_valley_diff":0.1,
-		
-		# min and max duration between valleys
-		# (or peak duration/length)
-		"min_valley_valley_time":200,
-		"max_valley_valley_time":1500,
-	}
+	# max and min step duration (msec)
+	"max_step_duration":1000,
+	"min_step_duration":300,
+	
+	# min time between peaks (msec)
+	"min_time_between_peaks":500,
+	
+	# minimum difference between peak and valley
+	"min_peak_valley_diff":0.1,
+}
 
-# find peaks
-func find(buffer:Array, temp_peak_data:Dictionary):
-	if buffer.size() < 2: return
+# temporary peak data
+var temp_peak_data:Dictionary = {
+	"data":[],
+	"peak_index":null,
+	"peak_time":null,
+}
+
+# previous peak time
+var prev_peak_time:float = -INF
+
+# reset temporary data
+func reset_temp():
+	temp_peak_data.data.clear()
+	temp_peak_data.peak_index = null
+	temp_peak_data.peak_time = null
+
+# find steps
+func find(buffer:Array):
+	if buffer.size() < 3: return
 	
 	# get data
-	var cur_data = buffer[buffer.size() - 1]
-	var prev_data = buffer[buffer.size() - 2]
+	var newest_data = buffer[buffer.size() - 1]
+	var second_data = buffer[buffer.size() - 2]
+	var third_data = buffer[buffer.size() - 3]
 	
-	if temp_peak_data.data.size() == 0:
+	if (temp_peak_data.data.size() == 0
+	and temp_peak_data.peak_index == null
+	and temp_peak_data.peak_time == null
+	):
 		# find neg valley
-		if cur_data.acc_magn_smooth > prev_data.acc_magn_smooth:
-			temp_peak_data.data.append(prev_data.duplicate(true))
+		
+		# monitor movement
+		if (newest_data.acc_magn_smooth > second_data.acc_magn_smooth
+		and second_data.acc_magn_smooth <= third_data.acc_magn_smooth):
+			
+			# record neg valley
+			temp_peak_data.data.append(second_data.duplicate(true))
+			
 	elif temp_peak_data.peak_index == null:
 		# find peak
 		
-		if (cur_data.acc_magn_smooth < prev_data.acc_magn_smooth
-		and prev_data.acc_magn_smooth - temp_peak_data.data[0].acc_magn_smooth
-		>= settings.min_peak_valley_diff):
-			temp_peak_data.data.append(prev_data.duplicate(true))
+		# check elapsed time since neg valley
+		var time = second_data.recorded_time
+		if (time - temp_peak_data.data[0].recorded_time > settings.max_step_duration):
+			reset_temp()
+			return
+		
+		# monitor movement and check conditions
+		if (newest_data.acc_magn_smooth < second_data.acc_magn_smooth
+		and second_data.acc_magn_smooth > third_data.acc_magn_smooth
+		
+		# check condition 1
+		and second_data.acc_magn_smooth - temp_peak_data.data[0].acc_magn_smooth
+		>= settings.min_peak_valley_diff
+		
+		# check condition 2
+		and second_data.recorded_time - prev_peak_time >= settings.min_time_between_peaks):
+			
+			# record peak
+			temp_peak_data.data.append(second_data.duplicate(true))
 			temp_peak_data.peak_index = temp_peak_data.data.size() - 1
+			temp_peak_data.peak_time = second_data.recorded_time
+			
 		else:
-			temp_peak_data.data.append(prev_data.duplicate(true))
+			temp_peak_data.data.append(second_data.duplicate(true))
 	else:
 		# find pos valley
-		if cur_data.acc_magn_smooth >= prev_data.acc_magn_smooth:
+		
+		# check elapsed time since neg valley
+		var time = second_data.recorded_time
+		if (time - temp_peak_data.data[0].recorded_time > settings.max_step_duration):
+			reset_temp()
+			return
+		
+		# monitor movement and check conditions
+		if (newest_data.acc_magn_smooth >= second_data.acc_magn_smooth
+		and second_data.acc_magn_smooth <= third_data.acc_magn_smooth
+		
+		# check condition
+		and temp_peak_data.data[temp_peak_data.peak_index].acc_magn_smooth - second_data.acc_magn_smooth
+		>= settings.min_peak_valley_diff):
+			
+			# check if completed peak is above min duration
+			if (time - temp_peak_data.data[0].recorded_time < settings.min_step_duration):
+				reset_temp()
+				return
 			
 			# record last data (positive valley)
-			temp_peak_data.data.append(prev_data.duplicate(true))
+			temp_peak_data.data.append(second_data.duplicate(true))
 			
 			# once set is completed (negative valley, peak, positive valley)
-			# return, then clear to repeat cycle
+			# validate, then reset temporary data to repeat cycle
 			var peak = temp_peak_data.duplicate(true)
-			temp_peak_data.data.clear()
-			temp_peak_data.peak_index = null
 			
+			# reset template
+			reset_temp()
 			
-			return peak
+			# validate other conditions
+			return validate(peak)
 		else:
-			temp_peak_data.data.append(prev_data.duplicate(true))
+			temp_peak_data.data.append(second_data.duplicate(true))
 
 # validate peaks (check if they are steps)
-func validate(peak, steps_buffer:Array):
+func validate(peak):
 	if peak == null: return
 	
 	# get current unvalidated data
 	var cur_peak_data = peak
-	
-	# get previous validated data
-	var prev_peak_data = null
-	if steps_buffer.size() != 0:
-		prev_peak_data = steps_buffer[steps_buffer.size() - 1] 
 	
 	# get current valleys and peak
 	var cur_neg_val = cur_peak_data.data[0]
 	var cur_peak = cur_peak_data.data[cur_peak_data.peak_index]
 	var cur_pos_val = cur_peak_data.data[cur_peak_data.data.size() - 1]
 	
-	# check conditions 
-	
-	#var val_avg = (cur_neg_val.acc_magn_smooth + cur_pos_val.acc_magn_smooth) / 2
-	#var val_dur = cur_pos_val.recorded_time - cur_neg_val.recorded_time
-	#
-	## check previous positive valley time and
-	## current negative valley time difference
-	#if prev_peak_data and cur_neg_val.recorded_time - prev_peak_data.data[prev_peak_data.data.size() - 1].recorded_time < settings.min_time_between_peaks:
-		#return false
-	#
-	## check average of 2 current 
-	## valleys accelerometer and compare to peak accelerometer
-	#if cur_peak.acc_magn_smooth - val_avg <= settings.min_avg_valley_peak_diff:
-		#return false
-	#
-	## check duration between
-	## negative to positive valleyss
-	#if val_dur < settings.min_valley_valley_time or val_dur > settings.max_valley_valley_time:
-		#return false
-	#
-	## check difference between
-	## negative and positive valley
-	#if absf(cur_neg_val.acc_magn_smooth - cur_pos_val.acc_magn_smooth) > settings.max_valley_diff:
-		#return false
-	
-	# if all condition passed, return peak
-	var step = cur_peak_data.duplicate(true)
-	steps_buffer.append(step)
-	return step
+	prev_peak_time = cur_peak.recorded_time
+	return peak

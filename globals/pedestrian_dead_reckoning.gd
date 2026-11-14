@@ -34,12 +34,6 @@ signal step_occured(step_data:Dictionary,step_length:float)
 
 #	-----------	VARIABLES	----------
 
-# template peak data
-var temp_peak_data:Dictionary = {
-	"data":[],
-	"peak_index":null,
-}
-
 # buffer
 var buffer:Array = []
 var steps_buffer:Array = []
@@ -93,23 +87,20 @@ func _process(delta: float) -> void:
 		prev_gyro_timestamp = Gyroscope.data_timestamp
 		
 		# find peaks
-		var peak = PeakHandler.find(buffer,temp_peak_data)
+		var step = PeakHandler.find(buffer)
 		
-		if peak != null:
+		if step != null:
+			# calculate step length
+			var step_length = StepHandler.calculate_step(step)
 			
-			var step = PeakHandler.validate(peak,steps_buffer)
-			if step:
-				# calculate step length
-				var step_length = StepHandler.calculate_step(step)
-				
-				# emit stepped signal
-				if step_length:
-					step_occured.emit(step,step_length)
+			# emit stepped signal
+			if step_length:
+				step_occured.emit(step,step_length)
 		
 		# clean steps buffer
 		if steps_buffer.size() > max_steps_buffer_size:
 			steps_buffer.pop_front()
 		
 		# clean buffer
-		if buffer.size() > 2:
+		if buffer.size() > 3:
 			buffer.pop_front()

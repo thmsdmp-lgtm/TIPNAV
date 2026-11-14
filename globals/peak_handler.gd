@@ -7,6 +7,9 @@ var settings:Dictionary =  {
 	"max_step_duration":1000,
 	"min_step_duration":300,
 	
+	# max difference between neg and pos valley
+	"max_valley_diff":0.5,
+	
 	# min time between peaks (msec)
 	"min_time_between_peaks":500,
 	
@@ -92,7 +95,10 @@ func find(buffer:Array):
 		if (newest_data.acc_magn_lerped >= second_data.acc_magn_lerped
 		and second_data.acc_magn_lerped <= third_data.acc_magn_lerped
 		
-		# check condition
+		# check condition 3
+		and abs(temp_peak_data.data[0].acc_magn_lerped - second_data.acc_magn_lerped) < settings.max_valley_diff
+		
+		# check condition 4
 		and temp_peak_data.data[temp_peak_data.peak_index].acc_magn_lerped - second_data.acc_magn_lerped
 		>= settings.min_peak_valley_diff):
 			

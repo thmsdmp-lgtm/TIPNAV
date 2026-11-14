@@ -8,13 +8,17 @@ var settings:Dictionary =  {
 	"min_step_duration":300,
 	
 	# max difference between neg and pos valley
-	"max_valley_diff":0.5,
+	"max_valley_diff":0.2,
 	
 	# min time between peaks (msec)
 	"min_time_between_peaks":500,
 	
 	# minimum difference between peak and valley
-	"min_peak_valley_diff":0.1,
+	"min_peak_valley_diff":0.3,
+	
+	# min peak height
+	"min_peak_value":0.5,
+	"max_peak_value":1,
 }
 
 # temporary peak data
@@ -58,7 +62,7 @@ func find(buffer:Array):
 	elif temp_peak_data.peak_index == null:
 		# find peak
 		
-		# check elapsed time since neg valley
+		# check condition
 		var time = second_data.recorded_time
 		if (time - temp_peak_data.data[0].recorded_time > settings.max_step_duration):
 			reset_temp()
@@ -68,11 +72,11 @@ func find(buffer:Array):
 		if (newest_data.acc_magn_lerped < second_data.acc_magn_lerped
 		and second_data.acc_magn_lerped > third_data.acc_magn_lerped
 		
-		# check condition 1
+		# check condition
 		and second_data.acc_magn_lerped - temp_peak_data.data[0].acc_magn_lerped
 		>= settings.min_peak_valley_diff
 		
-		# check condition 2
+		# check condition
 		and second_data.recorded_time - prev_peak_time >= settings.min_time_between_peaks):
 			
 			# record peak
@@ -85,7 +89,7 @@ func find(buffer:Array):
 	else:
 		# find pos valley
 		
-		# check elapsed time since neg valley
+		# check condition
 		var time = second_data.recorded_time
 		if (time - temp_peak_data.data[0].recorded_time > settings.max_step_duration):
 			reset_temp()
@@ -95,15 +99,21 @@ func find(buffer:Array):
 		if (newest_data.acc_magn_lerped >= second_data.acc_magn_lerped
 		and second_data.acc_magn_lerped <= third_data.acc_magn_lerped
 		
-		# check condition 3
+		# check condition
 		and abs(temp_peak_data.data[0].acc_magn_lerped - second_data.acc_magn_lerped) < settings.max_valley_diff
 		
-		# check condition 4
+		# check condition
 		and temp_peak_data.data[temp_peak_data.peak_index].acc_magn_lerped - second_data.acc_magn_lerped
 		>= settings.min_peak_valley_diff):
 			
-			# check if completed peak is above min duration
+			# check condition
 			if (time - temp_peak_data.data[0].recorded_time < settings.min_step_duration):
+				reset_temp()
+				return
+			
+			# check condition
+			if (temp_peak_data.data[temp_peak_data.peak_index].acc_magn_lerped < settings.min_peak_value
+			or temp_peak_data.data[temp_peak_data.peak_index].acc_magn_lerped > settings.max_peak_value):
 				reset_temp()
 				return
 			
@@ -118,21 +128,6 @@ func find(buffer:Array):
 			reset_temp()
 			
 			# validate other conditions
-			return validate(peak)
+			return peak
 		else:
 			temp_peak_data.data.append(second_data.duplicate(true))
-
-# validate peaks (check if they are steps)
-func validate(peak):
-	if peak == null: return
-	
-	# get current unvalidated data
-	var cur_peak_data = peak
-	
-	# get current valleys and peak
-	var cur_neg_val = cur_peak_data.data[0]
-	var cur_peak = cur_peak_data.data[cur_peak_data.peak_index]
-	var cur_pos_val = cur_peak_data.data[cur_peak_data.data.size() - 1]
-	
-	prev_peak_time = cur_peak.recorded_time
-	return peak

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
-[ext_resource type="Script" uid="uid://cnhamh47x8bs0" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cnhamh47x8bs0" path="res://Ui_main.gd" id="1_cprwh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlew8"]
 content_margin_left = 12.0
@@ -197,7 +197,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_ig7tw")
+script = ExtResource("1_cprwh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=92417594]
 layout_mode = 1

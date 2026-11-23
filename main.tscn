@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
 [ext_resource type="Script" uid="uid://btqi5ci5xex40" path="res://scripts/interface/custom_Vscroll_container.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://y3yrbp7h4hm7" path="res://scripts/interface/home.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://bir17mxnm3pf7" path="res://scripts/interface/tab_manager.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://qj8j44mahear" path="res://search_manager.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://c4tg1ign44wxl" path="res://scripts/interface/custom_Hscroll_container.gd" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://dxflixejd2s5" path="res://scripts/interface/suggested_places.gd" id="4_272bh"]
+[ext_resource type="PackedScene" uid="uid://bop6rsyryb05c" path="res://scenes/place_card_1.tscn" id="6_5vw27"]
+[ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="7_4c57u"]
+[ext_resource type="Script" uid="uid://c68mqr0cibcq6" path="res://custom_row_container.gd" id="7_kek77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
 bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
@@ -22,8 +22,8 @@ corner_radius_bottom_left = 70
 shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vivmo"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -31,17 +31,13 @@ corner_radius_bottom_left = 50
 shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
@@ -65,22 +61,6 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
-bg_color = Color(0.73333335, 0.7529412, 0.91764706, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
 bg_color = Color(0.7411765, 0.7607843, 0.92156863, 1)
 corner_radius_top_left = 70
@@ -90,10 +70,10 @@ corner_radius_bottom_left = 70
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 96
-corner_radius_top_right = 96
-corner_radius_bottom_right = 96
-corner_radius_bottom_left = 96
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
 
@@ -112,6 +92,22 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
 [node name="Main" type="Node" unique_id=1649254548]
 
 [node name="Ui" type="Control" parent="." unique_id=1762042228]
@@ -122,40 +118,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="place_info" type="Panel" parent="Ui" unique_id=500592760]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
-
-[node name="images" type="Panel" parent="Ui/place_info" unique_id=2091042687]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = -957.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
-
-[node name="back" type="Panel" parent="Ui/place_info" unique_id=731577849]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07361111
-anchor_top = 0.041875
-anchor_right = 0.23055555
-anchor_bottom = 0.107262686
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
 metadata/_edit_use_anchors_ = true
 
 [node name="tab_container" type="Control" parent="Ui" unique_id=1194538160]
@@ -179,7 +141,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
 
-[node name="search" type="Panel" parent="Ui/tab_container/categories" unique_id=25555295]
+[node name="search" type="Panel" parent="Ui/tab_container/categories" unique_id=25555295 groups=["Search Bar"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2611111
@@ -202,41 +164,13 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
 metadata/_edit_use_anchors_ = true
 
-[node name="scroll_container" type="Control" parent="Ui/tab_container/categories" unique_id=117203945]
-layout_mode = 1
-anchor_top = 0.146875
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 1.5258789e-05
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="scroll_container2" type="Panel" parent="Ui/tab_container/categories/scroll_container" unique_id=133224207]
+[node name="Button" type="Button" parent="Ui/tab_container/categories/search" unique_id=1857422184]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 773.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-
-[node name="Panel" type="Panel" parent="Ui/tab_container/categories/scroll_container/scroll_container2" unique_id=378607546]
-layout_mode = 0
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 423.0
-offset_bottom = 246.0
-mouse_filter = 2
-
-[node name="Panel2" type="Panel" parent="Ui/tab_container/categories/scroll_container/scroll_container2" unique_id=618740482]
-layout_mode = 0
-offset_left = 294.0
-offset_top = 1887.0
-offset_right = 719.0
-offset_bottom = 2135.0
-mouse_filter = 2
 
 [node name="map" type="Control" parent="Ui/tab_container" unique_id=1810525034 groups=["Tabs"]]
 visible = false
@@ -248,7 +182,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="search" type="Panel" parent="Ui/tab_container/map" unique_id=1526754937]
+[node name="search" type="Panel" parent="Ui/tab_container/map" unique_id=1526754937 groups=["Search Bar"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2611111
@@ -271,116 +205,13 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
 metadata/_edit_use_anchors_ = true
 
-[node name="place_card" type="Panel" parent="Ui/tab_container/map" unique_id=388882241]
+[node name="Button" type="Button" parent="Ui/tab_container/map/search" unique_id=1298247484]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.16111112
-anchor_top = 0.690625
-anchor_right = 0.82222223
-anchor_bottom = 0.849375
-offset_right = -3.0517578e-05
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
-metadata/_edit_use_anchors_ = true
-
-[node name="_Panel_419502" type="Panel" parent="Ui/tab_container/map/place_card" unique_id=288968199]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5344382
-anchor_top = 0.65320873
-anchor_right = 0.95399517
-anchor_bottom = 0.9168928
-offset_left = -1.5258789e-05
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2cqfq")
-metadata/_edit_use_anchors_ = true
-
-[node name="@Panel@419503" type="Panel" parent="Ui/tab_container/map/place_card" unique_id=305278926]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.03874092
-anchor_top = 0.083081886
-anchor_right = 0.50605327
-anchor_bottom = 0.9168681
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
-metadata/_edit_use_anchors_ = true
-
-[node name="place_card2" type="Panel" parent="Ui/tab_container/map" unique_id=1171802400]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.5541667
-anchor_top = 0.690625
-anchor_right = 0.10694449
-anchor_bottom = 0.849375
-offset_right = -3.0517578e-05
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
-metadata/_edit_use_anchors_ = true
-
-[node name="_Panel_419502" type="Panel" parent="Ui/tab_container/map/place_card2" unique_id=1927723333]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5344382
-anchor_top = 0.65320873
-anchor_right = 0.95399517
-anchor_bottom = 0.9168928
-offset_left = -1.5258789e-05
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2cqfq")
-metadata/_edit_use_anchors_ = true
-
-[node name="_Panel_419503" type="Panel" parent="Ui/tab_container/map/place_card2" unique_id=1251398085]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.03874092
-anchor_top = 0.083081886
-anchor_right = 0.50605327
-anchor_bottom = 0.9168681
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
-metadata/_edit_use_anchors_ = true
-
-[node name="place_card3" type="Panel" parent="Ui/tab_container/map" unique_id=171405737]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.88611114
-anchor_top = 0.690625
-anchor_right = 1.5472223
-anchor_bottom = 0.849375
-offset_right = -3.0517578e-05
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
-metadata/_edit_use_anchors_ = true
-
-[node name="_Panel_419502" type="Panel" parent="Ui/tab_container/map/place_card3" unique_id=1364327162]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5344382
-anchor_top = 0.65320873
-anchor_right = 0.95399517
-anchor_bottom = 0.9168928
-offset_left = -1.5258789e-05
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2cqfq")
-metadata/_edit_use_anchors_ = true
-
-[node name="_Panel_419503" type="Panel" parent="Ui/tab_container/map/place_card3" unique_id=1661007223]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.03874092
-anchor_top = 0.083081886
-anchor_right = 0.50605327
-anchor_bottom = 0.9168681
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
-metadata/_edit_use_anchors_ = true
+grow_vertical = 2
 
 [node name="home" type="Control" parent="Ui/tab_container" unique_id=950378000 groups=["Tabs"]]
 layout_mode = 1
@@ -389,12 +220,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h2yge")
 
 [node name="scroll" type="Panel" parent="Ui/tab_container/home" unique_id=1569250526 node_paths=PackedStringArray("TouchSource")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.330625
+anchor_bottom = 1.453125
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -403,7 +235,7 @@ script = ExtResource("1_0xm2m")
 TouchSource = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
-[node name="search" type="Button" parent="Ui/tab_container/home/scroll" unique_id=485141613]
+[node name="search" type="Panel" parent="Ui/tab_container/home/scroll" unique_id=1301512860 groups=["Search Bar"]]
 layout_mode = 0
 anchor_left = 0.06018519
 anchor_top = 0.13171747
@@ -411,7 +243,20 @@ anchor_right = 0.93981475
 anchor_bottom = 0.18226267
 offset_right = -6.1035156e-05
 offset_bottom = -3.0517578e-05
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Ui/tab_container/home/scroll/search" unique_id=299433190]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vw27")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kek77")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4c57u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efxa6")
 
 [node name="map_card1" type="Panel" parent="Ui/tab_container/home/scroll" unique_id=68533836]
 layout_mode = 1
@@ -445,73 +290,6 @@ anchor_bottom = 0.9199605
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7mycd")
 metadata/_edit_use_anchors_ = true
-
-[node name="place_card" type="Panel" parent="Ui/tab_container/home/scroll" unique_id=1778493915]
-layout_mode = 0
-anchor_left = 0.06018519
-anchor_top = 0.4655956
-anchor_right = 0.33772218
-anchor_bottom = 0.61170155
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
-metadata/_edit_use_anchors_ = true
-
-[node name="place_thumbnail" type="Panel" parent="Ui/tab_container/home/scroll/place_card" unique_id=1190339924]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -153.2063
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
-
-[node name="place_card2" type="Panel" parent="Ui/tab_container/home/scroll" unique_id=1606158167]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3671296
-anchor_top = 0.4655956
-anchor_right = 0.6446663
-anchor_bottom = 0.61170155
-offset_right = -3.0517578e-05
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
-metadata/_edit_use_anchors_ = true
-
-[node name="place_thumbnail" type="Panel" parent="Ui/tab_container/home/scroll/place_card2" unique_id=16974202]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -153.2063
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
-
-[node name="place_card3" type="Panel" parent="Ui/tab_container/home/scroll" unique_id=1015532238]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.67083335
-anchor_top = 0.46559563
-anchor_right = 0.94837034
-anchor_bottom = 0.6117016
-offset_bottom = -6.1035156e-05
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
-metadata/_edit_use_anchors_ = true
-
-[node name="place_thumbnail" type="Panel" parent="Ui/tab_container/home/scroll/place_card3" unique_id=1506954598]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -153.2063
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
 
 [node name="user_card" type="Control" parent="Ui/tab_container/home/scroll" unique_id=12322972]
 anchors_preset = 0
@@ -611,8 +389,30 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
 metadata/_edit_use_anchors_ = true
 
-[node name="search" type="Panel" parent="Ui" unique_id=1609497967]
-visible = false
+[node name="suggested_places" type="Control" parent="Ui/tab_container/home/scroll" unique_id=58432463 node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchor_top = 0.45505378
+anchor_right = 1.0
+anchor_bottom = 0.6537634
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_272bh")
+parent = NodePath("scroll/row_container")
+card = ExtResource("6_5vw27")
+metadata/_edit_use_anchors_ = true
+
+[node name="scroll" type="Control" parent="Ui/tab_container/home/scroll/suggested_places" unique_id=374886570 node_paths=PackedStringArray("TouchSource")]
+layout_mode = 1
+anchor_right = 3.925
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_7mycd")
+TouchSource = NodePath("..")
+metadata/_edit_use_anchors_ = true
+
+[node name="row_container" type="Control" parent="Ui/tab_container/home/scroll/suggested_places/scroll" unique_id=107582405]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -620,32 +420,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
-
-[node name="search" type="Panel" parent="Ui/search" unique_id=398937556]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.2611111
-anchor_top = 0.041875
-anchor_right = 0.9393519
-anchor_bottom = 0.107262686
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+script = ExtResource("7_kek77")
+padding = Vector2(50, 20)
+stretch_to_fill = false
 metadata/_edit_use_anchors_ = true
 
-[node name="search2" type="Panel" parent="Ui/search/search" unique_id=2114282321]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.29283273
-anchor_right = -0.07576791
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+[node name="AutoSizeLabel" type="Label" parent="Ui/tab_container/home/scroll" unique_id=1685779517]
+layout_mode = 0
+anchor_right = 0.60833335
+anchor_bottom = 0.07870968
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_font_sizes/font_size = 40
+text = "Welcome!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 40
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 metadata/_edit_use_anchors_ = true
 
 [node name="tab_bar" type="Panel" parent="Ui" unique_id=1918553002]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.096736126
@@ -658,6 +457,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ycdy4")
 script = ExtResource("1_ig7tw")
+button_spacing = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="home" type="Button" parent="Ui/tab_bar" unique_id=392303997 groups=["Tab Buttons"]]
@@ -697,4 +497,76 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ig7tw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ig7tw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ig7tw")
+metadata/_edit_use_anchors_ = true
+
+[node name="search" type="Panel" parent="Ui" unique_id=1609497967]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+script = ExtResource("4_1bvp3")
+
+[node name="back" type="Button" parent="Ui/search" unique_id=293625883]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.041875
+anchor_right = 0.20694445
+anchor_bottom = 0.10726272
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_272bh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+metadata/_edit_use_anchors_ = true
+
+[node name="search" type="Panel" parent="Ui/search" unique_id=398937556]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2611111
+anchor_top = 0.041875
+anchor_right = 0.9393519
+anchor_bottom = 0.107262686
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_info" type="Panel" parent="Ui" unique_id=500592760]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="images" type="Panel" parent="Ui/place_info" unique_id=2091042687]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = -957.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
+
+[node name="back" type="Panel" parent="Ui/place_info" unique_id=731577849]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07361111
+anchor_top = 0.041875
+anchor_right = 0.23055555
+anchor_bottom = 0.107262686
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
 metadata/_edit_use_anchors_ = true

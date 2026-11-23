@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Accelerometer="*uid://dh7fvwc6yqvyf"
-ui_singleton="*uid://cx4ktbpmuahms"
+PlaceManager="*uid://c12vdu55wowkx"
 
 [display]
 

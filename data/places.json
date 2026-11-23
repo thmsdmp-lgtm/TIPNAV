@@ -1,22 +1,7 @@
 [
 	{
-		"name": "Computer Laboratory 1",
-		"category": "Laboratories",
-		"subtitle": "IT & Computer Science Dept.",
-		"location": "Building 5 • 3rd Floor",
-		"room": "Room 5301",
-		"hours": "7:30 AM - 8:30 PM (Mon-Sat)",
-		"description": "Equipped with desktop workstations for programming, software development, and 3D modeling classes.",
-		"services": [
-			"PC Workstations",
-			"LAN Internet",
-			"Air Conditioned",
-			"Projector"
-		]
-	},
-	{
-		"name": "Registrar's Office",
-		"category": "Administrative Offices",
+		"name": "Registrar's Office 1",
+		"category": "Offices",
 		"subtitle": "Student Records & Enrollment",
 		"location": "Main Building • Ground Floor",
 		"room": "Room 1101",
@@ -27,5 +12,61 @@
 			"Enrollment",
 			"Student Credentials"
 		]
-	}
+	},
+	{
+		"name": "Registrar's Office 2",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+	{
+		"name": "Registrar's Office 3",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+	{
+		"name": "Accounting Office",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+	{
+		"name": "Accounting Office 2",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
 ]

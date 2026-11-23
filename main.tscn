@@ -1,16 +1,16 @@
 [gd_scene format=4 uid="uid://cfkb8y1mpcos2"]
 
+[ext_resource type="Script" uid="uid://btqi5ci5xex40" path="res://scripts/interface/custom_Vscroll_container.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://y3yrbp7h4hm7" path="res://scripts/interface/home.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://bir17mxnm3pf7" path="res://scripts/interface/tab_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://begslctlmfpmd" path="res://scripts/temp_scripts/switch_focus_mode.gd" id="2_lquwl"]
 [ext_resource type="Script" uid="uid://drxb8tdpd5hcx" path="res://scripts/temp_scripts/switch_cam_mode.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://yd4dt6u2ilfe" path="res://scripts/camera_controller.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://byhbxww5jolbj" path="res://scripts/temp_scripts/capsule_manager.gd" id="4_1bvp3"]
-[ext_resource type="Shader" uid="uid://b42drvettre55" path="res://shaders/material.gdshader" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://btqi5ci5xex40" path="res://scripts/interface/custom_Vscroll_container.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://y3yrbp7h4hm7" path="res://scripts/interface/home.gd" id="1_h2yge"]
-[ext_resource type="Script" uid="uid://bir17mxnm3pf7" path="res://scripts/interface/tab_manager.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://qj8j44mahear" path="res://scripts/interface/search_manager.gd" id="4_search"]
 [ext_resource type="Script" uid="uid://c4tg1ign44wxl" path="res://scripts/interface/custom_Hscroll_container.gd" id="4_7mycd"]
 [ext_resource type="Script" uid="uid://dxflixejd2s5" path="res://scripts/interface/suggested_places.gd" id="4_272bh"]
+[ext_resource type="Script" uid="uid://qj8j44mahear" path="res://scripts/interface/search_manager.gd" id="4_search"]
+[ext_resource type="Shader" uid="uid://b42drvettre55" path="res://shaders/material.gdshader" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bop6rsyryb05c" path="res://scenes/place_card_1.tscn" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="7_4c57u"]
 [ext_resource type="Script" uid="uid://c68mqr0cibcq6" path="res://scripts/interface/custom_row_container.gd" id="7_kek77"]
@@ -39,6 +39,118 @@ fog_density = 0.3324
 fog_depth_curve = 1.9999993
 fog_depth_begin = 0.0
 fog_depth_end = 250.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaehf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cegan"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82xsv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
+bg_color = Color(0.7411765, 0.7607843, 0.92156863, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.078431375)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a77ed"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkt0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hflkp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a77ed"]
 
@@ -713,118 +825,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wfet1")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
-bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaehf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cegan"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82xsv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
-bg_color = Color(0.7411765, 0.7607843, 0.92156863, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.078431375)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a77ed"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkt0i"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hflkp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
 [node name="Main" type="Node" unique_id=1649254548]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1890749350]
@@ -1340,11 +1340,13 @@ script = ExtResource("2_lquwl")
 metadata/_edit_use_anchors_ = true
 
 [node name="scene_labels" type="Control" parent="Interface" unique_id=401382350]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="World" type="Node3D" parent="." unique_id=2005778649]
 

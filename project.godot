@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Accelerometer="*uid://dh7fvwc6yqvyf"
+PlaceManager="*uid://c12vdu55wowkx"
 Gyroscope="*uid://crhhwj7pjikej"
 PedestrianDeadReckoning="*uid://b6ei5ykp1sslx"
 StepDetection="*uid://djbcp8k6uvp83"
@@ -27,7 +28,6 @@ Magnetometer="*uid://c5p3x7u7ycv1m"
 StepHeading="*uid://u2apqf5847f1"
 PathManager="*uid://b2yphovic8qex"
 SceneLabels="*uid://c21ena0y85oxm"
-PlaceManager="*uid://c12vdu55wowkx"
 
 [display]
 
@@ -47,16 +47,16 @@ enabled=PackedStringArray("res://addons/minimize_html_build/plugin.cfg")
 
 import/blender/enabled=false
 
+[global_group]
+
+"Place Cards"=""
+
 [input_devices]
 
 sensors/enable_accelerometer=true
 sensors/enable_gravity=true
 sensors/enable_gyroscope=true
 sensors/enable_magnetometer=true
-
-[global_group]
-
-"Place Cards"=""
 
 [physics]
 

@@ -47,6 +47,12 @@ func switch_tab(tab_name: String):
 	current_tab.hide()
 	target_tab.show()
 	
+	# update labels
+	if target_tab.name == "home":
+		SceneLabels.label_container.visible = false
+	else:
+		SceneLabels.label_container.visible = true
+	
 	update_buttons()
 
 # update/animates button sizes and position
@@ -102,7 +108,6 @@ func get_tab(tab_name: String) -> Control:
 			return tab
 	
 	return null
-
 
 # get active tab
 func get_active_tab() -> Control:

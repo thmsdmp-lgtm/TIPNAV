@@ -10,16 +10,24 @@ var camera: Camera3D
 var label_container: Control
 
 func _ready() -> void:
+	await get_tree().process_frame
 	var current_scene = get_tree().current_scene
+	var tab_bar
 	
 	if current_scene:
 		camera = current_scene.get_node_or_null("World/camera/Camera3D")
 		label_container = current_scene.get_node_or_null("Interface/scene_labels")
+		label_container.get_parent().move_child(label_container, 0)
+		tab_bar = current_scene.get_node_or_null("%tab_bar")
 		
 		if not is_instance_valid(camera) or not is_instance_valid(label_container):
 			return
 	
 	initialize()
+	
+	# get current tab
+	if tab_bar.get_active_tab().name == "home":
+		label_container.hide()
 
 func initialize() -> void:
 	

@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://btqi5ci5xex40" path="res://scripts/interface/custom_Vscroll_container.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://y3yrbp7h4hm7" path="res://scripts/interface/home.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://bir17mxnm3pf7" path="res://scripts/interface/tab_manager.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://begslctlmfpmd" path="res://scripts/temp_scripts/switch_focus_mode.gd" id="2_lquwl"]
-[ext_resource type="Script" uid="uid://drxb8tdpd5hcx" path="res://scripts/temp_scripts/switch_cam_mode.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://yd4dt6u2ilfe" path="res://scripts/camera_controller.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://byhbxww5jolbj" path="res://scripts/temp_scripts/capsule_manager.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://c4tg1ign44wxl" path="res://scripts/interface/custom_Hscroll_container.gd" id="4_7mycd"]
@@ -846,15 +844,6 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="switch_cam_mode" type="Button" parent="Interface" unique_id=394986547]
-layout_mode = 0
-anchor_left = 0.71944445
-anchor_top = 0.65625
-anchor_right = 0.8833333
-anchor_bottom = 0.715
-script = ExtResource("3_7mycd")
-metadata/_edit_use_anchors_ = true
-
 [node name="tab_container" type="Control" parent="Interface" unique_id=1194538160]
 layout_mode = 1
 anchors_preset = 15
@@ -900,7 +889,6 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82xsv")
 
 [node name="map" type="Control" parent="Interface/tab_container" unique_id=1810525034 groups=["Tabs"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -933,6 +921,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82xsv")
 
 [node name="home" type="Control" parent="Interface/tab_container" unique_id=950378000 groups=["Tabs"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1329,16 +1318,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
 metadata/_edit_use_anchors_ = true
 
-[node name="switch_focus_mode" type="Button" parent="Interface" unique_id=1285689611]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.70555556
-anchor_top = 0.753125
-anchor_right = 0.86944443
-anchor_bottom = 0.811875
-script = ExtResource("2_lquwl")
-metadata/_edit_use_anchors_ = true
-
 [node name="scene_labels" type="Control" parent="Interface" unique_id=401382350]
 layout_mode = 1
 anchors_preset = 15
@@ -1367,7 +1346,7 @@ mesh = SubResource("ArrayMesh_bsi1e")
 
 [node name="model" type="Node3D" parent="World/campus" unique_id=1496420736]
 
-[node name="AnnHall" type="MeshInstance3D" parent="World/campus/model" unique_id=526215837 groups=["Buildings"]]
+[node name="Anniversary Hall" type="MeshInstance3D" parent="World/campus/model" unique_id=526215837 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6240215, 2.5000587, -20.51511)
 mesh = SubResource("ArrayMesh_d344i")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
@@ -1377,87 +1356,87 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.355926, 0, -12.145407)
 mesh = SubResource("ArrayMesh_8mtfg")
 surface_material_override/0 = SubResource("StandardMaterial3D_oeucq")
 
-[node name="Bldg1" type="MeshInstance3D" parent="World/campus/model" unique_id=471261354 groups=["Buildings"]]
+[node name="Building 1" type="MeshInstance3D" parent="World/campus/model" unique_id=471261354 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.920229, 2.5000587, 18.220688)
 mesh = SubResource("ArrayMesh_6dnfb")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Bldg2" type="MeshInstance3D" parent="World/campus/model" unique_id=154979361 groups=["Buildings"]]
+[node name="Building 2" type="MeshInstance3D" parent="World/campus/model" unique_id=154979361 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.027126, 2.5000587, -22.361614)
 mesh = SubResource("ArrayMesh_wms5s")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Bldg3" type="MeshInstance3D" parent="World/campus/model" unique_id=1915890329 groups=["Buildings"]]
+[node name="Building 3" type="MeshInstance3D" parent="World/campus/model" unique_id=1915890329 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8345, 2.5000587, -19.933968)
 mesh = SubResource("ArrayMesh_vvopt")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Bldg4" type="MeshInstance3D" parent="World/campus/model" unique_id=1857095306 groups=["Buildings"]]
+[node name="Building 4" type="MeshInstance3D" parent="World/campus/model" unique_id=1857095306 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.646267, 2.5000587, -31.628138)
 mesh = SubResource("ArrayMesh_l01px")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Bldg5" type="MeshInstance3D" parent="World/campus/model" unique_id=330478734 groups=["Buildings"]]
+[node name="Building 5" type="MeshInstance3D" parent="World/campus/model" unique_id=330478734 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.717768, 2.9491568, -41.458145)
 mesh = SubResource("ArrayMesh_l4ocs")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Bldg6" type="MeshInstance3D" parent="World/campus/model" unique_id=1166212041 groups=["Buildings"]]
+[node name="Building 6" type="MeshInstance3D" parent="World/campus/model" unique_id=1166212041 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.982433, 2.5000587, -2.0851023)
 mesh = SubResource("ArrayMesh_ijwhc")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Bldg8" type="MeshInstance3D" parent="World/campus/model" unique_id=573961638 groups=["Buildings"]]
+[node name="Building 8" type="MeshInstance3D" parent="World/campus/model" unique_id=573961638 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.48696, 2.5000587, -8.596316)
 mesh = SubResource("ArrayMesh_qfubo")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Bldg9" type="MeshInstance3D" parent="World/campus/model" unique_id=992665879 groups=["Buildings"]]
+[node name="Building 9" type="MeshInstance3D" parent="World/campus/model" unique_id=992665879 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.851082, 2.5000587, -20.771425)
 mesh = SubResource("ArrayMesh_ryl8a")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Congr" type="MeshInstance3D" parent="World/campus/model" unique_id=1765993828 groups=["Buildings"]]
+[node name="Congregating Area" type="MeshInstance3D" parent="World/campus/model" unique_id=1765993828 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.820026, 2.5000587, -23.831722)
 mesh = SubResource("ArrayMesh_s4a8f")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Landsc" type="MeshInstance3D" parent="World/campus/model" unique_id=1081895397 groups=["Buildings"]]
+[node name="Landscape" type="MeshInstance3D" parent="World/campus/model" unique_id=1081895397 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.080795, 2.5000587, -20.555815)
 mesh = SubResource("ArrayMesh_rio0p")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Maint" type="MeshInstance3D" parent="World/campus/model" unique_id=1841447769 groups=["Buildings"]]
+[node name="Maintenance" type="MeshInstance3D" parent="World/campus/model" unique_id=1841447769 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.044798, 2.5000587, -37.64405)
 mesh = SubResource("ArrayMesh_4ofw2")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Pec1" type="MeshInstance3D" parent="World/campus/model" unique_id=835439856 groups=["Buildings"]]
+[node name="Pe Center 1" type="MeshInstance3D" parent="World/campus/model" unique_id=835439856 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0514073, 2.5000587, 8.531791)
 mesh = SubResource("ArrayMesh_s6vmk")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Pec2" type="MeshInstance3D" parent="World/campus/model" unique_id=1808431406 groups=["Buildings"]]
+[node name="Pe Center 2" type="MeshInstance3D" parent="World/campus/model" unique_id=1808431406 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7300625, 2.5000587, 28.495907)
 mesh = SubResource("ArrayMesh_7kcpe")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="Pehall2" type="MeshInstance3D" parent="World/campus/model" unique_id=1148250430 groups=["Buildings"]]
+[node name="Pe Hall" type="MeshInstance3D" parent="World/campus/model" unique_id=1148250430 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.932003, 2.5000587, 9.026803)
 mesh = SubResource("ArrayMesh_siymv")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="StudHall" type="MeshInstance3D" parent="World/campus/model" unique_id=1921321302 groups=["Buildings"]]
+[node name="Study Hall" type="MeshInstance3D" parent="World/campus/model" unique_id=1921321302 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.132322, 2.5000587, -4.6692214)
 mesh = SubResource("ArrayMesh_m6iow")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="StudHub" type="MeshInstance3D" parent="World/campus/model" unique_id=1143852275 groups=["Buildings"]]
+[node name="Student Hub" type="MeshInstance3D" parent="World/campus/model" unique_id=1143852275 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.045462, 2.5000587, 8.467648)
 mesh = SubResource("ArrayMesh_bx31x")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="TechCore" type="MeshInstance3D" parent="World/campus/model" unique_id=1220448129 groups=["Buildings"]]
+[node name="Technocore" type="MeshInstance3D" parent="World/campus/model" unique_id=1220448129 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.822596, 2.9780605, -39.270657)
 mesh = SubResource("ArrayMesh_xukpy")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
@@ -1471,6 +1450,3 @@ camera3d = NodePath("Camera3D")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 20, 0)
 fov = 60.0
 size = 70.0
-
-[connection signal="pressed" from="Interface/switch_cam_mode" to="Interface/switch_cam_mode" method="_on_pressed"]
-[connection signal="pressed" from="Interface/switch_focus_mode" to="Interface/switch_focus_mode" method="_on_pressed"]

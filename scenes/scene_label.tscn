@@ -1,12 +1,5 @@
 [gd_scene format=3 uid="uid://cfclj12nvolvv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkt0i"]
-bg_color = Color(0.2231029, 0.2231029, 0.22310287, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
 bg_color = Color(0.2231029, 0.2231029, 0.22310287, 1)
 corner_radius_top_left = 20
@@ -14,17 +7,17 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 1
-border_width_right = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkt0i"]
+bg_color = Color(0.2231029, 0.2231029, 0.22310287, 1)
+border_width_top = 2
+border_width_right = 2
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ivu4"]
+bg_color = Color(0.2231029, 0.2231029, 0.22310287, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -34,11 +27,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_272bh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i40tb"]
-
-[node name="scene_label" type="Control" unique_id=502857421]
+[node name="scene_label" type="Control" unique_id=502857421 groups=["Place Cards"]]
 custom_minimum_size = Vector2(100, 50)
 custom_maximum_size = Vector2(100, 50)
 layout_mode = 3
@@ -59,17 +48,6 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="bg" unique_id=1927935629]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fkt0i")
-metadata/_edit_use_anchors_ = true
-
 [node name="Panel2" type="Panel" parent="bg" unique_id=1037287263]
 layout_mode = 1
 anchors_preset = -1
@@ -83,7 +61,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_272bh")
 metadata/_edit_use_anchors_ = true
 
-[node name="button" type="Button" parent="." unique_id=1029778520]
+[node name="info" type="Button" parent="." unique_id=1029778520]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,8 +70,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bvp3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7mycd")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_272bh")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_i40tb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fkt0i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2ivu4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fkt0i")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fkt0i")
 text = "Building 5"

@@ -1,0 +1,568 @@
+[gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
+
+[ext_resource type="Script" uid="uid://ds0d1tb0oxyrm" path="res://UI_main.gd" id="1_ig7tw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
+bg_color = Color(0.73333335, 0.7529412, 0.91764706, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
+bg_color = Color(0.7411765, 0.7607843, 0.92156863, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 96
+corner_radius_top_right = 96
+corner_radius_bottom_right = 96
+corner_radius_bottom_left = 96
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vivmo"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.078431375)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="Main" type="Node" unique_id=1649254548]
+
+[node name="Ui" type="Control" parent="." unique_id=1762042228]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ig7tw")
+metadata/_edit_use_anchors_ = true
+
+[node name="home" type="Panel" parent="Ui" unique_id=1569250526]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 349.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+metadata/_edit_use_anchors_ = true
+
+[node name="search" type="Panel" parent="Ui/home" unique_id=347959222]
+layout_mode = 0
+anchor_left = 0.06018519
+anchor_top = 0.13171747
+anchor_right = 0.93981487
+anchor_bottom = 0.18226269
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+metadata/_edit_use_anchors_ = true
+
+[node name="map_card1" type="Panel" parent="Ui/home" unique_id=68533836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059722222
+anchor_top = 0.2165213
+anchor_right = 0.9393519
+anchor_bottom = 0.42120585
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
+metadata/_edit_use_anchors_ = true
+
+[node name="_Panel_100730" type="Panel" parent="Ui/home/map_card1" unique_id=32230335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
+
+[node name="_Panel_100733" type="Panel" parent="Ui/home/map_card1" unique_id=624681836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6577578
+anchor_top = 0.73127776
+anchor_right = 0.95368415
+anchor_bottom = 0.9199605
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mycd")
+metadata/_edit_use_anchors_ = true
+
+[node name="map_card2" type="Panel" parent="Ui/home" unique_id=1894623899]
+layout_mode = 0
+anchor_left = 0.06018519
+anchor_top = 0.8035375
+anchor_right = 0.93981487
+anchor_bottom = 0.9720215
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_272bh")
+metadata/_edit_use_anchors_ = true
+
+[node name="_Panel_100737" type="Panel" parent="Ui/home/map_card2" unique_id=1711677651]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03601052
+anchor_top = 0.6557203
+anchor_right = 0.53078824
+anchor_bottom = 0.9346176
+offset_right = 3.0517578e-05
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_card" type="Panel" parent="Ui/home" unique_id=1778493915]
+layout_mode = 0
+anchor_left = 0.06018519
+anchor_top = 0.46559557
+anchor_right = 0.33772224
+anchor_bottom = 0.61170155
+offset_right = -3.0517578e-05
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_thumbnail" type="Panel" parent="Ui/home/place_card" unique_id=1190339924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -153.2063
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
+
+[node name="user_card" type="Control" parent="Ui/home" unique_id=12322972]
+anchors_preset = 0
+anchor_left = 0.80926573
+anchor_top = 0.039025757
+anchor_right = 0.9398213
+anchor_bottom = 0.08653826
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Ellipse" type="Panel" parent="Ui/home/user_card" unique_id=1829031651]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.1035156e-05
+offset_bottom = -4.5776367e-05
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_efxa6")
+metadata/_edit_use_anchors_ = true
+
+[node name="category_card" type="Control" parent="Ui/home" unique_id=565144539]
+anchors_preset = 0
+anchor_left = 0.060186796
+anchor_top = 0.6820417
+anchor_right = 0.23922387
+anchor_bottom = 0.7471978
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Ellipse" type="Panel" parent="Ui/home/category_card" unique_id=697664670]
+layout_mode = 0
+anchor_right = 0.99999994
+anchor_bottom = 1.0000006
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+metadata/_edit_use_anchors_ = true
+
+[node name="search" type="Panel" parent="Ui" unique_id=1609497967]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="search" type="Panel" parent="Ui/search" unique_id=398937556]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2611111
+anchor_top = 0.041875
+anchor_right = 0.9393519
+anchor_bottom = 0.107262686
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+metadata/_edit_use_anchors_ = true
+
+[node name="search2" type="Panel" parent="Ui/search/search" unique_id=2114282321]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_right = -525.3334
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="place_info" type="Panel" parent="Ui" unique_id=500592760]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="images" type="Panel" parent="Ui/place_info" unique_id=2091042687]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = -957.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
+
+[node name="back" type="Panel" parent="Ui/place_info" unique_id=731577849]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07361111
+anchor_top = 0.041875
+anchor_right = 0.23055555
+anchor_bottom = 0.107262686
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+metadata/_edit_use_anchors_ = true
+
+[node name="categories" type="Panel" parent="Ui" unique_id=1296719192]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="search" type="Panel" parent="Ui/categories" unique_id=25555295]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2611111
+anchor_top = 0.041875
+anchor_right = 0.9393519
+anchor_bottom = 0.107262686
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+metadata/_edit_use_anchors_ = true
+
+[node name="search2" type="Panel" parent="Ui/categories/search" unique_id=1925685711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_right = -525.3334
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="map" type="Panel" parent="Ui" unique_id=1042006411]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="search" type="Panel" parent="Ui/map" unique_id=1526754937]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2611111
+anchor_top = 0.041875
+anchor_right = 0.9393519
+anchor_bottom = 0.107262686
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+metadata/_edit_use_anchors_ = true
+
+[node name="search2" type="Panel" parent="Ui/map/search" unique_id=1106706610]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_right = -525.3334
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="place_card" type="Panel" parent="Ui/map" unique_id=388882241]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16111112
+anchor_top = 0.690625
+anchor_right = 0.82222223
+anchor_bottom = 0.849375
+offset_right = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
+metadata/_edit_use_anchors_ = true
+
+[node name="_Panel_419502" type="Panel" parent="Ui/map/place_card" unique_id=288968199]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5344382
+anchor_top = 0.65320873
+anchor_right = 0.95399517
+anchor_bottom = 0.9168928
+offset_left = -1.5258789e-05
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2cqfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="@Panel@419503" type="Panel" parent="Ui/map/place_card" unique_id=305278926]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03874092
+anchor_top = 0.083081886
+anchor_right = 0.50605327
+anchor_bottom = 0.9168681
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_card2" type="Panel" parent="Ui/map" unique_id=1171802400]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.5541667
+anchor_top = 0.690625
+anchor_right = 0.10694449
+anchor_bottom = 0.849375
+offset_right = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
+metadata/_edit_use_anchors_ = true
+
+[node name="_Panel_419502" type="Panel" parent="Ui/map/place_card2" unique_id=1927723333]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5344382
+anchor_top = 0.65320873
+anchor_right = 0.95399517
+anchor_bottom = 0.9168928
+offset_left = -1.5258789e-05
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2cqfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="_Panel_419503" type="Panel" parent="Ui/map/place_card2" unique_id=1251398085]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03874092
+anchor_top = 0.083081886
+anchor_right = 0.50605327
+anchor_bottom = 0.9168681
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_card3" type="Panel" parent="Ui/map" unique_id=171405737]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88611114
+anchor_top = 0.690625
+anchor_right = 1.5472223
+anchor_bottom = 0.849375
+offset_right = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
+metadata/_edit_use_anchors_ = true
+
+[node name="_Panel_419502" type="Panel" parent="Ui/map/place_card3" unique_id=1364327162]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5344382
+anchor_top = 0.65320873
+anchor_right = 0.95399517
+anchor_bottom = 0.9168928
+offset_left = -1.5258789e-05
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2cqfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="_Panel_419503" type="Panel" parent="Ui/map/place_card3" unique_id=1661007223]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03874092
+anchor_top = 0.083081886
+anchor_right = 0.50605327
+anchor_bottom = 0.9168681
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
+metadata/_edit_use_anchors_ = true
+
+[node name="tabs" type="Panel" parent="Ui" unique_id=1918553002]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.325
+offset_top = -191.42004
+offset_right = -28.674988
+offset_bottom = -61.420044
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ycdy4")
+
+[node name="home" type="Button" parent="Ui/tabs" unique_id=392303997]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05593333
+anchor_top = 0.184345
+anchor_right = 0.42666677
+anchor_bottom = 0.8090918
+theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
+metadata/_edit_use_anchors_ = true
+
+[node name="map" type="Button" parent="Ui/tabs" unique_id=1157420633]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05593333
+anchor_top = 0.184345
+anchor_right = 0.42666677
+anchor_bottom = 0.8090918
+theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
+metadata/_edit_use_anchors_ = true
+
+[node name="categories" type="Button" parent="Ui/tabs" unique_id=993440792]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05593333
+anchor_top = 0.184345
+anchor_right = 0.42666677
+anchor_bottom = 0.8090918
+theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
+metadata/_edit_use_anchors_ = true

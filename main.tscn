@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cfkb8y1mpcos2"]
 
+[ext_resource type="Script" uid="uid://ds0d1tb0oxyrm" path="res://UI_main.gd" id="1_ig7tw"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
 bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
 
@@ -33,21 +35,6 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
@@ -134,20 +121,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_ig7tw")
 
 [node name="home" type="Panel" parent="Ui" unique_id=1569250526]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 349.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
-metadata/_edit_use_anchors_ = true
 
 [node name="search" type="Panel" parent="Ui/home" unique_id=347959222]
 layout_mode = 0
@@ -192,28 +176,6 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7mycd")
 metadata/_edit_use_anchors_ = true
 
-[node name="map_card2" type="Panel" parent="Ui/home" unique_id=1894623899]
-layout_mode = 0
-anchor_left = 0.06018519
-anchor_top = 0.8035375
-anchor_right = 0.93981487
-anchor_bottom = 0.9720215
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_272bh")
-metadata/_edit_use_anchors_ = true
-
-[node name="_Panel_100737" type="Panel" parent="Ui/home/map_card2" unique_id=1711677651]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.03601052
-anchor_top = 0.6557203
-anchor_right = 0.53078824
-anchor_bottom = 0.9346176
-offset_right = 3.0517578e-05
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
-metadata/_edit_use_anchors_ = true
-
 [node name="place_card" type="Panel" parent="Ui/home" unique_id=1778493915]
 layout_mode = 0
 anchor_left = 0.06018519
@@ -226,6 +188,53 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
 metadata/_edit_use_anchors_ = true
 
 [node name="place_thumbnail" type="Panel" parent="Ui/home/place_card" unique_id=1190339924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -153.2063
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
+
+[node name="place_card2" type="Panel" parent="Ui/home" unique_id=1606158167]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3671296
+anchor_top = 0.4655956
+anchor_right = 0.6446663
+anchor_bottom = 0.61170155
+offset_right = -3.0517578e-05
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_thumbnail" type="Panel" parent="Ui/home/place_card2" unique_id=16974202]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -153.2063
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
+
+[node name="place_card3" type="Panel" parent="Ui/home" unique_id=1015532238]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67083335
+anchor_top = 0.468125
+anchor_right = 0.94837034
+anchor_bottom = 0.61423093
+offset_top = -4.046997
+offset_bottom = -4.046997
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_thumbnail" type="Panel" parent="Ui/home/place_card3" unique_id=1506954598]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -256,7 +265,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_efxa6")
 metadata/_edit_use_anchors_ = true
 
 [node name="category_card" type="Control" parent="Ui/home" unique_id=565144539]
-anchors_preset = 0
+layout_mode = 1
 anchor_left = 0.060186796
 anchor_top = 0.6820417
 anchor_right = 0.23922387
@@ -264,9 +273,66 @@ anchor_bottom = 0.7471978
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Ellipse" type="Panel" parent="Ui/home/category_card" unique_id=697664670]
+[node name="lab" type="Panel" parent="Ui/home/category_card" unique_id=697664670]
 layout_mode = 0
 anchor_right = 0.99999994
+anchor_bottom = 1.0000006
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+metadata/_edit_use_anchors_ = true
+
+[node name="category_card2" type="Control" parent="Ui/home" unique_id=1119381676]
+layout_mode = 1
+anchor_left = 0.26435348
+anchor_top = 0.6820417
+anchor_right = 0.44339052
+anchor_bottom = 0.7471978
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="classrooms" type="Panel" parent="Ui/home/category_card2" unique_id=45582333]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.02327265
+anchor_right = 0.97672725
+anchor_bottom = 1.0000006
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+metadata/_edit_use_anchors_ = true
+
+[node name="category_card3" type="Control" parent="Ui/home" unique_id=1929322067]
+layout_mode = 1
+anchor_left = 0.457409
+anchor_top = 0.6820417
+anchor_right = 0.63644606
+anchor_bottom = 0.7471978
+offset_bottom = 0.00012207031
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="admin office" type="Panel" parent="Ui/home/category_card3" unique_id=1832003022]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99999976
+anchor_bottom = 1.0000006
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+metadata/_edit_use_anchors_ = true
+
+[node name="category_card4" type="Control" parent="Ui/home" unique_id=896432450]
+layout_mode = 1
+anchor_left = 0.6518535
+anchor_top = 0.6820417
+anchor_right = 0.8308906
+anchor_bottom = 0.7471978
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="finance and cashier" type="Panel" parent="Ui/home/category_card4" unique_id=722039829]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0155151
+anchor_right = 1.015515
 anchor_bottom = 1.0000006
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
@@ -537,29 +603,29 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ycdy4")
 [node name="home" type="Button" parent="Ui/tabs" unique_id=392303997]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05593333
-anchor_top = 0.184345
-anchor_right = 0.42666677
-anchor_bottom = 0.8090918
+anchor_left = 0.028295454
+anchor_top = 0.20323117
+anchor_right = 0.32375002
+anchor_bottom = 0.827978
 theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
 metadata/_edit_use_anchors_ = true
 
 [node name="map" type="Button" parent="Ui/tabs" unique_id=1157420633]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05593333
-anchor_top = 0.184345
-anchor_right = 0.42666677
-anchor_bottom = 0.8090918
+anchor_left = 0.34496212
+anchor_top = 0.20323117
+anchor_right = 0.6464773
+anchor_bottom = 0.827978
 theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
 metadata/_edit_use_anchors_ = true
 
 [node name="categories" type="Button" parent="Ui/tabs" unique_id=993440792]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05593333
-anchor_top = 0.184345
-anchor_right = 0.42666677
-anchor_bottom = 0.8090918
+anchor_left = 0.6646591
+anchor_top = 0.20323117
+anchor_right = 0.9646591
+anchor_bottom = 0.8279781
 theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
 metadata/_edit_use_anchors_ = true

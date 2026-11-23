@@ -18,7 +18,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="place_card_1" type="Panel" unique_id=292215359]
+[node name="place_card_1" type="Panel" unique_id=292215359 groups=["Place Cards"]]
 custom_minimum_size = Vector2(500, 400)
 anchors_preset = -1
 anchor_right = 0.67777777
@@ -48,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="info" type="Button" parent="." unique_id=68313190]
@@ -60,7 +61,6 @@ anchor_bottom = 0.94895416
 offset_left = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_colors/font_focus_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_colors/font_pressed_color = Color(0.21960784, 0.21960784, 0.21960784, 1)

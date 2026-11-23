@@ -1,6 +1,6 @@
 @tool
 extends Control
-class_name RowArrangeControl
+class_name CustomRowContainer
 
 ## Space between children, and between children and this node's edges.
 @export var padding: Vector2 = Vector2(8, 8):

@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[global_group]
+
+"Place Cards"=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

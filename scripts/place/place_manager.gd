@@ -25,6 +25,25 @@ func get_data(name:String):
 		if place.name == name:
 			return place
 
+# returns every place whose name contains the query (case-insensitive)
+func search(query: String) -> Array:
+	var q := query.strip_edges().to_lower()
+	if q.is_empty():
+		return []
+	
+	var starts: Array = []
+	var contains: Array = []
+	
+	for place in data:
+		var n: String = str(place.get("name", "")).to_lower()
+		if n.begins_with(q):
+			starts.append(place)
+		elif n.contains(q):
+			contains.append(place)
+	
+	# names that start with the query come first
+	return starts + contains
+
 # convert json to dict
 func json_to_array(path: String) -> Array:
 	if not FileAccess.file_exists(path):

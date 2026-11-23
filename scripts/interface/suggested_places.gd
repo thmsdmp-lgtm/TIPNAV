@@ -7,6 +7,10 @@ extends Control
 @export var amount: int = 5
 
 func _ready() -> void:
+	
+	# wait until all script are done setting up
+	await get_tree().create_timer(1).timeout
+	
 	if not parent or not card: return
 	
 	# wait for place manager to convert data
@@ -23,6 +27,7 @@ func _ready() -> void:
 			break
 	
 		var c = card.instantiate()
+		c.name = data.name
 		parent.add_child(c)
 		
 		# fill in contents (skip any node the card doesn't have)

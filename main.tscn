@@ -183,6 +183,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82xsv")
 
 [node name="map" type="Control" parent="Ui/tab_container" unique_id=1810525034 groups=["Tabs"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -215,7 +216,6 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82xsv")
 
 [node name="home" type="Control" parent="Ui/tab_container" unique_id=950378000 groups=["Tabs"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

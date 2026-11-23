@@ -27,12 +27,14 @@ Magnetometer="*uid://c5p3x7u7ycv1m"
 StepHeading="*uid://u2apqf5847f1"
 PathManager="*uid://b2yphovic8qex"
 SceneLabels="*uid://c21ena0y85oxm"
-PlaceManager="*uid://qqisy11oftun"
+PlaceManager="*uid://c12vdu55wowkx"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1600
+window/size/window_width_override=300
+window/size/window_height_override=650
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
@@ -51,6 +53,10 @@ sensors/enable_accelerometer=true
 sensors/enable_gravity=true
 sensors/enable_gyroscope=true
 sensors/enable_magnetometer=true
+
+[global_group]
+
+"Place Cards"=""
 
 [physics]
 

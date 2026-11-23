@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bop6rsyryb05c"]
+
+[ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="1_gqgl2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
+bg_color = Color(0.73333335, 0.7529412, 0.91764706, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="place_card_1" type="Panel" unique_id=292215359 groups=["Place Cards"]]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = -1
+anchor_right = 0.67777777
+anchor_bottom = 0.23125
+offset_right = 12.0
+offset_bottom = 30.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
+metadata/_edit_use_anchors_ = true
+
+[node name="place_thumbnail" type="Panel" parent="." unique_id=1201864292]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.53927594
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="place_thumbnail" unique_id=615525923]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="info" type="Button" parent="." unique_id=68313190]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6519655
+anchor_top = 0.81896514
+anchor_right = 0.9652302
+anchor_bottom = 0.94895416
+offset_left = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_colors/font_focus_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_colors/font_pressed_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_colors/font_hover_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4c57u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4c57u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4c57u")
+text = "More"
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="." unique_id=1961157816]
+layout_mode = 0
+anchor_left = 0.05465005
+anchor_top = 0.5475478
+anchor_right = 0.9549377
+anchor_bottom = 0.72293425
+theme_override_colors/font_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_font_sizes/font_size = 38
+text = "Admissions Office 2"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("1_gqgl2")
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="subtitle" type="Label" parent="." unique_id=1522094246]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.054
+anchor_top = 0.6825
+anchor_right = 0.69734997
+anchor_bottom = 0.85788643
+theme_override_colors/font_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_font_sizes/font_size = 15
+text = "bla bla bla bla bla bal bla bla ewanko  hahaha"
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("1_gqgl2")
+min_font_size = 10
+max_font_size = 15
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true

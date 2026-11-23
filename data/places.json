@@ -1,0 +1,72 @@
+[
+	{
+		"name": "Registrar's Office 1",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+	{
+		"name": "Registrar's Office 2",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+	{
+		"name": "Registrar's Office 3",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+	{
+		"name": "Accounting Office",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+	{
+		"name": "Accounting Office 2",
+		"category": "Offices",
+		"subtitle": "Student Records & Enrollment",
+		"location": "Main Building • Ground Floor",
+		"room": "Room 1101",
+		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
+		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
+		"services": [
+			"TOR Request",
+			"Enrollment",
+			"Student Credentials"
+		]
+	},
+]

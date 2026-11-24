@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://doip7s8fx6dbf"
+path="res://.godot/imported/location-pin-svgrepo-com.svg-8317819fc1e4763e65fcdfef5d13f341.dpitex"
+
+[deps]
+
+source_file="res://assets/icons/location-pin-svgrepo-com.svg"
+dest_files=["res://.godot/imported/location-pin-svgrepo-com.svg-8317819fc1e4763e65fcdfef5d13f341.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(0.9607843, 0.61960787, 0.043137256, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

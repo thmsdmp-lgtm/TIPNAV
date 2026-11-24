@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://b3sjinbgyxq76"
+path="res://.godot/imported/clock-three-svgrepo-com.svg-c84ea0c35df0450e7d7c0997f905e32b.dpitex"
+
+[deps]
+
+source_file="res://assets/icons/clock-three-svgrepo-com.svg"
+dest_files=["res://.godot/imported/clock-three-svgrepo-com.svg-c84ea0c35df0450e7d7c0997f905e32b.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(0.0627451, 0.7254902, 0.5058824, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

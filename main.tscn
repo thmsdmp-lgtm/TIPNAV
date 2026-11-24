@@ -16,6 +16,13 @@
 [ext_resource type="Script" uid="uid://cs3okxqop883t" path="res://addons/AutoSizeText/ui/AutoSizeLineEdit.gd" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b600iovdi1gc5" path="res://scenes/place_card_2.tscn" id="10_ycdy4"]
 [ext_resource type="Script" uid="uid://5t37oam4lg0" path="res://scripts/interface/cusrom_column_container.gd" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://dinalohldldxw" path="res://scenes/service_card.tscn" id="14_d13ii"]
+[ext_resource type="FontFile" uid="uid://b5dl4nid43d7d" path="res://assets/fonts/Inter/static/Inter_28pt-Bold.ttf" id="14_yaehf"]
+[ext_resource type="FontFile" uid="uid://diyf2cthvjbty" path="res://assets/fonts/Inter/static/Inter_18pt-Medium.ttf" id="15_074og"]
+[ext_resource type="Texture2D" uid="uid://doip7s8fx6dbf" path="res://assets/icons/location-pin-svgrepo-com.svg" id="15_82xsv"]
+[ext_resource type="FontFile" uid="uid://ysnqiqiu2rui" path="res://assets/fonts/Inter/static/Inter_28pt-Medium.ttf" id="15_cegan"]
+[ext_resource type="Texture2D" uid="uid://b3sjinbgyxq76" path="res://assets/icons/clock-three-svgrepo-com.svg" id="17_getpj"]
+[ext_resource type="Texture2D" uid="uid://cm1bob3846teh" path="res://assets/icons/arrow-back-left-svgrepo-com.svg" id="19_ryguw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -143,12 +150,67 @@ shadow_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hflkp"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
+bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
 corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
+bg_color = Color(0.9607843, 0.61960787, 0.043137256, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
+bg_color = Color(0.0627451, 0.7254902, 0.5058824, 0.16470589)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a77ed"]
 
@@ -844,6 +906,15 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="scene_labels" type="Control" parent="Interface" unique_id=401382350]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="tab_container" type="Control" parent="Interface" unique_id=1194538160]
 layout_mode = 1
 anchors_preset = 15
@@ -1281,51 +1352,369 @@ padding = Vector2(30, 30)
 stretch_to_fill = false
 metadata/_edit_use_anchors_ = true
 
-[node name="place_info" type="Panel" parent="Interface" unique_id=500592760]
-visible = false
+[node name="place_info" type="Control" parent="Interface" unique_id=529704677 node_paths=PackedStringArray("service_container", "back_button", "title", "subtitle", "category", "location", "hours", "about")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_4c57u")
+service_card = ExtResource("14_d13ii")
+service_container = NodePath("scroll/services")
+back_button = NodePath("scroll/back")
+title = NodePath("scroll/title")
+subtitle = NodePath("scroll/subtitle")
+category = NodePath("scroll/category")
+location = NodePath("scroll/location/label")
+hours = NodePath("scroll/operating_hours/label")
+about = NodePath("scroll/about/label")
+metadata/_edit_use_anchors_ = true
+
+[node name="scroll" type="Panel" parent="Interface/place_info" unique_id=355295243 node_paths=PackedStringArray("TouchSource")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 418.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
-script = ExtResource("10_4c57u")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ryguw")
+script = ExtResource("1_0xm2m")
+TouchSource = NodePath("..")
 
-[node name="images" type="Panel" parent="Interface/place_info" unique_id=2091042687]
+[node name="service_title" type="Label" parent="Interface/place_info/scroll" unique_id=634226011]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = -957.0
+anchors_preset = -1
+anchor_left = 0.108333334
+anchor_top = 0.8681863
+anchor_right = 1.0107074
+anchor_bottom = 0.88706017
+offset_right = 6.1035156e-05
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 20
+text = "SERVICES OFFERED"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 20
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="images" type="Panel" parent="Interface/place_info/scroll" unique_id=2091042687]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0014866204
+anchor_right = 1.0
+anchor_bottom = 0.29236868
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_getpj")
+
+[node name="navigate_button" type="Button" parent="Interface/place_info/scroll" unique_id=265295045]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.42368683
+anchor_right = 0.93827635
+anchor_bottom = 0.48562935
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2cqfq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2cqfq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2cqfq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2cqfq")
+
+[node name="location" type="Panel" parent="Interface/place_info/scroll" unique_id=21341649]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.50941527
+anchor_right = 0.93827635
+anchor_bottom = 0.6012903
+grow_horizontal = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
 
-[node name="back" type="Button" parent="Interface/place_info" unique_id=1404308285]
+[node name="title" type="Label" parent="Interface/place_info/scroll/location" unique_id=4139069]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19665092
+anchor_top = 0.26530606
+anchor_right = 0.5360323
+anchor_bottom = 0.4252472
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 20
+text = "LOCATION"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 20
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="label" type="Label" parent="Interface/place_info/scroll/location" unique_id=288593081]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19665092
+anchor_top = 0.44217676
+anchor_right = 0.9562944
+anchor_bottom = 0.74829924
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 30
+text = "Location around blabla"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 30
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="TextureRect" type="TextureRect" parent="Interface/place_info/scroll/location" unique_id=817121677]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068193465
+anchor_top = 0.31292516
+anchor_right = 0.15858945
+anchor_bottom = 0.70068026
+mouse_filter = 2
+texture = ExtResource("15_82xsv")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="about" type="Panel" parent="Interface/place_info/scroll" unique_id=792585022]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.6828543
+anchor_right = 0.93827635
+anchor_bottom = 0.8478543
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+
+[node name="title" type="Label" parent="Interface/place_info/scroll/about" unique_id=91346503]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05233452
+anchor_top = 0.13257575
+anchor_right = 0.9547085
+anchor_bottom = 0.2651515
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 20
+text = "ABOUT"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 20
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="label" type="Label" parent="Interface/place_info/scroll/about" unique_id=1771983653]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05702193
+anchor_top = 0.3068182
+anchor_right = 0.93733394
+anchor_bottom = 0.88257575
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("15_cegan")
+theme_override_font_sizes/font_size = 20
+text = "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 20
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="services" type="FlowContainer" parent="Interface/place_info/scroll" unique_id=1658577832]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.882557
+anchor_right = 0.93827635
+anchor_bottom = 0.99405354
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="operating_hours" type="Panel" parent="Interface/place_info/scroll" unique_id=427332042]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.5763132
+anchor_right = 0.93827635
+anchor_bottom = 0.6606882
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
+
+[node name="title" type="Label" parent="Interface/place_info/scroll/operating_hours" unique_id=2003001553]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19665092
+anchor_top = 0.26530606
+anchor_right = 0.62325656
+anchor_bottom = 0.4252472
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 20
+text = "OPERATING HOURS"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 20
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="label" type="Label" parent="Interface/place_info/scroll/operating_hours" unique_id=822357086]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19665092
+anchor_top = 0.44217676
+anchor_right = 0.9562944
+anchor_bottom = 0.74829924
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 30
+text = "8:00am - 10:00pm (Mon-Sat)"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 30
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="TextureRect" type="TextureRect" parent="Interface/place_info/scroll/operating_hours" unique_id=1268188110]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068193465
+anchor_top = 0.31292516
+anchor_right = 0.15858945
+anchor_bottom = 0.70068026
+mouse_filter = 2
+texture = ExtResource("17_getpj")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="title" type="Label" parent="Interface/place_info/scroll" unique_id=571832214]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.34340933
+anchor_right = 0.93827635
+anchor_bottom = 0.3896593
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 77
+text = "Building 1"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 80
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="subtitle" type="Label" parent="Interface/place_info/scroll" unique_id=1354072134]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.38949454
+anchor_right = 0.93827635
+anchor_bottom = 0.41511956
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+theme_override_fonts/font = ExtResource("15_074og")
+theme_override_font_sizes/font_size = 30
+text = "First building"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 30
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="category" type="Label" parent="Interface/place_info/scroll" unique_id=34705300]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.30822596
+anchor_right = 0.30277777
+anchor_bottom = 0.34197596
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.06845648, 0.80914927, 0.5655869, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_yaehf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yaehf")
+text = "● Buildings"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 10
+max_font_size = 20
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="back" type="Button" parent="Interface/place_info/scroll" unique_id=1404308285]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.07361111
-anchor_top = 0.041875
+anchor_top = 0.033201188
 anchor_right = 0.23055555
-anchor_bottom = 0.107262686
+anchor_bottom = 0.085728444
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
-metadata/_edit_use_anchors_ = true
 
-[node name="scene_labels" type="Control" parent="Interface" unique_id=401382350]
+[node name="TextureRect" type="TextureRect" parent="Interface/place_info/scroll/back" unique_id=316817346]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.23893803
+anchor_top = 0.24528302
+anchor_right = 0.7295041
+anchor_bottom = 0.7358491
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+texture = ExtResource("19_ryguw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="World" type="Node3D" parent="." unique_id=2005778649]
 

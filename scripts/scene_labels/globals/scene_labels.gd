@@ -41,21 +41,21 @@ func initialize() -> void:
 		if meshes.has(data.name):
 			var mesh = meshes[data.name]
 			var label = label_scene.instantiate()
+			label.name = data.name
 			label_container.add_child(label)
 			
 			var button = label.get_node("info")
+			# set button text
 			button.text = data.name
-			button.pressed.connect(Callable(self, "_on_label_pressed").bind(data.name))
+			
+			# no need to connect button event since info page script
+			# already sets up control nodes in group Place Cards
 			
 			labels.append({
 				"name":data.name,
 				"label": label,
 				"mesh": mesh
 			})
-
-# function called when a label button is pressed
-func _on_label_pressed(place_name:String):
-	pass
 
 func _process(_delta: float) -> void:
 	if not is_instance_valid(camera):

@@ -7,12 +7,13 @@ var label_scene: PackedScene = preload("res://scenes/scene_label.tscn")
 @export var max_label_distance: float = 100
 
 var camera: Camera3D
+var prev_cam_pos:Vector3 = Vector3.ZERO
 var label_container: Control
+var tab_bar
 
 func _ready() -> void:
 	await get_tree().process_frame
 	var current_scene = get_tree().current_scene
-	var tab_bar
 	
 	if current_scene:
 		camera = current_scene.get_node_or_null("World/camera/Camera3D")
@@ -58,6 +59,9 @@ func initialize() -> void:
 			})
 
 func _process(_delta: float) -> void:
+	if tab_bar.get_active_tab().name != "map":
+		return
+	
 	if not is_instance_valid(camera):
 		var current_scene = get_tree().current_scene
 		
@@ -71,11 +75,11 @@ func _process(_delta: float) -> void:
 	for item in labels:
 		var mesh: Node3D = item["mesh"]
 		var label: Control = item["label"]
-
+		
 		if not is_instance_valid(mesh):
 			label.hide()
 			continue
-
+		
 		var world_position := mesh.global_position
 		var distance := camera.global_position.distance_to(world_position)
 

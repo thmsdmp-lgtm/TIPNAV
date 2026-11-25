@@ -1,21 +1,25 @@
 [gd_scene format=4 uid="uid://cfkb8y1mpcos2"]
 
-[ext_resource type="Script" uid="uid://btqi5ci5xex40" path="res://scripts/interface/custom_Vscroll_container.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://y3yrbp7h4hm7" path="res://scripts/interface/home.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://bir17mxnm3pf7" path="res://scripts/interface/tab_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://yd4dt6u2ilfe" path="res://scripts/camera_controller.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://byhbxww5jolbj" path="res://scripts/temp_scripts/capsule_manager.gd" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://c4tg1ign44wxl" path="res://scripts/interface/custom_Hscroll_container.gd" id="4_7mycd"]
 [ext_resource type="Script" uid="uid://dxflixejd2s5" path="res://scripts/interface/suggested_places.gd" id="4_272bh"]
 [ext_resource type="Script" uid="uid://qj8j44mahear" path="res://scripts/interface/search_manager.gd" id="4_search"]
+[ext_resource type="PackedScene" uid="uid://b772vkmoi7qp4" path="res://scenes/category_card_1.tscn" id="5_0odxb"]
 [ext_resource type="Shader" uid="uid://b42drvettre55" path="res://shaders/material.gdshader" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bop6rsyryb05c" path="res://scenes/place_card_1.tscn" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://sad1126wu8f0" path="res://assets/icons/search-svgrepo-com.svg" id="6_a6jrf"]
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="7_4c57u"]
-[ext_resource type="Script" uid="uid://c68mqr0cibcq6" path="res://scripts/interface/custom_row_container.gd" id="7_kek77"]
+[ext_resource type="Script" uid="uid://f0upj110hg57" path="res://map_card.gd" id="7_qsp4k"]
+[ext_resource type="FontFile" uid="uid://daxhk6wyoiey0" path="res://assets/fonts/Inter/static/Inter_28pt-SemiBold.ttf" id="7_xuqvo"]
+[ext_resource type="Script" uid="uid://cuqirhjpsa64k" path="res://scripts/interface/suggested_categories.gd" id="9_0odxb"]
 [ext_resource type="Script" uid="uid://hurd70pki7gu" path="res://scripts/interface/info.gd" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://cs3okxqop883t" path="res://addons/AutoSizeText/ui/AutoSizeLineEdit.gd" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b600iovdi1gc5" path="res://scenes/place_card_2.tscn" id="10_ycdy4"]
 [ext_resource type="Script" uid="uid://5t37oam4lg0" path="res://scripts/interface/cusrom_column_container.gd" id="11_dg77c"]
+[ext_resource type="Texture2D" uid="uid://csa0201xvqjs6" path="res://assets/icons/home-svgrepo-com.svg" id="11_lswn8"]
+[ext_resource type="Texture2D" uid="uid://c5jyd73k4n5js" path="res://assets/icons/map-svgrepo-com.svg" id="12_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://dyi3fo555eorp" path="res://assets/icons/category-svgrepo-com(1).svg" id="13_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://dinalohldldxw" path="res://scenes/service_card.tscn" id="14_d13ii"]
 [ext_resource type="FontFile" uid="uid://b5dl4nid43d7d" path="res://assets/fonts/Inter/static/Inter_28pt-Bold.ttf" id="14_yaehf"]
 [ext_resource type="FontFile" uid="uid://diyf2cthvjbty" path="res://assets/fonts/Inter/static/Inter_18pt-Medium.ttf" id="15_074og"]
@@ -67,6 +71,10 @@ shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -76,14 +84,18 @@ shadow_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -92,130 +104,11 @@ shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(0.96725994, 0.8482963, 0.47951615, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
-bg_color = Color(0.7411765, 0.7607843, 0.92156863, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.078431375)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a77ed"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkt0i"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hflkp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
-bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
-bg_color = Color(0.9607843, 0.61960787, 0.043137256, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
-bg_color = Color(0.0627451, 0.7254902, 0.5058824, 0.16470589)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_a77ed"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
-albedo_color = Color(0, 0.78538746, 0.7853875, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poyxh"]
 
@@ -885,6 +778,130 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wfet1")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.078431375)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lswn8"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a77ed"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkt0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hflkp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
+bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
+bg_color = Color(0.93333334, 0.7921569, 0.33333334, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
+bg_color = Color(0.0627451, 0.7254902, 0.5058824, 0.16470589)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.05882353)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a77ed"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0, 0.78538746, 0.7853875, 1)
+
 [node name="Main" type="Node" unique_id=1649254548]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1890749350]
@@ -904,7 +921,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="scene_labels" type="Control" parent="Interface" unique_id=401382350]
 layout_mode = 1
@@ -913,7 +929,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="tab_container" type="Control" parent="Interface" unique_id=1194538160]
 layout_mode = 1
@@ -923,7 +938,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="categories" type="Panel" parent="Interface/tab_container" unique_id=1296719192 groups=["Tabs"]]
 visible = false
@@ -968,6 +982,30 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="suggested_places" type="ScrollContainer" parent="Interface/tab_container/map" unique_id=918958680 node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.64125
+anchor_right = 1.0
+anchor_bottom = 0.818125
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+script = ExtResource("4_272bh")
+parent = NodePath("container")
+card = ExtResource("10_ycdy4")
+fit_to_parent = true
+metadata/_edit_use_anchors_ = true
+
+[node name="container" type="HBoxContainer" parent="Interface/tab_container/map/suggested_places" unique_id=389656923]
+custom_minimum_size = Vector2(3000, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 20
+
 [node name="search" type="Panel" parent="Interface/tab_container/map" unique_id=1078609299 groups=["Search Bar"]]
 layout_mode = 1
 anchors_preset = -1
@@ -991,7 +1029,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_074og")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82xsv")
 
-[node name="home" type="Control" parent="Interface/tab_container" unique_id=950378000 groups=["Tabs"]]
+[node name="home" type="ScrollContainer" parent="Interface/tab_container" unique_id=1065581862 groups=["Tabs"]]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -999,227 +1037,434 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
 script = ExtResource("1_h2yge")
 
-[node name="scroll" type="Panel" parent="Interface/tab_container/home" unique_id=1569250526 node_paths=PackedStringArray("TouchSource")]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.453125
-grow_horizontal = 2
-grow_vertical = 2
+[node name="bg" type="Panel" parent="Interface/tab_container/home" unique_id=1569250526]
+custom_minimum_size = Vector2(720, 2000)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
-script = ExtResource("1_0xm2m")
-TouchSource = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
-[node name="search" type="Panel" parent="Interface/tab_container/home/scroll" unique_id=1301512860 groups=["Search Bar"]]
-layout_mode = 0
-anchor_left = 0.06018519
-anchor_top = 0.13171747
-anchor_right = 0.93981475
-anchor_bottom = 0.18226267
+[node name="search" type="Panel" parent="Interface/tab_container/home/bg" unique_id=1301512860 groups=["Search Bar"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059722222
+anchor_top = 0.1385
+anchor_right = 0.9393518
+anchor_bottom = 0.1890452
 offset_right = -6.1035156e-05
 offset_bottom = -3.0517578e-05
 theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Interface/tab_container/home/scroll/search" unique_id=299433190]
+[node name="Button2" type="Label" parent="Interface/tab_container/home/bg/search" unique_id=687052681]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.18894738
+anchor_top = 0.3023538
+anchor_right = 0.8142106
+anchor_bottom = 0.6976462
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5vw27")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kek77")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_4c57u")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_efxa6")
-
-[node name="map_card1" type="Panel" parent="Interface/tab_container/home/scroll" unique_id=68533836]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.059722222
-anchor_top = 0.21652131
-anchor_right = 0.9393519
-anchor_bottom = 0.4212059
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
-metadata/_edit_use_anchors_ = true
-
-[node name="_Panel_100730" type="Panel" parent="Interface/tab_container/home/scroll/map_card1" unique_id=32230335]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-
-[node name="_Panel_100733" type="Panel" parent="Interface/tab_container/home/scroll/map_card1" unique_id=624681836]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.6577578
-anchor_top = 0.73127776
-anchor_right = 0.95368415
-anchor_bottom = 0.9199605
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7mycd")
-metadata/_edit_use_anchors_ = true
-
-[node name="user_card" type="Control" parent="Interface/tab_container/home/scroll" unique_id=12322972]
-anchors_preset = 0
-anchor_left = 0.80926573
-anchor_top = 0.039025757
-anchor_right = 0.9398213
-anchor_bottom = 0.08653827
-offset_bottom = -1.5258789e-05
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Ellipse" type="Panel" parent="Interface/tab_container/home/scroll/user_card" unique_id=1829031651]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 6.1035156e-05
-offset_bottom = -4.5776367e-05
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_efxa6")
-metadata/_edit_use_anchors_ = true
-
-[node name="category_card" type="Control" parent="Interface/tab_container/home/scroll" unique_id=565144539]
-layout_mode = 1
-anchor_left = 0.060186796
-anchor_top = 0.6820417
-anchor_right = 0.23922384
-anchor_bottom = 0.7471976
-offset_bottom = -0.00024414063
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="lab" type="Panel" parent="Interface/tab_container/home/scroll/category_card" unique_id=697664670]
-layout_mode = 0
-anchor_right = 0.99999994
-anchor_bottom = 1.0000006
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
-metadata/_edit_use_anchors_ = true
-
-[node name="category_card2" type="Control" parent="Interface/tab_container/home/scroll" unique_id=1119381676]
-layout_mode = 1
-anchor_left = 0.26435348
-anchor_top = 0.6820417
-anchor_right = 0.44339052
-anchor_bottom = 0.7471976
-offset_bottom = -0.00024414063
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="classrooms" type="Panel" parent="Interface/tab_container/home/scroll/category_card2" unique_id=45582333]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.02327265
-anchor_right = 0.97672725
-anchor_bottom = 1.0000006
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
-metadata/_edit_use_anchors_ = true
-
-[node name="category_card3" type="Control" parent="Interface/tab_container/home/scroll" unique_id=1929322067]
-layout_mode = 1
-anchor_left = 0.457409
-anchor_top = 0.6820417
-anchor_right = 0.63644606
-anchor_bottom = 0.7471976
-offset_bottom = -0.00024414063
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="admin office" type="Panel" parent="Interface/tab_container/home/scroll/category_card3" unique_id=1832003022]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.99999976
-anchor_bottom = 1.0000006
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
-metadata/_edit_use_anchors_ = true
-
-[node name="category_card4" type="Control" parent="Interface/tab_container/home/scroll" unique_id=896432450]
-layout_mode = 1
-anchor_left = 0.6518535
-anchor_top = 0.6820417
-anchor_right = 0.8308905
-anchor_bottom = 0.7471976
-offset_right = -0.00012207031
-offset_bottom = -0.00024414063
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="finance and cashier" type="Panel" parent="Interface/tab_container/home/scroll/category_card4" unique_id=722039829]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0155151
-anchor_right = 1.015515
-anchor_bottom = 1.0000006
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
-metadata/_edit_use_anchors_ = true
-
-[node name="suggested_places" type="Control" parent="Interface/tab_container/home/scroll" unique_id=58432463 node_paths=PackedStringArray("parent")]
-layout_mode = 1
-anchor_top = 0.45505378
-anchor_right = 1.0
-anchor_bottom = 0.6537634
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_272bh")
-parent = NodePath("scroll/row_container")
-card = ExtResource("6_5vw27")
-metadata/_edit_use_anchors_ = true
-
-[node name="scroll" type="Control" parent="Interface/tab_container/home/scroll/suggested_places" unique_id=374886570 node_paths=PackedStringArray("TouchSource")]
-layout_mode = 1
-anchor_right = 3.925
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("4_7mycd")
-TouchSource = NodePath("..")
-metadata/_edit_use_anchors_ = true
-
-[node name="row_container" type="Control" parent="Interface/tab_container/home/scroll/suggested_places/scroll" unique_id=107582405]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("7_kek77")
-padding = Vector2(50, 20)
-stretch_to_fill = false
-metadata/_edit_use_anchors_ = true
-
-[node name="AutoSizeLabel" type="Label" parent="Interface/tab_container/home/scroll" unique_id=1685779517]
-layout_mode = 0
-anchor_right = 0.60833335
-anchor_bottom = 0.07870968
-theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_font_sizes/font_size = 40
-text = "Welcome!"
-horizontal_alignment = 1
+text = "Search Buildings, Offices, Facilities.."
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
 text_overrun_behavior = 3
 script = ExtResource("7_4c57u")
-min_font_size = 20
-max_font_size = 40
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/tab_container/home/bg/search" unique_id=1940448510]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068947375
+anchor_top = 0.26278532
+anchor_right = 0.14842108
+anchor_bottom = 0.76068956
+texture = ExtResource("6_a6jrf")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Interface/tab_container/home/bg/search" unique_id=299433190]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vw27")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kek77")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4c57u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efxa6")
+alignment = 0
+
+[node name="map_card" type="Panel" parent="Interface/tab_container/home/bg" unique_id=68533836 node_paths=PackedStringArray("button", "camera_pivot")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059722222
+anchor_top = 0.2095
+anchor_right = 0.9393519
+anchor_bottom = 0.4141846
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
+script = ExtResource("7_qsp4k")
+button = NodePath("button")
+camera_pivot = NodePath("3d_map/SubViewportContainer/SubViewport/World/camera")
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="Interface/tab_container/home/bg/map_card" unique_id=1090584272]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05999999
+anchor_top = 0.09038293
+anchor_right = 0.740804
+anchor_bottom = 0.20191994
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("7_xuqvo")
+theme_override_font_sizes/font_size = 33
+text = "• 3D Campus Navigator"
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 100
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="title2" type="Label" parent="Interface/tab_container/home/bg/map_card" unique_id=2078651871]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060277756
+anchor_top = 0.20924829
+anchor_right = 0.7410818
+anchor_bottom = 0.26626334
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+theme_override_fonts/font = ExtResource("15_cegan")
+theme_override_font_sizes/font_size = 19
+text = "QUEZON CITY CAMPUS"
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 5
+max_font_size = 100
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="3d_map" type="Panel" parent="Interface/tab_container/home/bg/map_card" unique_id=32230335]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042631578
+anchor_top = 0.34677106
+anchor_right = 0.95631564
+anchor_bottom = 0.94715744
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Interface/tab_container/home/bg/map_card/3d_map" unique_id=640677655]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer" unique_id=2306161]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(578, 245)
+render_target_update_mode = 0
+
+[node name="World" type="Node3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport" unique_id=159005332]
+
+[node name="campus" type="Node3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World" unique_id=2117822884]
+
+[node name="path" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus" unique_id=846384011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.370525, 0, 0.7192005)
+visible = false
+mesh = SubResource("ArrayMesh_bsi1e")
+
+[node name="model" type="Node3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus" unique_id=1542393314]
+
+[node name="Anniversary Hall" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1779950889 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6240215, 2.5000587, -20.51511)
+mesh = SubResource("ArrayMesh_d344i")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Base" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1687610846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.355926, 0, -12.145407)
+mesh = SubResource("ArrayMesh_8mtfg")
+surface_material_override/0 = SubResource("StandardMaterial3D_oeucq")
+
+[node name="Building 1" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=954256123 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.920229, 2.5000587, 18.220688)
+mesh = SubResource("ArrayMesh_6dnfb")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Building 2" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1827468884 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.027126, 2.5000587, -22.361614)
+mesh = SubResource("ArrayMesh_wms5s")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Building 3" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1138447160 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8345, 2.5000587, -19.933968)
+mesh = SubResource("ArrayMesh_vvopt")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Building 4" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=963301537 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.646267, 2.5000587, -31.628138)
+mesh = SubResource("ArrayMesh_l01px")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Building 5" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=804760505 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.717768, 2.9491568, -41.458145)
+mesh = SubResource("ArrayMesh_l4ocs")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Building 6" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=2082901354 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.982433, 2.5000587, -2.0851023)
+mesh = SubResource("ArrayMesh_ijwhc")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Building 8" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1528213588 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.48696, 2.5000587, -8.596316)
+mesh = SubResource("ArrayMesh_qfubo")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Building 9" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=775594665 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.851082, 2.5000587, -20.771425)
+mesh = SubResource("ArrayMesh_ryl8a")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Congregating Area" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1461187448 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.820026, 2.5000587, -23.831722)
+mesh = SubResource("ArrayMesh_s4a8f")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Landscape" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=2067979731 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.080795, 2.5000587, -20.555815)
+mesh = SubResource("ArrayMesh_rio0p")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Maintenance" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=10815625 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.044798, 2.5000587, -37.64405)
+mesh = SubResource("ArrayMesh_4ofw2")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Pe Center 1" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1910605070 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0514073, 2.5000587, 8.531791)
+mesh = SubResource("ArrayMesh_s6vmk")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Pe Center 2" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1278107733 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7300625, 2.5000587, 28.495907)
+mesh = SubResource("ArrayMesh_7kcpe")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Pe Hall" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1302362205 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.932003, 2.5000587, 9.026803)
+mesh = SubResource("ArrayMesh_siymv")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Study Hall" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=631604929 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.132322, 2.5000587, -4.6692214)
+mesh = SubResource("ArrayMesh_m6iow")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Student Hub" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=217832922 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.045462, 2.5000587, 8.467648)
+mesh = SubResource("ArrayMesh_bx31x")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Technocore" type="MeshInstance3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/campus/model" unique_id=1378980310 groups=["Mesh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.822596, 2.9780605, -39.270657)
+mesh = SubResource("ArrayMesh_xukpy")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="camera" type="Node3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World" unique_id=1433600602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.769985, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport/World/camera" unique_id=241722914]
+transform = Transform3D(1, 0, 0, 0, 0.88294756, 0.46947157, 0, -0.46947157, 0.88294756, 0, 50.33782, 101.445435)
+fov = 30.0
+size = 70.0
+
+[node name="button" type="Button" parent="Interface/tab_container/home/bg/map_card" unique_id=881719055]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6047368
+anchor_top = 0.76459104
+anchor_right = 0.9211895
+anchor_bottom = 0.9043141
+offset_top = -3.0517578e-05
+offset_bottom = -3.0517578e-05
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_colors/font_focus_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_colors/font_pressed_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_colors/font_hover_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7mycd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7mycd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7mycd")
+text = "Open 3D Map"
+metadata/_edit_use_anchors_ = true
+
+[node name="user_card" type="AspectRatioContainer" parent="Interface/tab_container/home/bg" unique_id=1717760038]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.80972224
+anchor_top = 0.059
+anchor_right = 0.94027776
+anchor_bottom = 0.10651251
+offset_bottom = -1.5258789e-05
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Ellipse" type="Panel" parent="Interface/tab_container/home/bg/user_card" unique_id=1829031651]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_efxa6")
+metadata/_edit_use_anchors_ = true
+
+[node name="suggested_places" type="VBoxContainer" parent="Interface/tab_container/home/bg" unique_id=799841477 node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05277778
+anchor_top = 0.5865
+anchor_right = 0.94722223
+anchor_bottom = 1.0031736
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+script = ExtResource("4_272bh")
+parent = NodePath(".")
+card = ExtResource("10_ycdy4")
+fit_to_parent = true
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="Interface/tab_container/home/bg" unique_id=1685779517]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059722222
+anchor_top = 0.079
+anchor_right = 0.61527777
+anchor_bottom = 0.1285
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 81
+text = "Welcome!"
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 100
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="subtitle" type="Label" parent="Interface/tab_container/home/bg" unique_id=1808580404]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059722222
+anchor_top = 0.059
+anchor_right = 0.43194443
+anchor_bottom = 0.082
+theme_override_colors/font_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("15_cegan")
+theme_override_font_sizes/font_size = 29
+text = "T.I.P. QUEZON CITY"
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 50
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="subtitle2" type="Label" parent="Interface/tab_container/home/bg" unique_id=763597034]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083333336
+anchor_top = 0.4445
+anchor_right = 0.9652778
+anchor_bottom = 0.4605
+theme_override_colors/font_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 23
+text = "CATEGORIES"
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 50
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="subtitle3" type="Label" parent="Interface/tab_container/home/bg" unique_id=1635528244]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083333336
+anchor_top = 0.5585
+anchor_right = 0.9652778
+anchor_bottom = 0.5745
+theme_override_colors/font_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 25
+text = "SUGGESTED"
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 50
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="categories" type="HBoxContainer" parent="Interface/tab_container/home/bg" unique_id=422996740 node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05138889
+anchor_top = 0.461
+anchor_right = 0.94861114
+anchor_bottom = 0.555
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("9_0odxb")
+json_path = "res://data/categories.json"
+card = ExtResource("5_0odxb")
+parent = NodePath(".")
 metadata/_edit_use_anchors_ = true
 
 [node name="tab_bar" type="Panel" parent="Interface" unique_id=1918553002]
@@ -1236,7 +1481,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ycdy4")
 script = ExtResource("1_ig7tw")
-button_spacing = 40.0
+icon_label_gap = 15.0
 metadata/_edit_use_anchors_ = true
 
 [node name="home" type="Button" parent="Interface/tab_bar" unique_id=392303997 groups=["Tab Buttons"]]
@@ -1246,10 +1491,43 @@ anchor_left = 0.028295454
 anchor_top = 0.20323117
 anchor_right = 0.32375002
 anchor_bottom = 0.827978
-theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ig7tw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lswn8")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/tab_bar/home" unique_id=273463579]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07452037
+anchor_top = 0.19778617
+anchor_right = 0.4226423
+anchor_bottom = 0.82549137
+texture = ExtResource("11_lswn8")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Interface/tab_bar/home" unique_id=992365016]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45165247
+anchor_top = 0.3024037
+anchor_right = 1.0492618
+anchor_bottom = 0.72087383
+offset_right = -1.5258789e-05
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 33
+text = "HOME"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+max_font_size = 40
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 metadata/_edit_use_anchors_ = true
 
 [node name="map" type="Button" parent="Interface/tab_bar" unique_id=1157420633 groups=["Tab Buttons"]]
@@ -1259,10 +1537,43 @@ anchor_left = 0.34496212
 anchor_top = 0.20323117
 anchor_right = 0.6464773
 anchor_bottom = 0.827978
-theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ig7tw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lswn8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Interface/tab_bar/map" unique_id=1136801845]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45165247
+anchor_top = 0.3024037
+anchor_right = 1.0492618
+anchor_bottom = 0.72087383
+offset_right = -1.5258789e-05
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 33
+text = "MAP"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+max_font_size = 40
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/tab_bar/map" unique_id=1364733735]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07452037
+anchor_top = 0.19778617
+anchor_right = 0.4226423
+anchor_bottom = 0.82549137
+texture = ExtResource("12_a6jrf")
+expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="categories" type="Button" parent="Interface/tab_bar" unique_id=993440792 groups=["Tab Buttons"]]
@@ -1272,10 +1583,43 @@ anchor_left = 0.6646591
 anchor_top = 0.20323117
 anchor_right = 0.9646591
 anchor_bottom = 0.8279781
-theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ig7tw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ig7tw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lswn8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Interface/tab_bar/categories" unique_id=1025109384]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48353562
+anchor_top = 0.32332718
+anchor_right = 1.2663703
+anchor_bottom = 0.7417973
+offset_right = -1.5258789e-05
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 33
+text = "  MORE"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+max_font_size = 40
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/tab_bar/categories" unique_id=1972762893]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07452037
+anchor_top = 0.19778617
+anchor_right = 0.4226423
+anchor_bottom = 0.82549137
+texture = ExtResource("13_xuqvo")
+expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="search" type="Panel" parent="Interface" unique_id=1609497967 node_paths=PackedStringArray("card_container")]
@@ -1352,45 +1696,46 @@ padding = Vector2(30, 30)
 stretch_to_fill = false
 metadata/_edit_use_anchors_ = true
 
-[node name="place_info" type="Control" parent="Interface" unique_id=529704677 node_paths=PackedStringArray("service_container", "back_button", "title", "subtitle", "category", "location", "hours", "about")]
+[node name="place_info" type="ScrollContainer" parent="Interface" unique_id=1753211306 node_paths=PackedStringArray("service_container", "back_button", "title", "subtitle", "category", "location", "hours", "about")]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 script = ExtResource("10_4c57u")
+open_position = 0.0
 service_card = ExtResource("14_d13ii")
-service_container = NodePath("scroll/services")
-back_button = NodePath("scroll/back")
-title = NodePath("scroll/title")
-subtitle = NodePath("scroll/subtitle")
-category = NodePath("scroll/category")
-location = NodePath("scroll/location/label")
-hours = NodePath("scroll/operating_hours/label")
-about = NodePath("scroll/about/label")
+service_container = NodePath("bg/services")
+back_button = NodePath("bg/back")
+title = NodePath("bg/title")
+subtitle = NodePath("bg/subtitle")
+category = NodePath("bg/category")
+location = NodePath("bg/location/label")
+hours = NodePath("bg/operating_hours/label")
+about = NodePath("bg/about/label")
 metadata/_edit_use_anchors_ = true
 
-[node name="scroll" type="Panel" parent="Interface/place_info" unique_id=355295243 node_paths=PackedStringArray("TouchSource")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 418.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="bg" type="Panel" parent="Interface/place_info" unique_id=355295243]
+custom_minimum_size = Vector2(0, 2298)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ryguw")
-script = ExtResource("1_0xm2m")
-TouchSource = NodePath("..")
+metadata/_edit_use_anchors_ = true
 
-[node name="service_title" type="Label" parent="Interface/place_info/scroll" unique_id=634226011]
+[node name="service_title" type="Label" parent="Interface/place_info/bg" unique_id=634226011]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.108333334
-anchor_top = 0.8681863
+anchor_top = 0.888999
 anchor_right = 1.0107074
-anchor_bottom = 0.88706017
+anchor_bottom = 0.90787286
 offset_right = 6.1035156e-05
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
@@ -1404,8 +1749,9 @@ script = ExtResource("7_4c57u")
 min_font_size = 10
 max_font_size = 20
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
 
-[node name="images" type="Panel" parent="Interface/place_info/scroll" unique_id=2091042687]
+[node name="images" type="Panel" parent="Interface/place_info/bg" unique_id=2091042687]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.0014866204
@@ -1415,7 +1761,7 @@ grow_horizontal = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_getpj")
 
-[node name="navigate_button" type="Button" parent="Interface/place_info/scroll" unique_id=265295045]
+[node name="navigate_button" type="Button" parent="Interface/place_info/bg" unique_id=265295045]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -1428,7 +1774,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_2cqfq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2cqfq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_2cqfq")
 
-[node name="location" type="Panel" parent="Interface/place_info/scroll" unique_id=21341649]
+[node name="location" type="Panel" parent="Interface/place_info/bg" unique_id=21341649]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -1438,8 +1784,9 @@ anchor_bottom = 0.6012903
 grow_horizontal = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
+metadata/_edit_use_anchors_ = true
 
-[node name="title" type="Label" parent="Interface/place_info/scroll/location" unique_id=4139069]
+[node name="title" type="Label" parent="Interface/place_info/bg/location" unique_id=4139069]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19665092
@@ -1460,7 +1807,7 @@ min_font_size = 10
 max_font_size = 20
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="label" type="Label" parent="Interface/place_info/scroll/location" unique_id=288593081]
+[node name="label" type="Label" parent="Interface/place_info/bg/location" unique_id=288593081]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19665092
@@ -1482,7 +1829,7 @@ min_font_size = 10
 max_font_size = 30
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="TextureRect" type="TextureRect" parent="Interface/place_info/scroll/location" unique_id=817121677]
+[node name="TextureRect" type="TextureRect" parent="Interface/place_info/bg/location" unique_id=817121677]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.068193465
@@ -1494,18 +1841,19 @@ texture = ExtResource("15_82xsv")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="about" type="Panel" parent="Interface/place_info/scroll" unique_id=792585022]
+[node name="about" type="Panel" parent="Interface/place_info/bg" unique_id=792585022]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
-anchor_top = 0.6828543
+anchor_top = 0.703667
 anchor_right = 0.93827635
-anchor_bottom = 0.8478543
+anchor_bottom = 0.868667
 grow_horizontal = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+metadata/_edit_use_anchors_ = true
 
-[node name="title" type="Label" parent="Interface/place_info/scroll/about" unique_id=91346503]
+[node name="title" type="Label" parent="Interface/place_info/bg/about" unique_id=91346503]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05233452
@@ -1526,7 +1874,7 @@ min_font_size = 10
 max_font_size = 20
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="label" type="Label" parent="Interface/place_info/scroll/about" unique_id=1771983653]
+[node name="label" type="Label" parent="Interface/place_info/bg/about" unique_id=1771983653]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05702193
@@ -1547,28 +1895,30 @@ min_font_size = 10
 max_font_size = 20
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="services" type="FlowContainer" parent="Interface/place_info/scroll" unique_id=1658577832]
+[node name="services" type="FlowContainer" parent="Interface/place_info/bg" unique_id=1658577832]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
-anchor_top = 0.882557
+anchor_top = 0.9033697
 anchor_right = 0.93827635
-anchor_bottom = 0.99405354
+anchor_bottom = 0.95561355
 grow_horizontal = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="operating_hours" type="Panel" parent="Interface/place_info/scroll" unique_id=427332042]
+[node name="operating_hours" type="Panel" parent="Interface/place_info/bg" unique_id=427332042]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
-anchor_top = 0.5763132
+anchor_top = 0.5971259
 anchor_right = 0.93827635
-anchor_bottom = 0.6606882
+anchor_bottom = 0.6815009
 grow_horizontal = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cegan")
+metadata/_edit_use_anchors_ = true
 
-[node name="title" type="Label" parent="Interface/place_info/scroll/operating_hours" unique_id=2003001553]
+[node name="title" type="Label" parent="Interface/place_info/bg/operating_hours" unique_id=2003001553]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19665092
@@ -1589,7 +1939,7 @@ min_font_size = 10
 max_font_size = 20
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="label" type="Label" parent="Interface/place_info/scroll/operating_hours" unique_id=822357086]
+[node name="label" type="Label" parent="Interface/place_info/bg/operating_hours" unique_id=822357086]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19665092
@@ -1611,7 +1961,7 @@ min_font_size = 10
 max_font_size = 30
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="TextureRect" type="TextureRect" parent="Interface/place_info/scroll/operating_hours" unique_id=1268188110]
+[node name="TextureRect" type="TextureRect" parent="Interface/place_info/bg/operating_hours" unique_id=1268188110]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.068193465
@@ -1623,7 +1973,7 @@ texture = ExtResource("17_getpj")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="title" type="Label" parent="Interface/place_info/scroll" unique_id=571832214]
+[node name="title" type="Label" parent="Interface/place_info/bg" unique_id=571832214]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -1634,7 +1984,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 77
+theme_override_font_sizes/font_size = 80
 text = "Building 1"
 autowrap_mode = 3
 clip_text = true
@@ -1644,7 +1994,7 @@ min_font_size = 10
 max_font_size = 80
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="subtitle" type="Label" parent="Interface/place_info/scroll" unique_id=1354072134]
+[node name="subtitle" type="Label" parent="Interface/place_info/bg" unique_id=1354072134]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -1664,7 +2014,7 @@ min_font_size = 10
 max_font_size = 30
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="category" type="Label" parent="Interface/place_info/scroll" unique_id=34705300]
+[node name="category" type="Label" parent="Interface/place_info/bg" unique_id=34705300]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -1688,7 +2038,7 @@ min_font_size = 10
 max_font_size = 20
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="back" type="Button" parent="Interface/place_info/scroll" unique_id=1404308285]
+[node name="back" type="Button" parent="Interface/place_info/bg" unique_id=1404308285]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.07361111
@@ -1702,7 +2052,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
 
-[node name="TextureRect" type="TextureRect" parent="Interface/place_info/scroll/back" unique_id=316817346]
+[node name="TextureRect" type="TextureRect" parent="Interface/place_info/bg/back" unique_id=316817346]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23893803
@@ -1830,10 +2180,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.822596, 2.9780605, -39.270
 mesh = SubResource("ArrayMesh_xukpy")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
-[node name="camera" type="Node3D" parent="World" unique_id=56413073 node_paths=PackedStringArray("camera3d")]
+[node name="camera" type="Node3D" parent="World" unique_id=56413073 node_paths=PackedStringArray("camera3d", "input_area")]
 unique_name_in_owner = true
 script = ExtResource("3_lquwl")
 camera3d = NodePath("Camera3D")
+input_area = NodePath("../../Interface/scene_labels")
 
 [node name="Camera3D" type="Camera3D" parent="World/camera" unique_id=1201609321]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 20, 0)

@@ -13,6 +13,7 @@ config_version=5
 config/name="TIPNAV"
 run/main_scene="uid://cfkb8y1mpcos2"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -38,6 +39,7 @@ window/size/window_height_override=650
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+window/max_fps=0
 
 [editor_plugins]
 
@@ -57,6 +59,7 @@ sensors/enable_accelerometer=true
 sensors/enable_gravity=true
 sensors/enable_gyroscope=true
 sensors/enable_magnetometer=true
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 

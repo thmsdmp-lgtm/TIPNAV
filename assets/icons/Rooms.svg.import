@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://ccwble710ts6e"
+path="res://.godot/imported/Rooms.svg-1a547987eeff4bc5a0c668b82512f070.dpitex"
+
+[deps]
+
+source_file="res://assets/icons/Rooms.svg"
+dest_files=["res://.godot/imported/Rooms.svg-1a547987eeff4bc5a0c668b82512f070.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(0.93333334, 0.7921569, 0.33333334, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

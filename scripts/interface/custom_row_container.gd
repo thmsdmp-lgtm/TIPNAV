@@ -8,13 +8,14 @@ class_name CustomRowContainer
 		padding = value
 		_queue_arrange()
 
-## Minimum size of each child. Controls how many fit per row.
+## Minimum size of each child.
 @export var min_size: Vector2 = Vector2(120, 120):
 	set(value):
 		min_size = value
 		_queue_arrange()
 
-## If true, extra horizontal space in a row is shared among the children.
+## If true, extra horizontal space is shared among the children
+## (only applies when everything already fits; otherwise it overflows).
 @export var stretch_to_fill: bool = true:
 	set(value):
 		stretch_to_fill = value
@@ -41,10 +42,9 @@ func _arrange() -> void:
 		if child is Control and child.visible:
 			items.append(child)
 	if items.is_empty():
-		custom_minimum_size.y = 0
+		custom_minimum_size = Vector2.ZERO
 		return
 
-	# wait until this node has a real width (resized will call us again)
 	if size.x <= 0.0:
 		return
 
@@ -55,28 +55,25 @@ func _arrange() -> void:
 		cell_min.x = maxf(cell_min.x, m.x)
 		cell_min.y = maxf(cell_min.y, m.y)
 
-	var avail_w := size.x - padding.x * 2.0
-	var cols := maxi(1, int(floor((avail_w + padding.x) / (cell_min.x + padding.x))))
+	var count := items.size()
+
+	# width needed to fit everything in one row (unstretched)
+	var needed_w := padding.x * 2.0 + count * cell_min.x + (count - 1) * padding.x
 
 	var cell_w := cell_min.x
 	if stretch_to_fill:
-		cell_w = maxf(cell_min.x, (avail_w - padding.x * (cols - 1)) / cols)
+		var avail_w := size.x - padding.x * 2.0
+		cell_w = maxf(cell_min.x, (avail_w - padding.x * (count - 1)) / count)
 	var cell_h := cell_min.y
 
-	for i in items.size():
+	for i in count:
 		var child := items[i]
-		var col := i % cols
-		var row := i / cols
-
-		# anchors must be top-left or the parent's size will move the child
 		child.set_anchors_preset(Control.PRESET_TOP_LEFT)
-		child.position = Vector2(
-			padding.x + col * (cell_w + padding.x),
-			padding.y + row * (cell_h + padding.y)
-		)
+		child.position = Vector2(padding.x + i * (cell_w + padding.x), padding.y)
 		child.size = Vector2(cell_w, cell_h)
 
-	var rows := ceili(float(items.size()) / cols)
-	var total_h := padding.y * 2.0 + rows * cell_h + (rows - 1) * padding.y
-	if not is_equal_approx(custom_minimum_size.y, total_h):
-		custom_minimum_size.y = total_h
+	# report the real size so a parent ScrollContainer can scroll horizontally
+	var total_h := padding.y * 2.0 + cell_h
+	var new_min := Vector2(needed_w, total_h)
+	if not custom_minimum_size.is_equal_approx(new_min):
+		custom_minimum_size = new_min

@@ -1,6 +1,9 @@
 # script for handling info page opening and functionalities
 extends Control
 
+# closed position
+@export var open_position:float = 100
+
 # service card
 @export var service_card:PackedScene
 
@@ -53,11 +56,35 @@ func fill_info(card_name: String):
 	else: return false
 
 # make info page visible or no
+var tween
 func toggle_info_vis(mode:bool):
+	if tween:
+			tween.kill()
+	
 	if mode != null:
-		visible = mode
+		if mode == true:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,open_position), 0.2).set_trans(Tween.TRANS_EXPO)
+		else:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,get_viewport().get_visible_rect().size.y), 0.2).set_trans(Tween.TRANS_EXPO)
+		tween.play()
 	else:
-		visible = not visible
+		if position.y == 0:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,get_viewport().get_visible_rect().size.y), 0.2).set_trans(Tween.TRANS_EXPO)
+		else:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,open_position), 0.2).set_trans(Tween.TRANS_EXPO)
+		tween.play()
+
+func open_info(name:String):
+	print("opening")
+	
+	if fill_info(name):
+		print("filled info")
+		toggle_info_vis(true)
+
 
 # when new card is added
 func _on_added(node: Node) -> void:
@@ -69,7 +96,4 @@ func _on_added(node: Node) -> void:
 	
 	if node.is_in_group("Place Cards") and node.has_node("info"):
 		var button: Button = node.get_node("info")
-		
-		button.pressed.connect(func():
-			if fill_info(node.name):
-				toggle_info_vis(true))
+		button.pressed.connect(Callable(self,"open_info").bind(node.name))

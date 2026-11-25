@@ -34,6 +34,7 @@ func update_search(text: String) -> void:
 	var results := PlaceManager.search(text)
 	for place in results:
 		var c = card.instantiate()
+		c.name = place.get("name","")
 		card_container.add_child(c)
 		
 		var title = c.get_node_or_null("title")

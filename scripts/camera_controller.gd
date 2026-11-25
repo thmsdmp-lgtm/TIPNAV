@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var camera3d: Camera3D
+@export var input_area: Control ## Camera only reacts to input that lands on this control
 @export var smoothing: float = 20.0
 @export var sensitivity: float = 0.05
 @export var mode: bool = false ## false = pan, true = rotate
@@ -28,8 +29,18 @@ func _ready() -> void:
 	if camera3d == null:
 		push_error("camera3d is not assigned.")
 		set_process(false)
-		set_process_input(false)
 		return
+	if input_area == null:
+		push_error("input_area is not assigned.")
+		set_process(false)
+		return
+
+	# The control must not ignore the mouse/touch, otherwise it never gets gui_input.
+	if input_area.mouse_filter == Control.MOUSE_FILTER_IGNORE:
+		input_area.mouse_filter = Control.MOUSE_FILTER_STOP
+	input_area.gui_input.connect(_on_input_area_gui_input)
+	# If the area gets hidden (e.g. tab switch) mid-touch, drop stale fingers.
+	input_area.visibility_changed.connect(_reset_touch_state)
 
 	# Assumes the camera is a child of this node, positioned away from the pivot.
 	var offset := camera3d.position
@@ -40,7 +51,15 @@ func _ready() -> void:
 	_target_distance = _distance
 
 
-func _input(event: InputEvent) -> void:
+func _reset_touch_state() -> void:
+	_touches.clear()
+	_pinch_locked = false
+	_last_pinch_distance = 0.0
+	_drag_delta = Vector2.ZERO
+	_smoothed_delta = Vector2.ZERO
+
+
+func _on_input_area_gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var was_pinching := _touches.size() >= 2
 		

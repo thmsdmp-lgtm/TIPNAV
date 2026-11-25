@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://b26t0qr5qp3gb"
+path="res://.godot/imported/Facilities.svg-df48d977f3a784c7b37bfd785a1b9592.dpitex"
+
+[deps]
+
+source_file="res://assets/icons/Facilities.svg"
+dest_files=["res://.godot/imported/Facilities.svg-df48d977f3a784c7b37bfd785a1b9592.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(0.93333334, 0.7921569, 0.33333334, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

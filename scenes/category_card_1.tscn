@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b772vkmoi7qp4"]
+
+[ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="1_2j1be"]
+[ext_resource type="FontFile" uid="uid://ysnqiqiu2rui" path="res://assets/fonts/Inter/static/Inter_28pt-Medium.ttf" id="1_okshe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u8w0"]
+bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
+[node name="category_card" type="MarginContainer" unique_id=826834906]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.58175665
+anchor_right = 0.30416667
+anchor_bottom = 0.66515595
+offset_right = -15.0
+offset_bottom = 16.561157
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=67214700]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer" unique_id=1347935815]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1u8w0")
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Panel" unique_id=1596094196]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34666666
+anchor_top = 0.29459554
+anchor_right = 0.6533333
+anchor_bottom = 0.6012622
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="AspectRatioContainer/Panel" unique_id=488616435]
+layout_mode = 0
+anchor_left = 0.19333331
+anchor_top = 0.77459556
+anchor_right = 0.7866667
+anchor_bottom = 0.9079289
+theme_override_colors/font_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+theme_override_fonts/font = ExtResource("1_okshe")
+theme_override_font_sizes/font_size = 16
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("1_2j1be")
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true

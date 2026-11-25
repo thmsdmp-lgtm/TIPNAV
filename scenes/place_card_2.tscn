@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="1_54v1f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vivmo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54v1f"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
@@ -12,20 +12,20 @@ shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
-bg_color = Color(0.73333335, 0.7529412, 0.91764706, 1)
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
-bg_color = Color(0.73333335, 0.7529412, 0.91764706, 1)
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[node name="place_card_2" type="Panel" unique_id=144788289 groups=["Place Cards"]]
+[node name="place_card_2" type="MarginContainer" unique_id=481157250]
 custom_minimum_size = Vector2(570, 250)
 anchors_preset = -1
 anchor_right = 0.7916667
@@ -33,17 +33,24 @@ anchor_bottom = 0.15625
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="info" type="Button" parent="." unique_id=1148284464]
+[node name="card" type="Panel" parent="." unique_id=430488046 groups=["Place Cards"]]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_54v1f")
+
+[node name="info" type="Button" parent="card" unique_id=1148284464]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5344382
 anchor_top = 0.65320873
 anchor_right = 0.95399517
 anchor_bottom = 0.9168928
-offset_left = -1.5258789e-05
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_colors/font_focus_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_colors/font_pressed_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
@@ -56,7 +63,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_2cqfq")
 text = "More"
 metadata/_edit_use_anchors_ = true
 
-[node name="place_thumbnail" type="Panel" parent="." unique_id=87771399]
+[node name="place_thumbnail" type="Panel" parent="card" unique_id=87771399]
 clip_children = 2
 layout_mode = 1
 anchors_preset = -1
@@ -68,7 +75,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="place_thumbnail" unique_id=167935329]
+[node name="TextureRect" type="TextureRect" parent="card/place_thumbnail" unique_id=167935329]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="title" type="Label" parent="." unique_id=1325120164]
+[node name="title" type="Label" parent="card" unique_id=1325120164]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5353678
@@ -85,7 +92,7 @@ anchor_top = 0.122047246
 anchor_right = 0.95115733
 anchor_bottom = 0.33464566
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 24
 text = "Admissions Office 1"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -97,7 +104,7 @@ max_font_size = 25
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 metadata/_edit_use_anchors_ = true
 
-[node name="subtitle" type="Label" parent="." unique_id=1892595828]
+[node name="subtitle" type="Label" parent="card" unique_id=1892595828]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5350877

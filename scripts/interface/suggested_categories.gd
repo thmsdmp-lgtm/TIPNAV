@@ -33,6 +33,6 @@ func fill():
 		if not texture: return
 		
 		var c = card.instantiate()
-		if c.has_node("AspectRatioContainer/Panel/TextureRect"): c.get_node("AspectRatioContainer/Panel/TextureRect").texture = texture
-		if c.has_node("AspectRatioContainer/Panel/label"): c.get_node("AspectRatioContainer/Panel/label").text = category
+		if c.has_node("Panel/TextureRect"): c.get_node("Panel/TextureRect").texture = texture
+		if c.has_node("Panel/label"): c.get_node("Panel/label").text = category
 		parent.add_child(c)

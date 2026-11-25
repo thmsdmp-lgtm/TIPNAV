@@ -10,6 +10,12 @@ extends Control
 # service card container
 @export var service_container:Control
 
+# image manager
+@export var image_manager:Control
+
+# images cards container
+@export var image_container:Control
+
 # buttons
 @export var back_button:Button
 
@@ -41,6 +47,9 @@ func fill_info(card_name: String):
 		if location: location.text = data.location
 		if hours: hours.text = data.hours
 		if about: about.text = data.description
+		
+		# fill in images
+		image_manager.create_images(data.name,image_container)
 		
 		# create service cards
 		if service_card:

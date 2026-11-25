@@ -10,13 +10,12 @@
 [ext_resource type="Shader" uid="uid://b42drvettre55" path="res://shaders/material.gdshader" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://sad1126wu8f0" path="res://assets/icons/search-svgrepo-com.svg" id="6_a6jrf"]
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="7_4c57u"]
-[ext_resource type="Script" uid="uid://f0upj110hg57" path="res://map_card.gd" id="7_qsp4k"]
+[ext_resource type="Script" uid="uid://f0upj110hg57" path="res://scripts/interface/map_card.gd" id="7_qsp4k"]
 [ext_resource type="FontFile" uid="uid://daxhk6wyoiey0" path="res://assets/fonts/Inter/static/Inter_28pt-SemiBold.ttf" id="7_xuqvo"]
 [ext_resource type="Script" uid="uid://cuqirhjpsa64k" path="res://scripts/interface/suggested_categories.gd" id="9_0odxb"]
 [ext_resource type="Script" uid="uid://hurd70pki7gu" path="res://scripts/interface/info.gd" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://cs3okxqop883t" path="res://addons/AutoSizeText/ui/AutoSizeLineEdit.gd" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b600iovdi1gc5" path="res://scenes/place_card_2.tscn" id="10_ycdy4"]
-[ext_resource type="Script" uid="uid://5t37oam4lg0" path="res://scripts/interface/cusrom_column_container.gd" id="11_dg77c"]
 [ext_resource type="Texture2D" uid="uid://csa0201xvqjs6" path="res://assets/icons/home-svgrepo-com.svg" id="11_lswn8"]
 [ext_resource type="Texture2D" uid="uid://c5jyd73k4n5js" path="res://assets/icons/map-svgrepo-com.svg" id="12_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://dyi3fo555eorp" path="res://assets/icons/category-svgrepo-com(1).svg" id="13_xuqvo"]
@@ -27,6 +26,7 @@
 [ext_resource type="FontFile" uid="uid://ysnqiqiu2rui" path="res://assets/fonts/Inter/static/Inter_28pt-Medium.ttf" id="15_cegan"]
 [ext_resource type="Texture2D" uid="uid://b3sjinbgyxq76" path="res://assets/icons/clock-three-svgrepo-com.svg" id="17_getpj"]
 [ext_resource type="Texture2D" uid="uid://cm1bob3846teh" path="res://assets/icons/arrow-back-left-svgrepo-com.svg" id="19_ryguw"]
+[ext_resource type="Script" uid="uid://dxp478im37pvw" path="res://image_slide.gd" id="22_a6jrf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -69,6 +69,10 @@ shadow_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82xsv"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
 border_width_left = 1
@@ -81,10 +85,6 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
 
@@ -816,14 +816,11 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
+bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
+border_width_top = 10
+corner_radius_top_left = 50
+corner_radius_top_right = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a77ed"]
 
@@ -831,15 +828,21 @@ shadow_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hflkp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsp4k"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
 bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
+border_width_top = 10
+corner_radius_top_left = 50
+corner_radius_top_right = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
+border_width_top = 10
+corner_radius_top_left = 50
+corner_radius_top_right = 50
 corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 shadow_color = Color(0, 0, 0, 0.05882353)
@@ -897,10 +900,32 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 shadow_color = Color(0, 0, 0, 0.05882353)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6jrf"]
+bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a77ed"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
 albedo_color = Color(0, 0.78538746, 0.7853875, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a6jrf"]
+resource_name = "campus_Plane_002"
+_surfaces = [{
+"aabb": AABB(-5.141598, -2.5, -13.070086, 10.283196, 5, 26.140171),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_shs5k"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("+YekwAAAIMASH1FB+YekQAAAIMASH1HB+YekwAAAIMASH1HB+YekQAAAIMASH1FB+YekwAAAIEASH1FB+YekQAAAIEASH1HB+YekQAAAIEASH1FB+YekwAAAIEASH1HB+YekQAAAIMASH1FB+YekQAAAIEASH1HB+YekQAAAIMASH1HB+YekQAAAIEASH1FB+YekwAAAIMASH1HB+YekwAAAIEASH1FB+YekwAAAIMASH1FB+YekwAAAIEASH1HB+YekQAAAIMASH1HB+YekwAAAIEASH1HB+YekwAAAIMASH1HB+YekQAAAIEASH1HB+YekwAAAIMASH1FB+YekQAAAIEASH1FB+YekQAAAIMASH1FB+YekwAAAIEASH1FB/38AAP///z//fwAA////P/9/AAD///8//38AAP///z//f///////v/9///////+//3///////7//f///////v////3////+/////f////7////9/////v////3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////v/////////+//////////7//////////v/9//3////8//3//f////z//f/9/////P/9//3////8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qmys7")
 
 [node name="Main" type="Node" unique_id=1649254548]
 
@@ -973,7 +998,42 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_074og")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82xsv")
 
+[node name="Button2" type="Label" parent="Interface/tab_container/categories/search" unique_id=1626712969]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18894738
+anchor_top = 0.3023538
+anchor_right = 0.8142106
+anchor_bottom = 0.6976462
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vw27")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efxa6")
+text = "Search Buildings, Offices, Facilities.."
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/tab_container/categories/search" unique_id=1265024604]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068947375
+anchor_top = 0.26278532
+anchor_right = 0.14842108
+anchor_bottom = 0.76068956
+texture = ExtResource("6_a6jrf")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
 [node name="map" type="Control" parent="Interface/tab_container" unique_id=1810525034 groups=["Tabs"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1029,8 +1089,41 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_074og")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82xsv")
 
+[node name="Button2" type="Label" parent="Interface/tab_container/map/search" unique_id=384722266]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18894738
+anchor_top = 0.3023538
+anchor_right = 0.8142106
+anchor_bottom = 0.6976462
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vw27")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efxa6")
+text = "Search Buildings, Offices, Facilities.."
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/tab_container/map/search" unique_id=257059661]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068947375
+anchor_top = 0.26278532
+anchor_right = 0.14842108
+anchor_bottom = 0.76068956
+texture = ExtResource("6_a6jrf")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
 [node name="home" type="ScrollContainer" parent="Interface/tab_container" unique_id=1065581862 groups=["Tabs"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1134,7 +1227,7 @@ anchor_bottom = 0.20191994
 mouse_filter = 1
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("7_xuqvo")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 37
 text = "• 3D Campus Navigator"
 vertical_alignment = 2
 autowrap_mode = 3
@@ -1190,12 +1283,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer" unique_id=2306161]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(578, 245)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="World" type="Node3D" parent="Interface/tab_container/home/bg/map_card/3d_map/SubViewportContainer/SubViewport" unique_id=159005332]
 
@@ -1359,11 +1453,11 @@ anchor_right = 0.94722223
 anchor_bottom = 1.0031736
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 script = ExtResource("4_272bh")
 parent = NodePath(".")
 card = ExtResource("10_ycdy4")
-fit_to_parent = true
+amount = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="title" type="Label" parent="Interface/tab_container/home/bg" unique_id=1685779517]
@@ -1412,12 +1506,12 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083333336
-anchor_top = 0.4445
+anchor_top = 0.439
 anchor_right = 0.9652778
-anchor_bottom = 0.4605
+anchor_bottom = 0.455
 theme_override_colors/font_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 25
 text = "CATEGORIES"
 vertical_alignment = 2
 autowrap_mode = 3
@@ -1433,9 +1527,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083333336
-anchor_top = 0.5585
+anchor_top = 0.5695
 anchor_right = 0.9652778
-anchor_bottom = 0.5745
+anchor_bottom = 0.5855
 theme_override_colors/font_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
 theme_override_font_sizes/font_size = 25
@@ -1622,33 +1716,20 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="search" type="Panel" parent="Interface" unique_id=1609497967 node_paths=PackedStringArray("card_container")]
-visible = false
+[node name="search" type="Panel" parent="Interface" unique_id=1609497967 node_paths=PackedStringArray("card_container", "back")]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xuqvo")
 script = ExtResource("4_search")
 card = ExtResource("10_ycdy4")
-card_container = NodePath("container")
-
-[node name="back" type="Button" parent="Interface/search" unique_id=293625883]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0625
-anchor_top = 0.041875
-anchor_right = 0.20694445
-anchor_bottom = 0.10726272
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_272bh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
-theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+card_container = NodePath("VBoxContainer/VBoxContainer")
+back = NodePath("back/button")
 metadata/_edit_use_anchors_ = true
 
 [node name="bar" type="Panel" parent="Interface/search" unique_id=398937556]
@@ -1674,30 +1755,70 @@ offset_bottom = -13.6203
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_a77ed")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_fkt0i")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hflkp")
+placeholder_text = "Search Buildings, Offices, Facilities.."
 script = ExtResource("10_efxa6")
 min_size = 10
 max_size = 40
 metadata/_custom_type_script = "uid://cs3okxqop883t"
 
-[node name="container" type="Control" parent="Interface/search" unique_id=9961830]
-custom_minimum_size = Vector2(720, 1405)
+[node name="back" type="AspectRatioContainer" parent="Interface/search" unique_id=1060644170]
 layout_mode = 1
-anchor_top = 0.121875
+anchors_preset = -1
+anchor_left = 0.056944445
+anchor_top = 0.043125
+anchor_right = 0.22361112
+anchor_bottom = 0.11242381
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="button" type="Button" parent="Interface/search/back" unique_id=1354946521]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+
+[node name="TextureRect" type="TextureRect" parent="Interface/search/back/button" unique_id=589338482]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23893803
+anchor_top = 0.24528302
+anchor_right = 0.7295041
+anchor_bottom = 0.7358491
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_ryguw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="ScrollContainer" parent="Interface/search" unique_id=1460665536]
+clip_children = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1432488
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("11_dg77c")
-padding = Vector2(30, 30)
-stretch_to_fill = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="place_info" type="ScrollContainer" parent="Interface" unique_id=1753211306 node_paths=PackedStringArray("service_container", "back_button", "title", "subtitle", "category", "location", "hours", "about")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/search/VBoxContainer" unique_id=230057339]
+custom_minimum_size = Vector2(0, 2000)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="place_info" type="ScrollContainer" parent="Interface" unique_id=1753211306 node_paths=PackedStringArray("service_container", "image_manager", "image_container", "back_button", "title", "subtitle", "category", "location", "hours", "about")]
 unique_name_in_owner = true
+clip_contents = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -1711,7 +1832,9 @@ script = ExtResource("10_4c57u")
 open_position = 0.0
 service_card = ExtResource("14_d13ii")
 service_container = NodePath("bg/services")
-back_button = NodePath("bg/back")
+image_manager = NodePath("bg/images")
+image_container = NodePath("bg/images/ScrollContainer/HBoxContainer")
+back_button = NodePath("bg/back/button")
 title = NodePath("bg/title")
 subtitle = NodePath("bg/subtitle")
 category = NodePath("bg/category")
@@ -1752,6 +1875,7 @@ metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 metadata/_edit_use_anchors_ = true
 
 [node name="images" type="Panel" parent="Interface/place_info/bg" unique_id=2091042687]
+clip_children = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.0014866204
@@ -1760,6 +1884,24 @@ anchor_bottom = 0.29236868
 grow_horizontal = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_getpj")
+script = ExtResource("22_a6jrf")
+images = "res://assets/place_images"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Interface/place_info/bg/images" unique_id=198455436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/place_info/bg/images/ScrollContainer" unique_id=1383708193]
+custom_minimum_size = Vector2(2000, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="navigate_button" type="Button" parent="Interface/place_info/bg" unique_id=265295045]
 layout_mode = 1
@@ -2038,7 +2180,7 @@ min_font_size = 10
 max_font_size = 20
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="back" type="Button" parent="Interface/place_info/bg" unique_id=1404308285]
+[node name="back" type="AspectRatioContainer" parent="Interface/place_info/bg" unique_id=1384095407]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.07361111
@@ -2047,12 +2189,15 @@ anchor_right = 0.23055555
 anchor_bottom = 0.085728444
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="button" type="Button" parent="Interface/place_info/bg/back" unique_id=1703690016]
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
 
-[node name="TextureRect" type="TextureRect" parent="Interface/place_info/bg/back" unique_id=316817346]
+[node name="TextureRect" type="TextureRect" parent="Interface/place_info/bg/back/button" unique_id=1189213769]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23893803
@@ -2064,6 +2209,26 @@ grow_vertical = 2
 texture = ExtResource("19_ryguw")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Track" type="Control" parent="Interface" unique_id=2117961132]
+layout_mode = 1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Interface/Track" unique_id=1257900447]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.460625
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6jrf")
 metadata/_edit_use_anchors_ = true
 
 [node name="World" type="Node3D" parent="." unique_id=2005778649]
@@ -2132,7 +2297,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
 [node name="Building 9" type="MeshInstance3D" parent="World/campus/model" unique_id=992665879 groups=["Mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.851082, 2.5000587, -20.771425)
-mesh = SubResource("ArrayMesh_ryl8a")
+mesh = SubResource("ArrayMesh_a6jrf")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
 [node name="Congregating Area" type="MeshInstance3D" parent="World/campus/model" unique_id=1765993828 groups=["Mesh"]]

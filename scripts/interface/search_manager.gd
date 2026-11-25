@@ -3,14 +3,15 @@ extends Panel
 
 @export var card:PackedScene
 @export var card_container:Control
+@export var back:Button
+@export var open_position:int
 
 var line
 
 # initialize
 func _ready() -> void:
 	# bind back button
-	if has_node("back") and get_node("back") is Button:
-		get_node("back").pressed.connect(Callable(self, "toggle").bind(false))
+	if back: back.pressed.connect(Callable(self, "toggle").bind(false))
 	
 	# bind line edit
 	if has_node("bar") and get_node("bar").has_node("line"):
@@ -35,6 +36,8 @@ func update_search(text: String) -> void:
 	for place in results:
 		var c = card.instantiate()
 		c.name = place.get("name","")
+		c.name = place.get("name","")
+		if c.has_node("card"): c.get_node("card").name = place.get("name","")
 		card_container.add_child(c)
 		
 		var title = c.get_node_or_null("title")
@@ -44,14 +47,24 @@ func update_search(text: String) -> void:
 		if subtitle: subtitle.text = place.get("subtitle", "")
 
 # toogle the search page
+var tween
 func toggle(mode:bool):
+	if tween:
+			tween.kill()
+	
 	if mode != null:
-		visible = mode
-		if not mode:
-			line.text = ""
-			# clear old results
-		for child in card_container.get_children():
-			child.queue_free()
+		if mode == true:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,open_position), 0.2).set_trans(Tween.TRANS_EXPO)
+		else:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,get_viewport().get_visible_rect().size.y), 0.2).set_trans(Tween.TRANS_EXPO)
+		tween.play()
 	else:
-		line.text = ""
-		visible = not visible
+		if position.y == 0:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,get_viewport().get_visible_rect().size.y), 0.2).set_trans(Tween.TRANS_EXPO)
+		else:
+			tween = create_tween()
+			tween.tween_property(self, "position", Vector2(0,open_position), 0.2).set_trans(Tween.TRANS_EXPO)
+		tween.play()

@@ -26,8 +26,8 @@
 [ext_resource type="FontFile" uid="uid://ysnqiqiu2rui" path="res://assets/fonts/Inter/static/Inter_28pt-Medium.ttf" id="15_cegan"]
 [ext_resource type="Texture2D" uid="uid://b3sjinbgyxq76" path="res://assets/icons/clock-three-svgrepo-com.svg" id="17_getpj"]
 [ext_resource type="Texture2D" uid="uid://cm1bob3846teh" path="res://assets/icons/arrow-back-left-svgrepo-com.svg" id="19_ryguw"]
-[ext_resource type="Script" uid="uid://dxp478im37pvw" path="res://image_slide.gd" id="22_a6jrf"]
-[ext_resource type="Script" uid="uid://dn35m7364mtof" path="res://directions.gd" id="26_xuqvo"]
+[ext_resource type="Script" uid="uid://dxp478im37pvw" path="res://scripts/interface/image_slide.gd" id="22_a6jrf"]
+[ext_resource type="Script" uid="uid://dn35m7364mtof" path="res://scripts/interface/directions.gd" id="26_xuqvo"]
 [ext_resource type="Texture2D" uid="uid://bpob66g04rvpf" path="res://assets/icons/gps-svgrepo-com.svg" id="27_qsp4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
@@ -1903,7 +1903,7 @@ about = NodePath("bg/about/label")
 metadata/_edit_use_anchors_ = true
 
 [node name="bg" type="Panel" parent="Interface/place_info" unique_id=355295243]
-custom_minimum_size = Vector2(0, 2298)
+custom_minimum_size = Vector2(0, 2000)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1945,6 +1945,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_getpj")
 script = ExtResource("22_a6jrf")
 images = "res://assets/place_images"
+fit_to_container = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Interface/place_info/bg/images" unique_id=198455436]
 layout_mode = 1
@@ -2102,7 +2103,7 @@ anchors_preset = -1
 anchor_left = 0.0625
 anchor_top = 0.9033697
 anchor_right = 0.93827635
-anchor_bottom = 0.95561355
+anchor_bottom = 0.9715
 grow_horizontal = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
@@ -2185,7 +2186,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 76
 text = "Building 1"
 autowrap_mode = 3
 clip_text = true
@@ -2271,6 +2272,7 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Directions" type="Control" parent="Interface" unique_id=2117961132]
+visible = false
 layout_mode = 1
 anchor_top = 1.0
 anchor_right = 1.0

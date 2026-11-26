@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b600iovdi1gc5"]
 
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="1_54v1f"]
+[ext_resource type="Script" uid="uid://dxp478im37pvw" path="res://scripts/interface/image_slide.gd" id="1_xsgvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54v1f"]
 bg_color = Color(1, 1, 1, 1)
@@ -73,16 +74,10 @@ anchor_right = 0.50605327
 anchor_bottom = 0.9168681
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yaehf")
+script = ExtResource("1_xsgvr")
+images = "res://assets/place_images"
+Initialize = true
 metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="card/place_thumbnail" unique_id=167935329]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="title" type="Label" parent="card" unique_id=1325120164]
 layout_mode = 1

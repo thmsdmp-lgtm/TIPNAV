@@ -47,25 +47,26 @@ func initialize() -> void:
 	var meshes = {}
 	var g = get_tree().get_nodes_in_group("Mesh")
 	for mesh in g:
-		meshes.set(mesh.name, mesh)
+		meshes.set(str(mesh.name).to_lower(), mesh)
 
 	# initialize
 	for data in PlaceManager.data:
-		if meshes.has(data.name):
-			var mesh = meshes[data.name]
+		var key := str(data.name).to_lower()
+		if meshes.has(key):
+			var mesh = meshes[key]
 			_add_occluders(mesh)
-
+			
 			var label = label_scene.instantiate()
 			label.name = data.name
 			label_container.add_child(label)
-
+			
 			var button = label.get_node("info")
 			# set button text
 			button.text = data.name
-
+			
 			# no need to connect button event since info page script
 			# already sets up control nodes in group Place Cards
-
+			
 			labels.append({
 				"name": data.name,
 				"label": label,

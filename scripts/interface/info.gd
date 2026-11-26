@@ -51,6 +51,10 @@ func fill_info(card_name: String):
 		# fill in images
 		image_manager.create_images(data.name,image_container)
 		
+		# delete previous service cards
+		for c in service_container.get_children():
+			c.queue_free()
+		
 		# create service cards
 		if service_card:
 			for service in data.services:

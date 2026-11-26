@@ -57,7 +57,7 @@
 	"room": "",
 	"hours": "7:00 AM - 6:00 PM",
 	"description": "Library and co-working space for Senior High School students.",
-	"services": ["books", "e-library", "computers", "printing servies"]
+	"services": ["Books", "E-library", "Computers", "Printing servies"]
   },
   {
 	"name": "PE Center 1",
@@ -107,7 +107,7 @@
 	"room": "",
 	"hours": "8:00 AM - 5:00 PM (Tue-Sat)",
 	"description": "Handles student accounts and financial transactions.",
-	"services": ["student accounts","financial transactions"]
+	"services": ["Student accounts","Financial"]
   },
 {
 	"name": "Chemistry Laboratories",
@@ -117,7 +117,7 @@
 	"room": "",
 	"hours": "During Class Hours",
 	"description": "Laboratory room for experiments, chemical handling, and science classes.",
-	"services": ["Equipments."]
+	"services": ["Equipments"]
   },
   {
 	"name": "Student Preparation Area",
@@ -127,17 +127,17 @@
 	"room": "Connected to Cafeteria",
 	"hours": "6:00 AM - 10:00 PM",
 	"description": "Designated area for students to gather, prepare materials and wait before classes.",
-	"services": ["Open Space"]
+	"services": ["Open Space","Study Area"]
   },
   {
 	"name": "Garden",
 	"category": "Campus Areas",
 	"subtitle": "Outdoor Campus Garden & Lounge",
-	"location": "",
+	"location": "Behind Anniversary Hall",
 	"room": "",
 	"hours": "6:00 AM - 10:00 PM",
 	"description": "Open outdoor green space for students to relax, hang out, and study between classes.",
-	"services": []
+	"services": ["Open Space","Study Area"]
   },
   {
 	"name": "Anniversary Hall",
@@ -167,7 +167,7 @@
 	"room": "",
 	"hours": "",
 	"description":"",
-	"services": []
+	"services": ["Rooms"]
   },
   {
 	"name": "Building 4",
@@ -177,7 +177,7 @@
 	"room": "",
 	"hours": "",
 	"description": "Connected academic buildings containing classrooms, laboratories, and offices.",
-	"services": []
+	"services": ["Rooms"]
   },
  {
 	"name": "Building 2",
@@ -187,7 +187,7 @@
 	"room": "",
 	"hours": "",
 	"description": "Connected academic buildings containing classrooms, laboratories, and offices.",
-	"services": []
+	"services": ["Rooms"]
   },
   {
 	"name": "Building 5",
@@ -197,7 +197,7 @@
 	"room": "",
 	"hours": "",
 	"description": "Academic building with computer laboratories, lecture rooms, and the cafeteria.",
-	"services": []
+	"services": ["Rooms","IT Laboratories"]
   },
   {
 	"name": "Building 8",
@@ -207,7 +207,7 @@
 	"room": "",
 	"hours": "",
 	"description": "Campus building housing specialized classrooms.",
-	"services": []
+	"services": ["Rooms"]
   },
   {
 	"name": "Building 9",
@@ -217,6 +217,6 @@
 	"room": "",
 	"hours": "",
 	"description": "Campus building housing faculties, library, and classrooms.",
-	"services": []
+	"services": ["Rooms","Library","Faculty"]
   },
 ]

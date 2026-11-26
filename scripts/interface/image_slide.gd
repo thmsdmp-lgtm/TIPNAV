@@ -1,6 +1,6 @@
 # script for handling image slides
 # presented in info page
-extends Panel
+extends Control
 
 # place images folder
 @export_dir() var images
@@ -11,6 +11,9 @@ extends Panel
 # allowed image formats
 @export var IMAGE_EXTENSIONS := ["png", "jpg", "jpeg", "webp", "svg"]
 
+# corner radius (in pixels) for the rounded image
+@export var corner_radius:float = 24.0
+
 # anchor the texture rect to fill the whole panel
 @export var full_rect:bool = true
 
@@ -19,6 +22,35 @@ extends Panel
 
 # custom min size for texture rect
 @export var min_size:Vector2 = Vector2(100,200)
+
+const ROUND_SHADER := """
+shader_type canvas_item;
+uniform float radius = 24.0;
+uniform vec2 rect_size = vec2(100.0, 100.0);
+varying vec2 local_pos;
+
+void vertex() {
+	local_pos = VERTEX;
+}
+
+void fragment() {
+	vec2 half_size = rect_size * 0.5;
+	vec2 p = local_pos - half_size;
+	vec2 d = abs(p) - half_size + vec2(radius);
+	float dist = length(max(d, 0.0)) + min(max(d.x, d.y), 0.0) - radius;
+	COLOR.a *= 1.0 - smoothstep(-1.0, 0.0, dist);
+}
+"""
+
+func _round_rect(rect:TextureRect, radius:float = 24.0) -> void:
+	var shader := Shader.new()
+	shader.code = ROUND_SHADER
+	var mat := ShaderMaterial.new()
+	mat.shader = shader
+	mat.set_shader_parameter("radius", radius)
+	mat.set_shader_parameter("rect_size", rect.size)
+	rect.material = mat
+	rect.resized.connect(func(): mat.set_shader_parameter("rect_size", rect.size))
 
 func _ready() -> void:
 	if not Initialize: return
@@ -59,6 +91,8 @@ func _ready() -> void:
 	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	rect.texture = image
+	rect.z_index = 0
+	_round_rect(rect, corner_radius)
 
 # creates and parents textureRects to specified parent
 func create_images(place_name:String, parent:Control):
@@ -91,3 +125,4 @@ func create_images(place_name:String, parent:Control):
 		rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 		rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		rect.texture = image
+		_round_rect(rect, corner_radius)

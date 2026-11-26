@@ -37,14 +37,16 @@ func _ready() -> void:
 			break
 	
 		var c = card.instantiate()
-		if c.has_node("card"): c.get_node("card").name = data.name
+		var card
+		if c.has_node("card"): card = c.get_node("card")
+		card.name = data.name
 		parent.add_child(c)
 		
 		# fill in contents (skip any node the card doesn't have)
-		var title = c.get_node_or_null("title")
+		var title = card.get_node_or_null("title")
 		if title: title.text = data.get("name", "")
 		
-		var subtitle = c.get_node_or_null("subtitle")
+		var subtitle = card.get_node_or_null("subtitle")
 		if subtitle: subtitle.text = data.get("subtitle", "")
 		
 		added += 1

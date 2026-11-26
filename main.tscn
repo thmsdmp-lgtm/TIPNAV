@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://b3sjinbgyxq76" path="res://assets/icons/clock-three-svgrepo-com.svg" id="17_getpj"]
 [ext_resource type="Texture2D" uid="uid://cm1bob3846teh" path="res://assets/icons/arrow-back-left-svgrepo-com.svg" id="19_ryguw"]
 [ext_resource type="Script" uid="uid://dxp478im37pvw" path="res://image_slide.gd" id="22_a6jrf"]
+[ext_resource type="Script" uid="uid://dn35m7364mtof" path="res://directions.gd" id="26_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://bpob66g04rvpf" path="res://assets/icons/gps-svgrepo-com.svg" id="27_qsp4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -104,7 +106,7 @@ shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
-bg_color = Color(0.96725994, 0.8482963, 0.47951615, 1)
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -904,6 +906,63 @@ shadow_color = Color(0, 0, 0, 0.05882353)
 bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
 corner_radius_top_left = 70
 corner_radius_top_right = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq58d"]
+bg_color = Color(0.9063559, 0.9182944, 0.97697073, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu75"]
+bg_color = Color(0.9063559, 0.9182944, 0.97697073, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htxhm"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq2sk"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k2k6"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rl1p"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok6jj"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a77ed"]
 
@@ -2211,24 +2270,218 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Track" type="Control" parent="Interface" unique_id=2117961132]
+[node name="Directions" type="Control" parent="Interface" unique_id=2117961132]
 layout_mode = 1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+mouse_filter = 1
+script = ExtResource("26_xuqvo")
 
-[node name="Panel" type="Panel" parent="Interface/Track" unique_id=1257900447]
+[node name="bg" type="Panel" parent="Interface/Directions" unique_id=1257900447]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.460625
+anchor_top = 0.54875
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_a6jrf")
+
+[node name="locations" type="Panel" parent="Interface/Directions" unique_id=1188266132]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0875
+anchor_top = 0.6575
+anchor_right = 0.91137475
+anchor_bottom = 0.865
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_kq58d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Directions/locations" unique_id=1817381282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -5
+
+[node name="current" type="Panel" parent="Interface/Directions/locations/VBoxContainer" unique_id=1775221530]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_seu75")
+
+[node name="TextureRect" type="TextureRect" parent="Interface/Directions/locations/VBoxContainer/current" unique_id=114332575]
+layout_mode = 0
+anchor_left = 0.081947565
+anchor_top = 0.23214285
+anchor_right = 0.2246034
+anchor_bottom = 0.735684
+texture = ExtResource("27_qsp4k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="label" type="Label" parent="Interface/Directions/locations/VBoxContainer/current" unique_id=1767246403]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25058162
+anchor_top = 9.8511915
+anchor_right = 0.9622174
+anchor_bottom = 10.178572
+offset_top = -1600.0
+offset_bottom = -1600.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("15_cegan")
+theme_override_font_sizes/font_size = 45
+text = "My location"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 100
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="target" type="Panel" parent="Interface/Directions/locations/VBoxContainer" unique_id=118230566]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_seu75")
+
+[node name="TextureRect" type="TextureRect" parent="Interface/Directions/locations/VBoxContainer/target" unique_id=507242613]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.081947565
+anchor_top = 0.26627198
+anchor_right = 0.2246034
+anchor_bottom = 0.7698131
+texture = ExtResource("15_82xsv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="label" type="Label" parent="Interface/Directions/locations/VBoxContainer/target" unique_id=420127979]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25058162
+anchor_top = 9.834319
+anchor_right = 0.96053106
+anchor_bottom = 10.1617
+offset_top = -1600.0
+offset_bottom = -1600.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("15_cegan")
+theme_override_font_sizes/font_size = 45
+text = "Target Destination"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 100
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="button" type="Panel" parent="Interface/Directions" unique_id=66582621]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0875
+anchor_top = 0.89625
+anchor_right = 0.91137475
+anchor_bottom = 0.963125
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_htxhm")
+
+[node name="label" type="Label" parent="Interface/Directions/button" unique_id=1254156347]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22085892
+anchor_top = 0.2208589
+anchor_right = 0.77914107
+anchor_bottom = 0.7791411
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("14_yaehf")
+theme_override_font_sizes/font_size = 49
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 100
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="title" type="Label" parent="Interface/Directions" unique_id=1481445895]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0875
+anchor_top = 1.58125
+anchor_right = 0.6027778
+anchor_bottom = 1.627
+offset_top = -1600.0
+offset_bottom = -1600.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("15_cegan")
+theme_override_font_sizes/font_size = 60
+text = "Directions"
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+script = ExtResource("7_4c57u")
+min_font_size = 20
+max_font_size = 100
+metadata/_custom_type_script = "uid://d11kfgsd6jgt"
+
+[node name="back" type="AspectRatioContainer" parent="Interface/Directions" unique_id=576575698]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7875
+anchor_top = 0.578125
+anchor_right = 0.9351608
+anchor_bottom = 0.6318625
+offset_bottom = -1.5258789e-05
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Ellipse" type="Button" parent="Interface/Directions/back" unique_id=275607582]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jq2sk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4k2k6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0rl1p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ok6jj")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/Directions/back/Ellipse" unique_id=24227417]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27901885
+anchor_top = 0.27901885
+anchor_right = 0.7209812
+anchor_bottom = 0.7209812
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_ryguw")
+expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="World" type="Node3D" parent="." unique_id=2005778649]

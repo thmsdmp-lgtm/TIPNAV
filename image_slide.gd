@@ -11,6 +11,10 @@ extends Panel
 # custom min size for texture rect
 @export var min_size:Vector2 = Vector2(100,200)
 
+# creates and parents one random image
+func get_image_random(place_name:String,parent:Control):
+	pass
+
 # creates and parents textureRects to specified parent
 func create_images(place_name:String, parent:Control):
 	# clear previous contents
@@ -23,6 +27,8 @@ func create_images(place_name:String, parent:Control):
 	
 	var seen := {}
 	for file_name in DirAccess.get_files_at(path):
+		await get_tree().create_timer(0.2).timeout
+		
 		# exported builds list "name.png.import" / "name.png.remap"
 		var clean = file_name.trim_suffix(".import").trim_suffix(".remap")
 		if seen.has(clean): continue

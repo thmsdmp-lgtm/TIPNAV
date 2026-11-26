@@ -35,15 +35,16 @@ func update_search(text: String) -> void:
 	var results := PlaceManager.search(text)
 	for place in results:
 		var c = card.instantiate()
-		c.name = place.get("name","")
-		c.name = place.get("name","")
-		if c.has_node("card"): c.get_node("card").name = place.get("name","")
+		var card
+		if c.has_node("card"): card = c.get_node("card")
+		card.name = place.get("name","")
 		card_container.add_child(c)
 		
-		var title = c.get_node_or_null("title")
+		# fill in contents (skip any node the card doesn't have)
+		var title = card.get_node_or_null("title")
 		if title: title.text = place.get("name", "")
 		
-		var subtitle = c.get_node_or_null("subtitle")
+		var subtitle = card.get_node_or_null("subtitle")
 		if subtitle: subtitle.text = place.get("subtitle", "")
 
 # toogle the search page

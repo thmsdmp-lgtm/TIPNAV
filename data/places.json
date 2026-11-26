@@ -1,324 +1,222 @@
 [
-	{
-		"name": "Building 1",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 2",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 3",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 4",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 5",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 6",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 7",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 8",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Building 9",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Technocore",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Student Hub",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Study Hall",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Pe Hall",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Pe Center 2",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Pe Center 1",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Landscape",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Congregating Area",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Anniversary Hall",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Registrar's Office 1",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Registrar's Office 2",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Registrar's Office 3",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Accounting Office",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	},
-	{
-		"name": "Accounting Office 2",
-		"category": "Offices",
-		"subtitle": "Student Records & Enrollment",
-		"location": "Main Building • Ground Floor",
-		"room": "Room 1101",
-		"hours": "8:00 AM - 5:00 PM (Mon-Sat)",
-		"description": "Handles official academic transcripts, enrollment verification, Form 137 requests, and student credentials.",
-		"services": [
-			"TOR Request",
-			"Enrollment",
-			"Student Credentials"
-		]
-	}
+  {
+	"name": "Cafeteria",
+	"category": "Facilities",
+	"subtitle": "Student Dining & Food Court",
+	"location": "Building 5 1st floor",
+	"room": "",
+	"hours": "6:00 AM - 6:00 PM",
+	"description": "School dining area.",
+	"services": ["Food","School supply","Open Space"]
+  },
+  {
+	"name": "SHS Faculty",
+	"category": "Administrative Offices",
+	"subtitle": "Senior High School Faculty",
+	"location": "Building 9 1st floor",
+	"room": "",
+	"hours": "7:00 AM - 6:00 PM (Mon-Fri)",
+	"description": "Office of TIP QC Senior High School Faculty.",
+	"services": ["Student concerns"]
+  },
+  {
+	"name": "ITSO",
+	"category": "Administrative Offices",
+	"subtitle": "Information Technology Services Office",
+	"location": "",
+	"room": "",
+	"hours": "7:00 AM - 5:00 PM (Tue-Sat)",
+	"description": "Handles all IT related student concerns.",
+	"services": ["Student concerns"]
+  },
+  {
+	"name": "OSA",
+	"category": "Administrative Offices",
+	"subtitle": "Office for Student Affairs",
+	"location": "",
+	"room": "",
+	"hours": "7:00 AM - 5:00 PM (Tue-Sat)",
+	"description": "Office for Student Affairs and Lost and Found items ",
+	"services": ["Student affairs", "Concerns", "Lost and found"]
+  },
+  {
+	"name": "Guidance Office",
+	"category": "Administrative Offices",
+	"subtitle": "Student Counseling & Guidance",
+	"location": "",
+	"room": "",
+	"hours": "7:00 AM - 5:00 PM (Tue-Sat)",
+	"description": "Provides student counseling and guidance services.",
+	"services": ["Counseling","Guidance Services"]
+  },
+  {
+	"name": "Library SHS",
+	"category": "Facilities",
+	"subtitle": "Senior High School Library",
+	"location": "",
+	"room": "",
+	"hours": "7:00 AM - 6:00 PM",
+	"description": "Library and co-working space for Senior High School students.",
+	"services": ["books", "e-library", "computers", "printing servies"]
+  },
+  {
+	"name": "PE Center 1",
+	"category": "Facilities",
+	"subtitle": "Physical Education Center 1",
+	"location": "",
+	"room": "",
+	"hours": "7:00 AM - 9:00 PM",
+	"description": "Physical Education and campus activity facility.",
+	"services": ["Open Space"]
+  },
+  {
+	"name": "Congregating Hall",
+	"category": "Facilities",
+	"subtitle": "Congregation Venue",
+	"location": "",
+	"room": "",
+	"hours": "7:00 AM - 9:00 PM",
+	"description": "Campus venue for gatherings and events.",
+	"services": ["Open Space"]
+  },
+  {
+	"name": "Study Hall",
+	"category": "Facilities",
+	"subtitle": "Quiet Academic Study Area",
+	"location": "",
+	"room": "",
+	"hours": "6:00 AM - 10:00 PM",
+	"description": "Co-working space for students with limited sockets available and a food and drinks store.",
+	"services": ["Study Place", "Open Space"]
+  },
+  {
+	"name": "PE Center 2",
+	"category": "Facilities",
+	"subtitle": "Physical Education Center 2",
+	"location": "",
+	"room": "",
+	"hours": "5:00 AM - 7:00 PM (When in use)",
+	"description": "Additional physical education facility when in use.",
+	"services": ["Open Space"]
+  },
+  {
+	"name": "Accounting Office",
+	"category": "Finance & Cashier",
+	"subtitle": "Student Accounts & Payments",
+	"location": "",
+	"room": "",
+	"hours": "8:00 AM - 5:00 PM (Tue-Sat)",
+	"description": "Handles student accounts and financial transactions.",
+	"services": ["student accounts","financial transactions"]
+  },
+{
+	"name": "Chemistry Laboratories",
+	"category": "Laboratories",
+	"subtitle": "Chemistry and Science labs",
+	"location": "",
+	"room": "",
+	"hours": "During Class Hours",
+	"description": "Laboratory room for experiments, chemical handling, and science classes.",
+	"services": ["Equipments."]
+  },
+  {
+	"name": "Student Preparation Area",
+	"category": "Facilities",
+	"subtitle": "Student Prep & Co-Working Space",
+	"location": "Bulding 5 1st floor",
+	"room": "Connected to Cafeteria",
+	"hours": "6:00 AM - 10:00 PM",
+	"description": "Designated area for students to gather, prepare materials and wait before classes.",
+	"services": ["Open Space"]
+  },
+  {
+	"name": "Garden",
+	"category": "Campus Areas",
+	"subtitle": "Outdoor Campus Garden & Lounge",
+	"location": "",
+	"room": "",
+	"hours": "6:00 AM - 10:00 PM",
+	"description": "Open outdoor green space for students to relax, hang out, and study between classes.",
+	"services": []
+  },
+  {
+	"name": "Anniversary Hall",
+	"category": "Facilities",
+	"subtitle": "Auditorium & Events Hall",
+	"location": "Middle of the Campus",
+	"room": "",
+	"hours": "No data",
+	"description": "An indoor auditorium used for important events",
+	"services": ["Open Space"]
+  },
+  {
+	"name": "TechnoCore",
+	"category": "Facilities",
+	"subtitle": "",
+	"location": "",
+	"room": "",
+	"hours": "",
+	"description": "",
+	"services": []
+  },
+  {
+	"name": "Building 1",
+	"category": "Buildings",
+	"subtitle": "Campus Building 1",
+	"location": "Building 1",
+	"room": "",
+	"hours": "",
+	"description":"",
+	"services": []
+  },
+  {
+	"name": "Building 4",
+	"category": "Buildings",
+	"subtitle": "Campus Building 4",
+	"location": "Building 4",
+	"room": "",
+	"hours": "",
+	"description": "Connected academic buildings containing classrooms, laboratories, and offices.",
+	"services": []
+  },
+ {
+	"name": "Building 2",
+	"category": "Buildings",
+	"subtitle": "Campus Building 2",
+	"location": "Building 2",
+	"room": "",
+	"hours": "",
+	"description": "Connected academic buildings containing classrooms, laboratories, and offices.",
+	"services": []
+  },
+  {
+	"name": "Building 5",
+	"category": "Buildings",
+	"subtitle": "Campus Building 1",
+	"location": "Building 5",
+	"room": "",
+	"hours": "",
+	"description": "Academic building with computer laboratories, lecture rooms, and the cafeteria.",
+	"services": []
+  },
+  {
+	"name": "Building 8",
+	"category": "Buildings",
+	"subtitle": "Campus Building 8",
+	"location": "Building 8",
+	"room": "",
+	"hours": "",
+	"description": "Campus building housing specialized classrooms.",
+	"services": []
+  },
+  {
+	"name": "Building 9",
+	"category": "Buildings",
+	"subtitle": "Campus Building 1",
+	"location": "Building 9",
+	"room": "",
+	"hours": "",
+	"description": "Campus building housing faculties, library, and classrooms.",
+	"services": []
+  },
 ]

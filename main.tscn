@@ -54,12 +54,16 @@ fog_depth_end = 250.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
 bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
 bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 shadow_color = Color(0, 0, 0, 0.05882353)
 shadow_size = 20
 
@@ -74,19 +78,6 @@ shadow_size = 20
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
 
@@ -798,6 +789,15 @@ corner_radius_top_right = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hflkp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_color = Color(0, 0, 0, 0.05882353)
+shadow_size = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsp4k"]
 corner_radius_top_left = 60
 corner_radius_top_right = 60
@@ -871,6 +871,7 @@ shadow_color = Color(0, 0, 0, 0.05882353)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6jrf"]
 bg_color = Color(0.96862745, 0.972549, 0.99215686, 1)
+border_width_top = 10
 corner_radius_top_left = 70
 corner_radius_top_right = 70
 
@@ -998,17 +999,10 @@ light_energy = 0.8
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="Interface" type="Control" parent="." unique_id=862413060]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Interface" type="CanvasLayer" parent="." unique_id=1176616289]
 
 [node name="scene_labels" type="Control" parent="Interface" unique_id=401382350]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1016,7 +1010,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="tab_container" type="Control" parent="Interface" unique_id=1194538160]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1043,7 +1037,7 @@ anchor_top = 0.041875
 anchor_right = 0.9393519
 anchor_bottom = 0.107262686
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Interface/tab_container/categories/search" unique_id=1857422184]
@@ -1134,7 +1128,7 @@ anchor_top = 0.041875
 anchor_right = 0.9393519
 anchor_bottom = 0.107262686
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Interface/tab_container/map/search" unique_id=1359653999]
@@ -1618,7 +1612,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="tab_bar" type="Panel" parent="Interface" unique_id=1918553002]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.096736126
 anchor_top = 0.846875
@@ -1772,7 +1765,6 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="search" type="Panel" parent="Interface" unique_id=1609497967 node_paths=PackedStringArray("card_container", "back")]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1795,7 +1787,7 @@ anchor_top = 0.041875
 anchor_right = 0.9393519
 anchor_bottom = 0.107262686
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 metadata/_edit_use_anchors_ = true
 
 [node name="line" type="LineEdit" parent="Interface/search/bar" unique_id=1750655725]
@@ -1846,6 +1838,8 @@ anchor_right = 0.7295041
 anchor_bottom = 0.7358491
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("19_ryguw")
 expand_mode = 1
 stretch_mode = 5
@@ -1873,8 +1867,8 @@ size_flags_vertical = 3
 
 [node name="place_info" type="ScrollContainer" parent="Interface" unique_id=1753211306 node_paths=PackedStringArray("service_container", "image_manager", "image_container", "back_button", "title", "subtitle", "category", "location", "hours", "about")]
 unique_name_in_owner = true
+visible = false
 clip_contents = false
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1918,7 +1912,7 @@ offset_right = 6.1035156e-05
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 11
 text = "SERVICES OFFERED"
 autowrap_mode = 3
 clip_text = true
@@ -1978,7 +1972,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2cqfq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2cqfq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2cqfq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_2cqfq")
-text = "NAVIGATE TO"
+text = "SHOW DIRECTIONS"
 
 [node name="location" type="Panel" parent="Interface/place_info/bg" unique_id=21341649]
 layout_mode = 1
@@ -2003,7 +1997,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 11
 text = "LOCATION"
 autowrap_mode = 3
 clip_text = true
@@ -2024,7 +2018,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 11
 text = "Location around blabla"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -2070,7 +2064,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 11
 text = "ABOUT"
 autowrap_mode = 3
 clip_text = true
@@ -2091,7 +2085,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("15_cegan")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 11
 text = "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
 autowrap_mode = 3
 clip_text = true
@@ -2135,7 +2129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 11
 text = "OPERATING HOURS"
 autowrap_mode = 3
 clip_text = true
@@ -2156,7 +2150,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 11
 text = "8:00am - 10:00pm (Mon-Sat)"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -2190,7 +2184,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 76
+theme_override_font_sizes/font_size = 11
 text = "Building 1"
 autowrap_mode = 3
 clip_text = true
@@ -2210,7 +2204,7 @@ anchor_bottom = 0.41511956
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("15_074og")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 11
 text = "First building"
 autowrap_mode = 3
 clip_text = true
@@ -2230,7 +2224,7 @@ anchor_bottom = 0.34197596
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.06845648, 0.80914927, 0.5655869, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_yaehf")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yaehf")
 text = "● Buildings"
@@ -2270,14 +2264,16 @@ anchor_right = 0.7295041
 anchor_bottom = 0.7358491
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("19_ryguw")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Directions" type="Control" parent="Interface" unique_id=2117961132]
-visible = false
-layout_mode = 1
+[node name="directions" type="Control" parent="Interface" unique_id=2117961132]
+unique_name_in_owner = true
+layout_mode = 3
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 2.0
@@ -2286,7 +2282,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("26_xuqvo")
 
-[node name="bg" type="Panel" parent="Interface/Directions" unique_id=1257900447]
+[node name="bg" type="Panel" parent="Interface/directions" unique_id=1257900447]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.54875
@@ -2297,7 +2293,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_a6jrf")
 
-[node name="locations" type="Panel" parent="Interface/Directions" unique_id=1188266132]
+[node name="locations" type="Panel" parent="Interface/directions" unique_id=1188266132]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0875
@@ -2309,7 +2305,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_kq58d")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Directions/locations" unique_id=1817381282]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/directions/locations" unique_id=1817381282]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2318,13 +2314,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -5
 
-[node name="current" type="Panel" parent="Interface/Directions/locations/VBoxContainer" unique_id=1775221530]
+[node name="current" type="Panel" parent="Interface/directions/locations/VBoxContainer" unique_id=1775221530]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_seu75")
 
-[node name="TextureRect" type="TextureRect" parent="Interface/Directions/locations/VBoxContainer/current" unique_id=114332575]
+[node name="TextureRect" type="TextureRect" parent="Interface/directions/locations/VBoxContainer/current" unique_id=114332575]
 layout_mode = 0
 anchor_left = 0.081947565
 anchor_top = 0.23214285
@@ -2334,7 +2330,7 @@ texture = ExtResource("27_qsp4k")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="label" type="Label" parent="Interface/Directions/locations/VBoxContainer/current" unique_id=1767246403]
+[node name="label" type="Label" parent="Interface/directions/locations/VBoxContainer/current" unique_id=1767246403]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25058162
@@ -2357,13 +2353,13 @@ min_font_size = 20
 max_font_size = 100
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="target" type="Panel" parent="Interface/Directions/locations/VBoxContainer" unique_id=118230566]
+[node name="target" type="Panel" parent="Interface/directions/locations/VBoxContainer" unique_id=118230566]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_seu75")
 
-[node name="TextureRect" type="TextureRect" parent="Interface/Directions/locations/VBoxContainer/target" unique_id=507242613]
+[node name="TextureRect" type="TextureRect" parent="Interface/directions/locations/VBoxContainer/target" unique_id=507242613]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.081947565
@@ -2374,7 +2370,7 @@ texture = ExtResource("15_82xsv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="label" type="Label" parent="Interface/Directions/locations/VBoxContainer/target" unique_id=420127979]
+[node name="label" type="Label" parent="Interface/directions/locations/VBoxContainer/target" unique_id=420127979]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25058162
@@ -2397,7 +2393,7 @@ min_font_size = 20
 max_font_size = 100
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="button" type="Panel" parent="Interface/Directions" unique_id=66582621]
+[node name="button" type="Button" parent="Interface/directions" unique_id=4308432]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0875
@@ -2407,9 +2403,12 @@ anchor_bottom = 0.963125
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_htxhm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_htxhm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_htxhm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_htxhm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_htxhm")
 
-[node name="label" type="Label" parent="Interface/Directions/button" unique_id=1254156347]
+[node name="label" type="Label" parent="Interface/directions/button" unique_id=1254156347]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.22085892
@@ -2433,7 +2432,7 @@ min_font_size = 20
 max_font_size = 100
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="title" type="Label" parent="Interface/Directions" unique_id=1481445895]
+[node name="title" type="Label" parent="Interface/directions" unique_id=1481445895]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0875
@@ -2456,7 +2455,7 @@ min_font_size = 20
 max_font_size = 100
 metadata/_custom_type_script = "uid://d11kfgsd6jgt"
 
-[node name="back" type="AspectRatioContainer" parent="Interface/Directions" unique_id=576575698]
+[node name="back" type="AspectRatioContainer" parent="Interface/directions" unique_id=576575698]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.7875
@@ -2467,7 +2466,7 @@ offset_bottom = -1.5258789e-05
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Ellipse" type="Button" parent="Interface/Directions/back" unique_id=275607582]
+[node name="Ellipse" type="Button" parent="Interface/directions/back" unique_id=275607582]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_jq2sk")
@@ -2476,7 +2475,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_0rl1p")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ok6jj")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Interface/Directions/back/Ellipse" unique_id=24227417]
+[node name="TextureRect" type="TextureRect" parent="Interface/directions/back/Ellipse" unique_id=24227417]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.27901885

@@ -1,16 +1,8 @@
 [gd_scene format=3 uid="uid://b600iovdi1gc5"]
 
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="1_54v1f"]
+[ext_resource type="Theme" uid="uid://dsu5vgv1ydsg1" path="res://assets/theme.tres" id="1_hvudl"]
 [ext_resource type="Script" uid="uid://dxp478im37pvw" path="res://scripts/interface/image_slide.gd" id="1_xsgvr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54v1f"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
 bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
@@ -36,7 +28,7 @@ metadata/_edit_use_anchors_ = true
 [node name="card" type="Panel" parent="." unique_id=430488046 groups=["Place Cards"]]
 layout_mode = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_54v1f")
+theme = ExtResource("1_hvudl")
 
 [node name="info" type="Button" parent="card" unique_id=1148284464]
 layout_mode = 1

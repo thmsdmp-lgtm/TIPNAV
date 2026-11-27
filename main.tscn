@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cuqirhjpsa64k" path="res://scripts/interface/suggested_categories.gd" id="9_0odxb"]
 [ext_resource type="Script" uid="uid://hurd70pki7gu" path="res://scripts/interface/info.gd" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://cs3okxqop883t" path="res://addons/AutoSizeText/ui/AutoSizeLineEdit.gd" id="10_efxa6"]
+[ext_resource type="Theme" uid="uid://dsu5vgv1ydsg1" path="res://assets/theme.tres" id="10_kq58d"]
 [ext_resource type="PackedScene" uid="uid://b600iovdi1gc5" path="res://scenes/place_card_2.tscn" id="10_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://csa0201xvqjs6" path="res://assets/icons/home-svgrepo-com.svg" id="11_lswn8"]
 [ext_resource type="Texture2D" uid="uid://c5jyd73k4n5js" path="res://assets/icons/map-svgrepo-com.svg" id="12_a6jrf"]
@@ -82,19 +83,6 @@ shadow_size = 20
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
@@ -739,36 +727,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wfet1")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
 bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
 corner_radius_top_left = 70
 corner_radius_top_right = 70
 corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.078431375)
-shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lswn8"]
 bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
@@ -795,8 +759,6 @@ corner_radius_top_left = 70
 corner_radius_top_right = 70
 corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsp4k"]
 corner_radius_top_left = 60
@@ -1206,7 +1168,7 @@ anchor_right = 0.9393518
 anchor_bottom = 0.1890452
 offset_right = -6.1035156e-05
 offset_bottom = -3.0517578e-05
-theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
+theme = ExtResource("10_kq58d")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button2" type="Label" parent="Interface/tab_container/home/bg/search" unique_id=687052681]
@@ -1265,7 +1227,7 @@ anchor_top = 0.2095
 anchor_right = 0.9393519
 anchor_bottom = 0.4141846
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
+theme = ExtResource("10_kq58d")
 script = ExtResource("7_qsp4k")
 button = NodePath("button")
 camera_pivot = NodePath("3d_map/SubViewportContainer/SubViewport/World/camera")
@@ -1463,16 +1425,7 @@ anchor_right = 0.9211895
 anchor_bottom = 0.9043141
 offset_top = -3.0517578e-05
 offset_bottom = -3.0517578e-05
-theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_colors/font_focus_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_colors/font_pressed_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_colors/font_hover_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_7mycd")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7mycd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
-theme_override_styles/focus = SubResource("StyleBoxFlat_7mycd")
+theme = ExtResource("10_kq58d")
 text = "Open 3D Map"
 metadata/_edit_use_anchors_ = true
 
@@ -1614,14 +1567,14 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.096736126
-anchor_top = 0.846875
+anchor_top = 0.87625
 anchor_right = 0.90694445
 anchor_bottom = 0.9425
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ycdy4")
+theme = ExtResource("10_kq58d")
 script = ExtResource("1_ig7tw")
 icon_label_gap = 15.0
 metadata/_edit_use_anchors_ = true
@@ -1661,7 +1614,7 @@ anchor_bottom = 0.72087383
 offset_right = -1.5258789e-05
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 22
 text = "HOME"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -1695,7 +1648,7 @@ anchor_bottom = 0.72087383
 offset_right = -1.5258789e-05
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 22
 text = "MAP"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -1741,7 +1694,7 @@ anchor_bottom = 0.7417973
 offset_right = -1.5258789e-05
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 22
 text = "  MORE"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -1787,7 +1740,7 @@ anchor_top = 0.041875
 anchor_right = 0.9393519
 anchor_bottom = 0.107262686
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
+theme = ExtResource("10_kq58d")
 metadata/_edit_use_anchors_ = true
 
 [node name="line" type="LineEdit" parent="Interface/search/bar" unique_id=1750655725]
@@ -1867,7 +1820,6 @@ size_flags_vertical = 3
 
 [node name="place_info" type="ScrollContainer" parent="Interface" unique_id=1753211306 node_paths=PackedStringArray("service_container", "image_manager", "image_container", "back_button", "title", "subtitle", "category", "location", "hours", "about")]
 unique_name_in_owner = true
-visible = false
 clip_contents = false
 anchors_preset = -1
 anchor_top = 1.0
@@ -1912,7 +1864,7 @@ offset_right = 6.1035156e-05
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "SERVICES OFFERED"
 autowrap_mode = 3
 clip_text = true
@@ -1997,7 +1949,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "LOCATION"
 autowrap_mode = 3
 clip_text = true
@@ -2018,7 +1970,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 30
 text = "Location around blabla"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -2038,7 +1990,7 @@ anchor_right = 0.15858945
 anchor_bottom = 0.70068026
 mouse_filter = 2
 texture = ExtResource("15_82xsv")
-expand_mode = 5
+expand_mode = 1
 stretch_mode = 5
 
 [node name="about" type="Panel" parent="Interface/place_info/bg" unique_id=792585022]
@@ -2064,7 +2016,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "ABOUT"
 autowrap_mode = 3
 clip_text = true
@@ -2085,7 +2037,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("15_cegan")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
 autowrap_mode = 3
 clip_text = true
@@ -2129,7 +2081,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "OPERATING HOURS"
 autowrap_mode = 3
 clip_text = true
@@ -2150,7 +2102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 30
 text = "8:00am - 10:00pm (Mon-Sat)"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -2170,7 +2122,7 @@ anchor_right = 0.15858945
 anchor_bottom = 0.70068026
 mouse_filter = 2
 texture = ExtResource("17_getpj")
-expand_mode = 5
+expand_mode = 1
 stretch_mode = 5
 
 [node name="title" type="Label" parent="Interface/place_info/bg" unique_id=571832214]
@@ -2184,7 +2136,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 76
 text = "Building 1"
 autowrap_mode = 3
 clip_text = true
@@ -2204,7 +2156,7 @@ anchor_bottom = 0.41511956
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
 theme_override_fonts/font = ExtResource("15_074og")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 30
 text = "First building"
 autowrap_mode = 3
 clip_text = true
@@ -2224,7 +2176,7 @@ anchor_bottom = 0.34197596
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.06845648, 0.80914927, 0.5655869, 1)
 theme_override_fonts/font = ExtResource("14_yaehf")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_yaehf")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yaehf")
 text = "● Buildings"

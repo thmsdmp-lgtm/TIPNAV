@@ -1,21 +1,9 @@
 [gd_scene format=3 uid="uid://dinalohldldxw"]
 
 [ext_resource type="FontFile" uid="uid://b5dl4nid43d7d" path="res://assets/fonts/Inter/static/Inter_28pt-Bold.ttf" id="1_fjdol"]
+[ext_resource type="Theme" uid="uid://dsu5vgv1ydsg1" path="res://assets/theme.tres" id="1_y3ybx"]
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="2_y3ybx"]
 [ext_resource type="Texture2D" uid="uid://bdlsfx6k2wso5" path="res://assets/icons/check-circle-svgrepo-com.svg" id="3_dnd02"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
-bg_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 0.05882353)
-shadow_size = 20
 
 [node name="card" type="MarginContainer" unique_id=632663947]
 custom_minimum_size = Vector2(150, 80)
@@ -33,7 +21,7 @@ metadata/_edit_use_anchors_ = true
 [node name="container" type="Panel" parent="." unique_id=1461576580]
 layout_mode = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ryguw")
+theme = ExtResource("1_y3ybx")
 metadata/_edit_use_anchors_ = true
 
 [node name="label" type="Label" parent="container" unique_id=1180609645]
@@ -46,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("1_fjdol")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 20
 text = "TOR Request"
 vertical_alignment = 1
 autowrap_mode = 3

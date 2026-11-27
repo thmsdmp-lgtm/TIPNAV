@@ -44,9 +44,15 @@ func fill_info(card_name: String):
 		if title: title.text = data.name
 		if subtitle: subtitle.text = data.subtitle
 		if category: category.text = str("● ",data.category)
-		if location: location.text = data.location
-		if hours: hours.text = data.hours
-		if about: about.text = data.description
+		if location and data.location != "": location.text = data.location
+		else:
+			location.text = "No data"
+		if hours and data.hours != "": hours.text = data.hours
+		else:
+			hours.text = "No data"
+		if about and data.description != "": about.text = data.description
+		else:
+			about.text = "No data"
 		
 		# fill in images
 		image_manager.create_images(data.name,image_container)

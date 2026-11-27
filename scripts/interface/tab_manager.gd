@@ -28,15 +28,19 @@ var _icon_sizes: Dictionary = {}   # button -> Vector2 (inspector size, read onc
 var _label_sizes: Dictionary = {}  # button -> Vector2 (inspector size, read once)
 
 func _ready():
-	
+	get_viewport().size_changed.connect(_on_viewport_resized)
+
 	for tab_button in get_tree().get_nodes_in_group("Tab Buttons"):
 		if tab_button is Button and get_tab(tab_button.name):
 			_bar = tab_button.get_parent()
-			_buttons.set(tab_button.name,tab_button)
+			_buttons.set(tab_button.name, tab_button)
 			tab_button.self_modulate.a = 0
 			tab_button.pressed.connect(Callable(self, "switch_tab").bind(tab_button.name))
 			_setup_button_content(tab_button)
 	
+	update_buttons(false)
+
+func _on_viewport_resized() -> void:
 	update_buttons(false)
 
 # finds the icon/label children and keeps them from eating clicks

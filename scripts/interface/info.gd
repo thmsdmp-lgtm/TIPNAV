@@ -63,6 +63,7 @@ func fill_info(card_name: String):
 		
 		# create service cards
 		if service_card:
+			
 			for service in data.services:
 				var card = service_card.instantiate()
 				if card.has_node("container/label"): card.get_node("container/label").text = service

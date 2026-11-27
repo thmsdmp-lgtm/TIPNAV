@@ -3,13 +3,7 @@
 [ext_resource type="Script" uid="uid://d11kfgsd6jgt" path="res://addons/AutoSizeText/ui/AutoSizeLabel.gd" id="1_54v1f"]
 [ext_resource type="Theme" uid="uid://dsu5vgv1ydsg1" path="res://assets/theme.tres" id="1_hvudl"]
 [ext_resource type="Script" uid="uid://dxp478im37pvw" path="res://scripts/interface/image_slide.gd" id="1_xsgvr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
-bg_color = Color(0.96862745, 0.84705883, 0.47843137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[ext_resource type="Theme" uid="uid://bh7ef3w54jefu" path="res://assets/color_theme.tres" id="2_5onx1"]
 
 [node name="place_card_2" type="MarginContainer" unique_id=481157250]
 custom_minimum_size = Vector2(570, 250)
@@ -37,15 +31,7 @@ anchor_left = 0.5344382
 anchor_top = 0.65320873
 anchor_right = 0.95399517
 anchor_bottom = 0.9168928
-theme_override_colors/font_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_colors/font_focus_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_colors/font_pressed_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_colors/font_hover_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_2cqfq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2cqfq")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2cqfq")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2cqfq")
+theme = ExtResource("2_5onx1")
 text = "More"
 metadata/_edit_use_anchors_ = true
 

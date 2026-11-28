@@ -10,10 +10,6 @@ var target_pos: Vector3 = Vector3.ZERO
 
 # initialize
 func _ready() -> void:
-	
-	# setup path points
-	PathManager.initialize(%path)
-	
 	# setup variables
 	target_pos = position
 	
